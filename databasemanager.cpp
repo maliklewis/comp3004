@@ -12,31 +12,39 @@ bool databasemanager::dbOpen(){
 
     //sqlite driver
     db = QSqlDatabase::addDatabase("QSQLITE");
+    //db.setHostName("QDir::currentPath()");
+    db.setDatabaseName(QDir::currentPath() + "/tables.db");
+    qDebug()<<QDir::currentPath();
+
 
     //get the home path on users pc for database
-    QString path(QDir::home().path());
-    path.append(QDir::separator()).append("tables.db.sqlite");
-    path = QDir::toNativeSeparators(path);
+    //QString path(QDir::home().path());
+    //path.append(QDir::separator()).append("tables.db.sqlite");
+    //path = QDir::toNativeSeparators(path);
 
     //check if the file exists
-    QFile fOut(path);
+    //QFile fOut(db.databaseName());
+    //QFile fOut(CUACS_ROOT_DIR);
 
     //if the database file doesnt exist
-    if(!fOut(path).exists()){
-        db_exists = false;
-    }
+    //if(!fOut(db.databaseName()).exists()){
+        //db_exists = false;
+    //}
 
-    db.setDatabaseName(path);
+    //db.setDatabaseName(path);
 
     bool db_open = db.open();
+    if(db_open){
+        qDebug()<<"connected";
+    }else{
+        qDebug()<<"not connected";
+    }
 
     //if the database doesnt exist, create it
         //then populate it with default values
-    if(!db_exists){
 
-        dbBuild();
-        dbPopulate();
-    }
+    dbBuild();
+    dbPopulate();
 
     return db_open;
 }
@@ -52,19 +60,42 @@ bool databasemanager::makeAnimalTable(){
     bool ret = false;
     if(db.isOpen()){
         QSqlQuery qry;
-        ret =qry.exec("CREATE TABLE IF NOT EXISTS animal"
-                      "animal_id INTEGER PRIMARY KEY, "
+        ret = qry.exec("CREATE TABLE IF NOT EXISTS animal"
+                      "(animal_id INTEGER PRIMARY KEY, "
                       "name TEXT,"
                       "type TEXT,"
                       "breed TEXT)");
         if(!ret)
-            qdebug()<<"Table not created";
-
-
+            qDebug()<<"Table not created";
     }
+    return ret;
 
 }
 
+void databasemanager::dbPopulate(){
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pitbull')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Chihuahua')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Beagle')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','German Shepherd')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Poodle')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Boxer')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pug')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Husky')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Great Dane')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Greyhound')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Munchkin')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Persian')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Bengal')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Egyptian')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Himalayan')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Parrot')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Cockatoo')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Lovebird')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Canary')"));
+    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Dove')"));
+
+
+}
 
 
 

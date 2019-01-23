@@ -18,12 +18,14 @@ public:
     void dbPopulate();
 
     bool makeAnimalTable();
+    bool makeStaffTable();
 
     bool insertAnimal(QString name,QString type, QString breed);
 
     QSqlQuery exec(const QString & query = QString()) const;
 
     QSqlQuery getAnimalTable();
+
 
 
 private:

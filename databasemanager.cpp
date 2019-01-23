@@ -52,7 +52,7 @@ bool databasemanager::dbOpen(){
 bool databasemanager::dbBuild(){
     //Create required tables for the database
     databasemanager::makeAnimalTable();
-
+    databasemanager::makeStaffTable();
     return true;
 }
 
@@ -66,11 +66,26 @@ bool databasemanager::makeAnimalTable(){
                       "type TEXT,"
                       "breed TEXT)");
         if(!ret)
-            qDebug()<<"Table not created";
+            qDebug()<<"Animal Table not created";
     }
     return ret;
 
 }
+
+bool databasemanager::makeStaffTable(){
+    bool ret = false;
+    if(db.isOpen()){
+        QSqlQuery qry;
+        ret = qry.exec("CREATE TABLE IF NOT EXISTS staff"
+                      "(staff_id INTEGER PRIMARY KEY, "
+                      "name TEXT,"
+                      "email TEXT)");
+        if(!ret)
+            qDebug()<<"Staff Table not created";
+    }
+    return ret;
+}
+
 
 void databasemanager::dbPopulate(){
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pitbull')"));
@@ -94,8 +109,10 @@ void databasemanager::dbPopulate(){
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Canary')"));
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Dove')"));
 
-
+    db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
 }
+
+
 
 
 

@@ -26,11 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS CUACS_ROOT_DIR=\\\"$$_PRO_FILE_PWD_\\\"
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    databasemanager.cpp
+    databasemanager.cpp \
+    stafflogin.cpp \
+    staffview.cpp
 
 HEADERS += \
         mainwindow.h \
-    databasemanager.h
+    databasemanager.h \
+    stafflogin.h \
+    staffview.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    stafflogin.ui \
+    staffview.ui

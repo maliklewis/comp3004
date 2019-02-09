@@ -108,7 +108,6 @@ void databasemanager::dbPopulate(){
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Lovebird')"));
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Canary')"));
     db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Dove')"));
-
     db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
 }
 

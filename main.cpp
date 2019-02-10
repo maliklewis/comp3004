@@ -1,14 +1,11 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "databasemanager.h"
+#include "staffcontroller.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    databasemanager cuacsdb;
-    cuacsdb.dbOpen();
-
+    StaffController control;
+    //scontrol.launch();
     return a.exec();
 }

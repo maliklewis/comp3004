@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     databasemanager.cpp \
     stafflogin.cpp \
-    staffview.cpp
+    staffview.cpp \
+    staffcontroller.cpp
 
 HEADERS += \
         mainwindow.h \
     databasemanager.h \
     stafflogin.h \
-    staffview.h
+    staffview.h \
+    staffcontroller.h
 
 FORMS += \
         mainwindow.ui \

@@ -17,7 +17,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_staffButton_clicked();
+    void staffButtonSlot();
+
+signals:
+    void staffButtonClicked();
+
 
 private:
     Ui::MainWindow *ui;

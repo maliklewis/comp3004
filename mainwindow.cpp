@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->connect(this->ui->staffButton,SIGNAL(clicked()),this,SLOT(staffButtonSlot()));
 }
 
 MainWindow::~MainWindow()
@@ -14,10 +15,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_staffButton_clicked()
+void MainWindow::staffButtonSlot()
 {
-    this->hide();
-    StaffLogin staffLogin;
-    staffLogin.setModal(true);
-    staffLogin.exec();
+    emit staffButtonClicked();
 }
+
+

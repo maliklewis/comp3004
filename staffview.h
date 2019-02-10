@@ -18,9 +18,10 @@ public:
 
 private slots:
     void browseButtonSlot();
-
+    void staffLogoutButtonSlot();
 signals:
     void browseButtonClicked();
+    void staffLogoutClicked();
 
 private:
     Ui::StaffView *ui;

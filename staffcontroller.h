@@ -26,6 +26,8 @@ class StaffController : public QObject
          void staffButtonDone();
          void loginButtonDone();
          void browseButtonDone();
+         void browseBackButtonDone();
+         void staffLogoutDone();
 
 
 };

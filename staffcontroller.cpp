@@ -40,6 +40,8 @@ void StaffController::loginButtonDone()
        staffView = new StaffView;
        staffView->show();
        this->connect(staffView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
+       this->connect(staffView,SIGNAL(staffLogoutClicked()),this,SLOT(staffLogoutDone()));
+
     }
     else
     {
@@ -62,6 +64,22 @@ void StaffController::browseButtonDone()
     browseView->getForm()->setModel(modal);
     browseView->show();
 
+    this->connect(browseView,SIGNAL(browseBackButtonClicked()),this,SLOT(browseBackButtonDone()));
+
+
+}
+
+void StaffController::browseBackButtonDone()
+{
+    this->browseView->hide();
+    //staffView = new StaffView;
+    this->staffView->show();
+}
+
+void StaffController::staffLogoutDone()
+{
+    this->staffView->hide();
+    this->mainWindow->show();
 }
 
 

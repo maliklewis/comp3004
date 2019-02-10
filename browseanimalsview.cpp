@@ -6,6 +6,7 @@ BrowseAnimalsView::BrowseAnimalsView(QWidget *parent) :
     ui(new Ui::BrowseAnimalsView)
 {
     ui->setupUi(this);
+    this->connect(this->ui->backButton,SIGNAL(clicked()),this,SLOT(browseBackButtonSlot()));
 }
 
 BrowseAnimalsView::~BrowseAnimalsView()
@@ -16,4 +17,9 @@ BrowseAnimalsView::~BrowseAnimalsView()
 QTableView* BrowseAnimalsView::getForm()
 {
     return ui->tableView;
+}
+
+void BrowseAnimalsView::browseBackButtonSlot()
+{
+    emit browseBackButtonClicked();
 }

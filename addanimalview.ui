@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddAnimalView</class>
+ <widget class="QDialog" name="AddAnimalView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="nameLabel">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>60</y>
+     <width>64</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Name:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="typeLabel">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>110</y>
+     <width>64</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="breedLabel">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>160</y>
+     <width>64</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Breed:</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="nameValue">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>60</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>110</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Dog</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cat</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Bird</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>160</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>breed1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>breed2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>breed3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>breed4</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

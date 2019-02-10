@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StaffLogin</class>
- <widget class="QDialog" name="StaffLogin">
+ <class>BrowseAnimalsView</class>
+ <widget class="QDialog" name="BrowseAnimalsView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,42 +11,42 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Animal List</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>81</width>
-     <height>17</height>
+     <x>10</x>
+     <y>11</y>
+     <width>311</width>
+     <height>271</height>
     </rect>
    </property>
-   <property name="text">
-    <string>UserName:</string>
-   </property>
   </widget>
-  <widget class="QPushButton" name="loginButton">
+  <widget class="QPushButton" name="logoutButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>190</y>
-     <width>83</width>
+     <x>332</x>
+     <y>260</y>
+     <width>61</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string>Login</string>
+    <string>logout</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="userName">
+  <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>124</y>
-     <width>121</width>
-     <height>31</height>
+     <x>332</x>
+     <y>230</y>
+     <width>61</width>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

@@ -29,16 +29,22 @@ SOURCES += \
     databasemanager.cpp \
     stafflogin.cpp \
     staffview.cpp \
-    staffcontroller.cpp
+    staffcontroller.cpp \
+    browseanimalsview.cpp \
+    addanimalview.cpp
 
 HEADERS += \
         mainwindow.h \
     databasemanager.h \
     stafflogin.h \
     staffview.h \
-    staffcontroller.h
+    staffcontroller.h \
+    browseanimalsview.h \
+    addanimalview.h
 
 FORMS += \
         mainwindow.ui \
     stafflogin.ui \
-    staffview.ui
+    staffview.ui \
+    browseanimalsview.ui \
+    addanimalview.ui

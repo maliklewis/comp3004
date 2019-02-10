@@ -16,23 +16,6 @@ bool databasemanager::dbOpen(){
     db.setDatabaseName(QDir::currentPath() + "/tables.db");
     qDebug()<<QDir::currentPath();
 
-
-    //get the home path on users pc for database
-    //QString path(QDir::home().path());
-    //path.append(QDir::separator()).append("tables.db.sqlite");
-    //path = QDir::toNativeSeparators(path);
-
-    //check if the file exists
-    //QFile fOut(db.databaseName());
-    //QFile fOut(CUACS_ROOT_DIR);
-
-    //if the database file doesnt exist
-    //if(!fOut(db.databaseName()).exists()){
-        //db_exists = false;
-    //}
-
-    //db.setDatabaseName(path);
-
     bool db_open = db.open();
     if(db_open){
         qDebug()<<"connected";
@@ -79,7 +62,7 @@ bool databasemanager::makeStaffTable(){
         ret = qry.exec("CREATE TABLE IF NOT EXISTS staff"
                       "(staff_id INTEGER PRIMARY KEY, "
                       "name TEXT,"
-                      "email TEXT)");
+                      "email TEXT NOT NULL UNIQUE)");
         if(!ret)
             qDebug()<<"Staff Table not created";
     }
@@ -88,27 +71,34 @@ bool databasemanager::makeStaffTable(){
 
 
 void databasemanager::dbPopulate(){
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pitbull')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Chihuahua')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Beagle')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','German Shepherd')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Poodle')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Boxer')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pug')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Husky')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Great Dane')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Greyhound')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Munchkin')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Persian')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Bengal')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Egyptian')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Himalayan')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Parrot')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Cockatoo')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Lovebird')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Canary')"));
-    db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Dove')"));
-    db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
+     QSqlQuery query;
+     query.exec("SELECT * FROM animal limit 1");
+
+     if (!query.next()) {
+        qDebug()<<"running";
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pitbull')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Chihuahua')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Beagle')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','German Shepherd')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Poodle')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Boxer')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Pug')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Husky')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Great Dane')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Greyhound')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Munchkin')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Persian')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Bengal')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Egyptian')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Cat','Himalayan')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Parrot')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Cockatoo')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Lovebird')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Canary')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Bird','Dove')"));
+
+        db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
+     }
 }
 
 

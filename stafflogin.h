@@ -2,6 +2,7 @@
 #define STAFFLOGIN_H
 
 #include <QDialog>
+#include <QDebug>
 
 namespace Ui {
 class StaffLogin;
@@ -14,6 +15,13 @@ class StaffLogin : public QDialog
 public:
     explicit StaffLogin(QWidget *parent = 0);
     ~StaffLogin();
+    QString username;
+
+private slots:
+    void loginButtonSlot();
+
+signals:
+    void loginButtonClicked();
 
 private:
     Ui::StaffLogin *ui;

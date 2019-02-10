@@ -2,6 +2,7 @@
 #define STAFFVIEW_H
 
 #include <QDialog>
+#include <QDebug>
 
 namespace Ui {
 class StaffView;
@@ -16,7 +17,10 @@ public:
     ~StaffView();
 
 private slots:
-    void on_pushButton_clicked();
+    void browseButtonSlot();
+
+signals:
+    void browseButtonClicked();
 
 private:
     Ui::StaffView *ui;

@@ -6,6 +6,7 @@ StaffView::StaffView(QWidget *parent) :
     ui(new Ui::StaffView)
 {
     ui->setupUi(this);
+    this->connect(this->ui->browseButton,SIGNAL(clicked()),this,SLOT(browseButtonSlot()));
 }
 
 StaffView::~StaffView()
@@ -13,8 +14,9 @@ StaffView::~StaffView()
     delete ui;
 }
 
-void StaffView::on_pushButton_clicked()
+void StaffView::browseButtonSlot()
 {
-    this->hide();
-
+    emit browseButtonClicked();
+    qDebug()<<"test";
 }
+

@@ -3,8 +3,11 @@
 #include "mainwindow.h"
 #include "stafflogin.h"
 #include "staffview.h"
+#include "browseanimalsview.h"
 #include "databasemanager.h"
 #include "qobject.h"
+#include <QtSql>
+#include <QDebug>
 
 class StaffController : public QObject
 {
@@ -15,11 +18,14 @@ class StaffController : public QObject
         //~StaffController();
     private:
          MainWindow* mainWindow;
-         StaffLogin staffLogin;
-         StaffView staffview;
+         StaffLogin* staffLogin;
+         StaffView* staffView;
+         BrowseAnimalsView* browseView;
 
     public slots:
          void staffButtonDone();
+         void loginButtonDone();
+         void browseButtonDone();
 
 
 };

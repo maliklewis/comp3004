@@ -90,7 +90,10 @@ void StaffController::addAnimalButtonDone()
     addAnimalView->show();
 
     this->connect(addAnimalView,SIGNAL(insertAnimalButtonClicked()),this,SLOT(insertAnimalButtonDone()));
+    this->connect(addAnimalView,SIGNAL(insertAnimalBackButtonClicked()),this,SLOT(insertAnimalBackButtonDone()));
+
 }
+
 
 void StaffController::insertAnimalButtonDone()
 {
@@ -103,4 +106,8 @@ void StaffController::insertAnimalButtonDone()
     qry.exec();
 }
 
-
+void StaffController::insertAnimalBackButtonDone()
+{
+    this->addAnimalView->hide();
+    this->staffView->show();
+}

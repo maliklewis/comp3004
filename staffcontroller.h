@@ -32,6 +32,7 @@ class StaffController : public QObject
          void insertAnimalButtonDone();
          void browseBackButtonDone();
          void staffLogoutDone();
+         void insertAnimalBackButtonDone();
 
 
 };

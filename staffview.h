@@ -19,12 +19,12 @@ public:
 private slots:
     void browseButtonSlot();
     void addAnimalButtonSlot();
+    void staffLogoutButtonSlot();
 
 signals:
     void browseButtonClicked();
     void addAnimalButtonClicked();
-    void staffLogoutButtonSlot();
-    void browseButtonClicked();
+    //void browseButtonClicked();
     void staffLogoutClicked();
 
 private:

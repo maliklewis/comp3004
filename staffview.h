@@ -23,6 +23,9 @@ private slots:
 signals:
     void browseButtonClicked();
     void addAnimalButtonClicked();
+    void staffLogoutButtonSlot();
+    void browseButtonClicked();
+    void staffLogoutClicked();
 
 private:
     Ui::StaffView *ui;

@@ -17,6 +17,12 @@ public:
     ~BrowseAnimalsView();
     QTableView* getForm();
 
+private slots:
+    void browseBackButtonSlot();
+
+signals:
+    void browseBackButtonClicked();
+
 private:
     Ui::BrowseAnimalsView *ui;
 };

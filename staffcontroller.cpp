@@ -34,6 +34,7 @@ StaffController::~StaffController()
 void StaffController::staffButtonDone()
 {
     //User chooses to login as a staff member
+    qDebug()<<"Main Window: STAFF button pressed";
     this->mainWindow->hide();
     staffLogin = new StaffLogin;
     this->connect(staffLogin,SIGNAL(loginButtonClicked()),this,SLOT(loginButtonDone()));
@@ -42,6 +43,7 @@ void StaffController::staffButtonDone()
 
 void StaffController::loginButtonDone()
 {
+    qDebug()<<"Staff Login Window: LOGIN button pressed";
     QSqlQuery qry;
     qry.prepare("Select * from staff where name = '"+staffLogin->username+"'");
 
@@ -68,6 +70,7 @@ void StaffController::loginButtonDone()
 
 void StaffController::browseButtonDone()
 {
+    qDebug()<<"Main Staff Window: Browse Animals button pressed";
     //user chooses to browse animals
     this->staffView->hide();
     browseView = new BrowseAnimalsView;
@@ -86,6 +89,7 @@ void StaffController::browseButtonDone()
 
 void StaffController::browseBackButtonDone()
 {
+    qDebug()<<"Animal List Window: Back button pressed";
     //return to staff view from browsing animals
     this->browseView->hide();
     this->staffView->show();
@@ -102,6 +106,7 @@ void StaffController::staffLogoutDone()
 
 void StaffController::addAnimalButtonDone()
 {
+    qDebug()<<"Main Staff Window: Add Animal button pressed";
     //user chooses to add an animal
     this->staffView->hide();
     addAnimalView = new AddAnimalView;
@@ -115,6 +120,7 @@ void StaffController::addAnimalButtonDone()
 
 void StaffController::insertAnimalButtonDone()
 {
+    qDebug()<<"Add Animal Window: Add button pressed";
     //user attempts to add an animal to the database
     bool ret = false;
 
@@ -139,6 +145,7 @@ void StaffController::insertAnimalButtonDone()
 
 void StaffController::insertAnimalBackButtonDone()
 {
+    qDebug()<<"Add Animal Window: Back button pressed";
     //return to staff view from add animal form
     this->addAnimalView->hide();
     this->staffView->show();

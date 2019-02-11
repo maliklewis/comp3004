@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Staff</string>
+   <string>Main Staff Window</string>
   </property>
   <widget class="QPushButton" name="logoutButton">
    <property name="geometry">

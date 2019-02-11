@@ -8,7 +8,7 @@ databasemanager::databasemanager(QObject *parent) : QObject(parent)
 }
 
 bool databasemanager::dbOpen(){
-    bool db_exists = true;
+
 
     //sqlite driver
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -18,9 +18,9 @@ bool databasemanager::dbOpen(){
 
     bool db_open = db.open();
     if(db_open){
-        qDebug()<<"connected";
+        qDebug()<<"Database connected";
     }else{
-        qDebug()<<"not connected";
+        qDebug()<<"Database not connected";
     }
 
     //if the database doesnt exist, create it

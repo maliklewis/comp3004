@@ -24,7 +24,6 @@ private slots:
 signals:
     void browseButtonClicked();
     void addAnimalButtonClicked();
-    //void browseButtonClicked();
     void staffLogoutClicked();
 
 private:

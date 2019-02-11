@@ -23,10 +23,11 @@ public:
 
 signals:
     void insertAnimalButtonClicked();
+    void insertAnimalBackButtonClicked();
 
 private slots:
     void insertAnimalButtonSlot();
-
+    void insertAnimalBackButtonSlot();
     void on_typeDropdown_currentTextChanged(const QString &arg1);
 
 private:

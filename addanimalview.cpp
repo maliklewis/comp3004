@@ -7,6 +7,7 @@ AddAnimalView::AddAnimalView(QWidget *parent) :
 {
     ui->setupUi(this);
     this->connect(this->ui->animalAddButton,SIGNAL(clicked()),this,SLOT(insertAnimalButtonSlot()));
+    this->connect(this->ui->backButton,SIGNAL(clicked()),this,SLOT(insertAnimalBackButtonSlot()));
 }
 
 AddAnimalView::~AddAnimalView()
@@ -24,6 +25,11 @@ void AddAnimalView::insertAnimalButtonSlot()
     gender = ui->genderDropdown->currentText();
 
     emit insertAnimalButtonClicked();
+}
+
+void AddAnimalView::insertAnimalBackButtonSlot()
+{
+    emit insertAnimalBackButtonClicked();
 }
 
 void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)

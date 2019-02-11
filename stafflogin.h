@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QDebug>
+#include <QLineEdit>
 
 namespace Ui {
 class StaffLogin;
@@ -16,6 +17,7 @@ public:
     explicit StaffLogin(QWidget *parent = 0);
     ~StaffLogin();
     QString username;
+    QLineEdit* getForm();
 
 private slots:
     void loginButtonSlot();

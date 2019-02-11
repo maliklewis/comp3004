@@ -14,6 +14,7 @@ BrowseAnimalsView::~BrowseAnimalsView()
     delete ui;
 }
 
+//getter function for retrieving the tableview variable
 QTableView* BrowseAnimalsView::getForm()
 {
     return ui->tableView;

@@ -14,6 +14,12 @@ StaffLogin::~StaffLogin()
     delete ui;
 }
 
+//getter function for retrieving the username variable
+QLineEdit* StaffLogin::getForm()
+{
+    return ui->userName;
+}
+
 void StaffLogin::loginButtonSlot()
 {
     username = ui->userName->text();

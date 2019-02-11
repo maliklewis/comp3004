@@ -2,10 +2,6 @@
 #define DATABASEMANAGER_H
 #include <QObject>
 #include <QSqlDatabase>
-#include <QFile>
-
-
-
 
 class databasemanager : public QObject
 {

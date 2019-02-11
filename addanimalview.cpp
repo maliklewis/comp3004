@@ -18,6 +18,7 @@ AddAnimalView::~AddAnimalView()
 
 void AddAnimalView::insertAnimalButtonSlot()
 {
+    //set ui variables for controller access
     name   = ui->nameValue->text();
     age    = ui->ageValue->text();
     type   = ui->typeDropdown->currentText();
@@ -34,6 +35,7 @@ void AddAnimalView::insertAnimalBackButtonSlot()
 
 void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)
 {
+    //set breed dropdown options based on animal type
     if (arg1 == "Dog"){
         ui->breedDropdown->clear();
         ui->breedDropdown->addItem("Pitbull");

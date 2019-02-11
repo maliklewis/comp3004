@@ -8,7 +8,6 @@ StaffView::StaffView(QWidget *parent) :
     ui->setupUi(this);
     this->connect(this->ui->browseButton,SIGNAL(clicked()),this,SLOT(browseButtonSlot()));
     this->connect(this->ui->addAnimalButton,SIGNAL(clicked()),this,SLOT(addAnimalButtonSlot()));
-
     this->connect(this->ui->logoutButton,SIGNAL(clicked()),this,SLOT(staffLogoutButtonSlot()));
 
 

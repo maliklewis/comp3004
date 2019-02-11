@@ -6,9 +6,9 @@
 #include "browseanimalsview.h"
 #include "addanimalview.h"
 #include "databasemanager.h"
-#include "qobject.h"
 #include <QtSql>
 #include <QDebug>
+#include <QMessageBox>
 
 class StaffController : public QObject
 {
@@ -16,7 +16,7 @@ class StaffController : public QObject
     public:
         StaffController();
         //void launch();
-        //~StaffController();
+        ~StaffController();
     private:
          MainWindow* mainWindow;
          StaffLogin* staffLogin;

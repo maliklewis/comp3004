@@ -11,18 +11,29 @@ StaffController::StaffController()
     this->connect(mainWindow,SIGNAL(staffButtonClicked()),this,SLOT(staffButtonDone()));
 
 }
-/*
+
 StaffController::~StaffController()
 {
     mainWindow->close();
+    staffView->close();
+    browseView->close();
+    addAnimalView->close();
+    delete staffView;
     delete mainWindow;
+    delete browseView;
+    delete addAnimalView;
     mainWindow = 0;
+    staffView = 0;
+    browseView = 0;
+    addAnimalView = 0;
+    qDebug()<<"destructor";
 }
-*/
+
 
 
 void StaffController::staffButtonDone()
 {
+    //User chooses to login as a staff member
     this->mainWindow->hide();
     staffLogin = new StaffLogin;
     this->connect(staffLogin,SIGNAL(loginButtonClicked()),this,SLOT(loginButtonDone()));
@@ -33,9 +44,11 @@ void StaffController::loginButtonDone()
 {
     QSqlQuery qry;
     qry.prepare("Select * from staff where name = '"+staffLogin->username+"'");
-    qDebug()<<"Login Successfull";
+
+    //If the current login succeeds
     if (qry.exec() && qry.first())
     {
+       qDebug()<<"Login Successfull";
        this->staffLogin->close();
        staffView = new StaffView;
        staffView->show();
@@ -47,14 +60,15 @@ void StaffController::loginButtonDone()
     else
     {
         qDebug()<<"Login failed";
+        QMessageBox::information(staffLogin,tr("Error"),tr("Login Failed"));
+        staffLogin->getForm()->clear();
     }
 
 }
 
 void StaffController::browseButtonDone()
 {
-    //QSqlQuery qry;
-    qDebug()<<"got here";
+    //user chooses to browse animals
     this->staffView->hide();
     browseView = new BrowseAnimalsView;
     QSqlQueryModel *modal = new QSqlQueryModel();
@@ -72,19 +86,23 @@ void StaffController::browseButtonDone()
 
 void StaffController::browseBackButtonDone()
 {
+    //return to staff view from browsing animals
     this->browseView->hide();
-    //staffView = new StaffView;
     this->staffView->show();
 }
 
 void StaffController::staffLogoutDone()
 {
-    this->staffView->hide();
+    //staff member logouts of the system
+    this->staffView->close();
+    this->browseView->close();
+    this->addAnimalView->close();
     this->mainWindow->show();
 }
 
 void StaffController::addAnimalButtonDone()
 {
+    //user chooses to add an animal
     this->staffView->hide();
     addAnimalView = new AddAnimalView;
     addAnimalView->show();
@@ -97,17 +115,31 @@ void StaffController::addAnimalButtonDone()
 
 void StaffController::insertAnimalButtonDone()
 {
+    //user attempts to add an animal to the database
+    bool ret = false;
+
     QSqlQuery qry;
-    qry.prepare("INSERT INTO animal VALUES (Null,'"+this->addAnimalView->name+"',"
-                                                 "'"+this->addAnimalView->type+"',"
-                                                 "'"+this->addAnimalView->breed+"',"
-                                                 "'"+this->addAnimalView->gender+"',"
-                                                 "'"+this->addAnimalView->age+"')");
-    qry.exec();
+    if (this->addAnimalView->name != "" && this->addAnimalView->age != ""){
+        qry.prepare("INSERT INTO animal VALUES (Null,'"+this->addAnimalView->name+"',"
+                                                     "'"+this->addAnimalView->type+"',"
+                                                     "'"+this->addAnimalView->breed+"',"
+                                                     "'"+this->addAnimalView->gender+"',"
+                                                     "'"+this->addAnimalView->age+"')");
+        ret = qry.exec();
+    }
+
+
+    if (ret){
+        QMessageBox::information(addAnimalView,tr("Success!"),tr("Animal Added"));
+    }
+    else{
+        QMessageBox::information(addAnimalView,tr("Error!"),tr("Missing Field"));
+    }
 }
 
 void StaffController::insertAnimalBackButtonDone()
 {
+    //return to staff view from add animal form
     this->addAnimalView->hide();
     this->staffView->show();
 }

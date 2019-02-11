@@ -4,6 +4,7 @@
 #include "stafflogin.h"
 #include "staffview.h"
 #include "browseanimalsview.h"
+#include "addanimalview.h"
 #include "databasemanager.h"
 #include "qobject.h"
 #include <QtSql>
@@ -21,11 +22,14 @@ class StaffController : public QObject
          StaffLogin* staffLogin;
          StaffView* staffView;
          BrowseAnimalsView* browseView;
+         AddAnimalView* addAnimalView;
 
     public slots:
          void staffButtonDone();
          void loginButtonDone();
          void browseButtonDone();
+         void addAnimalButtonDone();
+         void insertAnimalButtonDone();
 
 
 };

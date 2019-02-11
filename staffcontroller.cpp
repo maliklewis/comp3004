@@ -40,6 +40,8 @@ void StaffController::loginButtonDone()
        staffView = new StaffView;
        staffView->show();
        this->connect(staffView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
+       this->connect(staffView,SIGNAL(addAnimalButtonClicked()),this,SLOT(addAnimalButtonDone()));
+
     }
     else
     {
@@ -64,5 +66,24 @@ void StaffController::browseButtonDone()
 
 }
 
+void StaffController::addAnimalButtonDone()
+{
+    this->staffView->hide();
+    addAnimalView = new AddAnimalView;
+    addAnimalView->show();
+
+    this->connect(addAnimalView,SIGNAL(insertAnimalButtonClicked()),this,SLOT(insertAnimalButtonDone()));
+}
+
+void StaffController::insertAnimalButtonDone()
+{
+    QSqlQuery qry;
+    qry.prepare("INSERT INTO animal VALUES (Null,'"+this->addAnimalView->name+"',"
+                                                 "'"+this->addAnimalView->type+"',"
+                                                 "'"+this->addAnimalView->breed+"',"
+                                                 "'"+this->addAnimalView->gender+"',"
+                                                 "'"+this->addAnimalView->age+"')");
+    qry.exec();
+}
 
 

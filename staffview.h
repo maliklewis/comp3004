@@ -18,9 +18,11 @@ public:
 
 private slots:
     void browseButtonSlot();
+    void addAnimalButtonSlot();
 
 signals:
     void browseButtonClicked();
+    void addAnimalButtonClicked();
 
 private:
     Ui::StaffView *ui;

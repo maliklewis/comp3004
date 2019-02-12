@@ -14,18 +14,7 @@ StaffController::StaffController()
 
 StaffController::~StaffController()
 {
-    mainWindow->close();
-    staffView->close();
-    browseView->close();
-    addAnimalView->close();
-    delete staffView;
-    delete mainWindow;
-    delete browseView;
-    delete addAnimalView;
-    mainWindow = 0;
-    staffView = 0;
-    browseView = 0;
-    addAnimalView = 0;
+
     qDebug()<<"destructor";
 }
 

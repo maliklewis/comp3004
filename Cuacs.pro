@@ -31,7 +31,8 @@ SOURCES += \
     staffview.cpp \
     staffcontroller.cpp \
     browseanimalsview.cpp \
-    addanimalview.cpp
+    addanimalview.cpp \
+    animaldetailsview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,11 +41,13 @@ HEADERS += \
     staffview.h \
     staffcontroller.h \
     browseanimalsview.h \
-    addanimalview.h
+    addanimalview.h \
+    animaldetailsview.h
 
 FORMS += \
         mainwindow.ui \
     stafflogin.ui \
     staffview.ui \
     browseanimalsview.ui \
-    addanimalview.ui
+    addanimalview.ui \
+    animaldetailsview.ui

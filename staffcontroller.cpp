@@ -83,6 +83,7 @@ void StaffController::browseButtonDone()
     browseView->show();
 
     this->connect(browseView,SIGNAL(browseBackButtonClicked()),this,SLOT(browseBackButtonDone()));
+    this->connect(browseView,SIGNAL(tableItemClicked()),this,SLOT(tableItemDone()));
 
 
 }
@@ -99,8 +100,8 @@ void StaffController::staffLogoutDone()
 {
     //staff member logouts of the system
     this->staffView->close();
-    this->browseView->close();
-    this->addAnimalView->close();
+
+
     this->mainWindow->show();
 }
 
@@ -149,4 +150,25 @@ void StaffController::insertAnimalBackButtonDone()
     //return to staff view from add animal form
     this->addAnimalView->hide();
     this->staffView->show();
+}
+
+void StaffController::tableItemDone()
+{
+    //browseView->tableRow;
+    animalDetailsView = new AnimalDetailsView;
+    QSqlQuery qry;
+
+    qry.prepare("SELECT name,type,breed,gender,age from animal WHERE animal_id = '"+browseView->tableRowString+"'");
+    qry.exec();
+    //QSqlRecord rec = qry.record();
+    //int nameval = rec.indexOf("name");
+    qry.next();
+    //qDebug()<<nameval;
+    //qDebug()<<qry.value(nameval).toString();
+    animalDetailsView->getName()->setText(qry.value(0).toString());
+    animalDetailsView->getType()->setText(qry.value(1).toString());
+    animalDetailsView->getBreed()->setText(qry.value(2).toString());
+    animalDetailsView->getGender()->setText(qry.value(3).toString());
+    animalDetailsView->getAge()->setText(qry.value(4).toString() + " years");
+    animalDetailsView->show();
 }

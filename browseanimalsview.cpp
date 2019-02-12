@@ -24,3 +24,10 @@ void BrowseAnimalsView::browseBackButtonSlot()
 {
     emit browseBackButtonClicked();
 }
+
+void BrowseAnimalsView::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    tableRow = index.row() + 1;
+    tableRowString = QString::number(tableRow);
+    emit tableItemClicked();
+}

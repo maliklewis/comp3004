@@ -9,6 +9,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QMessageBox>
+#include "animaldetailsview.h"
 
 class StaffController : public QObject
 {
@@ -23,6 +24,7 @@ class StaffController : public QObject
          StaffView* staffView;
          BrowseAnimalsView* browseView;
          AddAnimalView* addAnimalView;
+         AnimalDetailsView* animalDetailsView;
 
     public slots:
          void staffButtonDone();
@@ -33,6 +35,7 @@ class StaffController : public QObject
          void browseBackButtonDone();
          void staffLogoutDone();
          void insertAnimalBackButtonDone();
+         void tableItemDone();
 
 
 };

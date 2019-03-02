@@ -50,4 +50,6 @@ FORMS += \
     staffview.ui \
     browseanimalsview.ui \
     addanimalview.ui \
-    animaldetailsview.ui
+    animaldetailsview.ui \
+    browseclientsview.ui \
+    addclientview.ui

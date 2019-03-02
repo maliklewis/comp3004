@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>addclientview</class>
+ <widget class="QDialog" name="addclientview">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>341</width>
+    <width>400</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="nameValue">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>40</y>
-     <width>142</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="addButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>240</y>
+     <x>170</x>
+     <y>260</y>
      <width>83</width>
      <height>25</height>
     </rect>
@@ -36,33 +26,43 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QLabel" name="nameLabel">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1</x>
-     <y>41</y>
-     <width>39</width>
-     <height>17</height>
+     <x>30</x>
+     <y>20</y>
+     <width>71</width>
+     <height>251</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Name</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="phoneValue">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>160</y>
-     <width>142</width>
-     <height>25</height>
-    </rect>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Email:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>TextLabel:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>310</x>
      <y>270</y>
      <width>83</width>
      <height>25</height>
@@ -72,41 +72,26 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QLabel" name="phoneLabel">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>1</x>
-     <y>164</y>
-     <width>97</width>
-     <height>17</height>
+     <x>150</x>
+     <y>0</y>
+     <width>144</width>
+     <height>281</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Phone number</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="EmailValue">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>100</y>
-     <width>142</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="emailLabel">
-   <property name="geometry">
-    <rect>
-     <x>1</x>
-     <y>103</y>
-     <width>37</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Email</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_2"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_3"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

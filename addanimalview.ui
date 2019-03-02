@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>698</width>
-    <height>464</height>
+    <width>623</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>430</y>
+     <x>530</x>
+     <y>380</y>
      <width>83</width>
      <height>25</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="animalAddButton">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>430</y>
+     <x>280</x>
+     <y>360</y>
      <width>83</width>
      <height>25</height>
     </rect>
@@ -39,7 +39,7 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QLabel" name="sheddingAmountLabel">
+  <widget class="QLabel" name="sheddingLabel">
    <property name="geometry">
     <rect>
      <x>281</x>
@@ -52,7 +52,7 @@
     <string>Shedding Amount</string>
    </property>
   </widget>
-  <widget class="QLabel" name="costofCare">
+  <widget class="QLabel" name="costofCareLabel">
    <property name="geometry">
     <rect>
      <x>281</x>
@@ -78,7 +78,7 @@
     <string>Intelligence </string>
    </property>
   </widget>
-  <widget class="QLabel" name="goodforNoviceOwnersLabel">
+  <widget class="QLabel" name="noviceOwnderLabel">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -91,7 +91,7 @@
     <string>Good for Novice Owners</string>
    </property>
   </widget>
-  <widget class="QLabel" name="trainingType">
+  <widget class="QLabel" name="trainingTypeLabel">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -104,7 +104,7 @@
     <string>Training Type</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="trainingDropDown">
+  <widget class="QComboBox" name="trainingDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -166,7 +166,7 @@
     <number>24</number>
    </property>
   </widget>
-  <widget class="QComboBox" name="intelligenceDropDown">
+  <widget class="QComboBox" name="intelligenceDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -176,7 +176,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="goodforNoviceOwnersDropDown">
+  <widget class="QComboBox" name="noviceOwnerDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -185,8 +185,18 @@
      <height>25</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Yes</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QComboBox" name="easeofTraingDropDown">
+  <widget class="QComboBox" name="easeofTraingDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -195,8 +205,23 @@
      <height>25</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Low</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Medium</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>High</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QComboBox" name="playfulnessDropDown">
+  <widget class="QComboBox" name="playfulnessDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -205,8 +230,23 @@
      <height>21</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>Low</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Medium</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>High</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QComboBox" name="solittudialBehaviourDropDown">
+  <widget class="QComboBox" name="solittudialBehaviourDropdown">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -215,8 +255,23 @@
      <height>21</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>High</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Medium</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Low</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QLabel" name="solitudialBehaviourLabel">
+  <widget class="QLabel" name="solitudialLabel">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -278,7 +333,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>122</x>
@@ -298,26 +353,80 @@
      <widget class="QComboBox" name="breedDropdown"/>
     </item>
     <item>
-     <widget class="QComboBox" name="genderDropdown"/>
+     <widget class="QComboBox" name="genderDropdown">
+      <item>
+       <property name="text">
+        <string>Male</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Female</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="ageValue"/>
     </item>
     <item>
-     <widget class="QComboBox" name="housetrainedDropDown"/>
+     <widget class="QComboBox" name="housetrainedDropdown">
+      <item>
+       <property name="text">
+        <string>Yes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>No</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="specialNeedsDropDown"/>
+     <widget class="QComboBox" name="specialNeedsDropdown">
+      <item>
+       <property name="text">
+        <string>Mild</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="lifeSpanValue"/>
     </item>
     <item>
-     <widget class="QComboBox" name="sizeDropDown"/>
+     <widget class="QComboBox" name="sizeDropdown">
+      <item>
+       <property name="text">
+        <string>Small</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Large</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget1">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -363,21 +472,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="houseTrainedBox">
+     <widget class="QLabel" name="houseTrainedLabel">
       <property name="text">
        <string>Housetrained</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="specialNeeds">
+     <widget class="QLabel" name="needsLabel">
       <property name="text">
        <string>Special Needs</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="lifeSpan">
+     <widget class="QLabel" name="lifeSpanLabel">
       <property name="text">
        <string>Life Span</string>
       </property>

@@ -49,7 +49,21 @@ bool databasemanager::makeAnimalTable(){
                       "type TEXT,"
                       "breed TEXT,"
                       "gender TEXT,"
-                      "age DOUBLE)");
+                      "age DOUBLE,"
+                      "houstrained TEXT,"
+                      "specialNeeds TEXT,"
+                      "lifeSpan TEXT,"
+                      "size TEXT,"
+                      "costOfCare INT,"
+                      "sheddingAmount INT,"
+                      "aggression INT,"
+                      "playfulness TEXT,"
+                      "solitudialBehaviour TEXT,"
+                      "deseaseResistance TEXT,"
+                      "parasiticResistance TEXT,"
+                      "goodforNOwners TEXT,"
+                      "easeOfTraining TEXT,"
+                      "trainingType TEXT)");
         if(!ret)
             qDebug()<<"Animal Table not created";
     }
@@ -104,7 +118,7 @@ void databasemanager::dbPopulate(){
         qDebug()<<"running";
 
         //animals
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0)"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Mild','3 Years','Small','Average',24,12,'Low','High','High','High','Yes','Low','Outdoor')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7)"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0)"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Tommy', 'Dog','German Shepherd','Female',3.7)"));

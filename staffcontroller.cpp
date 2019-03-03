@@ -137,7 +137,21 @@ void StaffController::insertAnimalButtonDone()
                                                      "'"+this->addAnimalView->type+"',"
                                                      "'"+this->addAnimalView->breed+"',"
                                                      "'"+this->addAnimalView->gender+"',"
-                                                     "'"+this->addAnimalView->age+"')");
+                                                     "'"+this->addAnimalView->age+"',"
+                                                     "'"+this->addAnimalView->housetrained+"',"
+                                                     "'"+this->addAnimalView->specialneeds+"',"
+                                                     "'"+this->addAnimalView->lifespan+"',"
+                                                     "'"+this->addAnimalView->size+"',"
+                                                     "'"+this->addAnimalView->carecost+"',"
+                                                     "'"+this->addAnimalView->shedAmount+"',"
+                                                     "'"+this->addAnimalView->aggression+"',"
+                                                     "'"+this->addAnimalView->playfulness+"',"
+                                                     "'"+this->addAnimalView->solitudialBehavior+"',"
+                                                     "'"+this->addAnimalView->deseaseResistance+"',"
+                                                     "'"+this->addAnimalView->parasiticResistance+"',"
+                                                     "'"+this->addAnimalView->goodForNowners+"',"
+                                                     "'"+this->addAnimalView->trainingEase+"',"
+                                                     "'"+this->addAnimalView->environmentType+"')");
         ret = qry.exec();
     }
 

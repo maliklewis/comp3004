@@ -20,6 +20,21 @@ public:
     QString type;
     QString breed;
     QString gender;
+    QString housetrained;
+    QString specialneeds;
+    QString lifespan;
+    QString size;
+    QString carecost;
+    QString shedAmount;
+    QString aggression;
+    QString playfulness;
+    QString solitudialBehavior;
+    QString parasiticResistance;
+    QString goodForNowners;
+    QString trainingEase;
+    QString environmentType;
+    QString deseaseResistance;
+
 
 signals:
     void insertAnimalButtonClicked();

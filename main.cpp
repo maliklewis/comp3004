@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "staffcontroller.h"
+#include "Systemcontroller.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    StaffController control;
+    SystemController control;
     return a.exec();
 }

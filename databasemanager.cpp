@@ -148,6 +148,9 @@ void databasemanager::dbPopulate(){
         //staff members
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
 
+        //client members
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 24000, 'townhouse')"));
+
      }
 }
 

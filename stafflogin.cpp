@@ -23,6 +23,6 @@ QLineEdit* StaffLogin::getForm()
 void StaffLogin::loginButtonSlot()
 {
     username = ui->userName->text();
-    qDebug()<<username;
     emit loginButtonClicked();
+    qDebug()<<username;
 }

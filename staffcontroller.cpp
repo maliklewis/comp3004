@@ -4,12 +4,8 @@
 
 StaffController::StaffController()
 {
-    databasemanager cuacsdb;
-    cuacsdb.dbOpen();
-    mainWindow = new MainWindow;
-    mainWindow->show();
-    this->connect(mainWindow,SIGNAL(staffButtonClicked()),this,SLOT(staffButtonDone()));
-
+    qDebug()<<"Got here";
+    loginButtonDone();
 }
 
 StaffController::~StaffController()
@@ -18,44 +14,17 @@ StaffController::~StaffController()
     qDebug()<<"destructor";
 }
 
-
-
-void StaffController::staffButtonDone()
-{
-    //User chooses to login as a staff member
-    qDebug()<<"Main Window: STAFF button pressed";
-    this->mainWindow->hide();
-    staffLogin = new StaffLogin;
-    this->connect(staffLogin,SIGNAL(loginButtonClicked()),this,SLOT(loginButtonDone()));
-    staffLogin->show();
-}
-
 void StaffController::loginButtonDone()
 {
-    qDebug()<<"Staff Login Window: LOGIN button pressed";
-    QSqlQuery qry;
-    qry.prepare("Select * from staff where name = '"+staffLogin->username+"'");
-
-    //If the current login succeeds
-    if (qry.exec() && qry.first())
-    {
-       qDebug()<<"Login Successfull";
-       this->staffLogin->close();
-       staffView = new StaffView;
-       staffView->show();
-       this->connect(staffView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
-       this->connect(staffView,SIGNAL(addAnimalButtonClicked()),this,SLOT(addAnimalButtonDone()));
-       this->connect(staffView,SIGNAL(staffLogoutClicked()),this,SLOT(staffLogoutDone()));
-       this->connect(staffView,SIGNAL(addClientButtonClicked()),this,SLOT(addClientButtonDone()));
-       this->connect(staffView,SIGNAL(browseClientsButtonClicked()),this,SLOT(browseClientsButtonDone()));
-    }
-    else
-    {
-        qDebug()<<"Login failed";
-        QMessageBox::information(staffLogin,tr("Error"),tr("Login Failed"));
-        staffLogin->getForm()->clear();
-    }
-
+    qDebug()<<"got here";
+    staffView = new StaffView;
+    staffView->show();
+    this->connect(staffView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
+    this->connect(staffView,SIGNAL(addAnimalButtonClicked()),this,SLOT(addAnimalButtonDone()));
+    this->connect(staffView,SIGNAL(staffLogoutClicked()),this,SLOT(staffLogoutDone()));
+    this->connect(staffView,SIGNAL(addClientButtonClicked()),this,SLOT(addClientButtonDone()));
+    this->connect(staffView,SIGNAL(browseClientsButtonClicked()),this,SLOT(browseClientsButtonDone()));
+    //emit staffLoginClicked();
 }
 
 void StaffController::browseButtonDone()
@@ -101,14 +70,16 @@ void StaffController::browseClientsButtonDone()
     browseClientsView->getForm()->setModel(modal);
     browseClientsView->show();
 
-    this->connect(browseClientsView,SIGNAL(tableItemClicked()),this,SLOT(clientTableItemDone()));
+    this->connect(browseClientsView,SIGNAL(browseClientsBackButtonClicked()),this,SLOT(browseClientsBackButtonDone()));
+    this->connect(browseClientsView,SIGNAL(clientTableItemClicked()),this,SLOT(clientTableItemDone()));
 }
 
 void StaffController::staffLogoutDone()
 {
     //staff member logouts of the system
+    emit showMain();
     this->staffView->close();
-    this->mainWindow->show();
+    //this->mainWindow->show();
 }
 
 void StaffController::addAnimalButtonDone()
@@ -181,6 +152,7 @@ void StaffController::tableItemDone()
     qry.prepare("SELECT name,type,breed,gender,age from animal WHERE animal_id = '"+browseView->tableRowString+"'");
     qry.exec();
     qry.next();
+    qDebug()<<qry.value(0);
     animalDetailsView->getName()->setText(qry.value(0).toString());
     animalDetailsView->getType()->setText(qry.value(1).toString());
     animalDetailsView->getBreed()->setText(qry.value(2).toString());
@@ -191,7 +163,32 @@ void StaffController::tableItemDone()
 
 void StaffController::clientTableItemDone()
 {
-    //test
+    clientDetailsView = new ClientDetailsView;
+    QSqlQuery qry;
+    qDebug()<<browseClientsView->clientTableRowString;
+    qry.prepare("SELECT name,age WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
+    /*
+    qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,"
+                "otherAnimals,employmentType,maritalStatus,"
+                "employmentStatus,income,architechtureStyle from client WHERE client_id = '"+browseClientsView->tableRowString+"'");
+    */
+    qry.exec();
+    //qry.next();
+    qDebug()<<qry.value(0);
+
+    clientDetailsView->getName()->setText(qry.value(0).toString());
+    clientDetailsView->getNumber()->setText(qry.value(1).toString());
+    clientDetailsView->getEmail()->setText(qry.value(2).toString());
+    clientDetailsView->getNumChild()->setText(qry.value(3).toString());
+    clientDetailsView->getAgeChild()->setText(qry.value(4).toString());
+    clientDetailsView->getOtherAnimal()->setText(qry.value(5).toString());
+    clientDetailsView->getEmploymentType()->setText(qry.value(6).toString());
+    clientDetailsView->getMStatus()->setText(qry.value(7).toString());
+    clientDetailsView->getEStatus()->setText(qry.value(8).toString());
+    clientDetailsView->getIncome()->setText(qry.value(9).toString());
+    clientDetailsView->getStyle()->setText(qry.value(10).toString());
+
+    clientDetailsView->show();
 }
 
 void StaffController::addClientButtonDone()
@@ -235,5 +232,13 @@ void StaffController::insertClientBackButtonDone()
 
     //return to staff view from add client form
     this->addClientView->hide();
+    this->staffView->show();
+}
+
+void StaffController::browseClientsBackButtonDone()
+{
+    qDebug()<<"Client List Window: Back button pressed";
+    //return to staff view from browsing animals
+    this->browseClientsView->hide();
     this->staffView->show();
 }

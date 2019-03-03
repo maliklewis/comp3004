@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->connect(this->ui->staffButton,SIGNAL(clicked()),this,SLOT(staffButtonSlot()));
+    this->connect(this->ui->clientButton,SIGNAL(clicked()),this,SLOT(clientButtonSlot()));
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +19,11 @@ MainWindow::~MainWindow()
 void MainWindow::staffButtonSlot()
 {
     emit staffButtonClicked();
+}
+
+void MainWindow::clientButtonSlot()
+{
+    emit clientButtonClicked();
 }
 
 

@@ -17,9 +17,11 @@ public:
 
 private slots:
     void staffButtonSlot();
+    void clientButtonSlot();
 
 signals:
     void staffButtonClicked();
+    void clientButtonClicked();
 
 
 private:

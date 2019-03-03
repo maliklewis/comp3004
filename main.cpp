@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "Systemcontroller.h"
+#include "systemcontroller.h"
 
 int main(int argc, char *argv[])
 {

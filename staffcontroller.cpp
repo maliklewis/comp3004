@@ -166,27 +166,26 @@ void StaffController::clientTableItemDone()
     clientDetailsView = new ClientDetailsView;
     QSqlQuery qry;
     qDebug()<<browseClientsView->clientTableRowString;
-    qry.prepare("SELECT name,age WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
-    /*
-    qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,"
-                "otherAnimals,employmentType,maritalStatus,"
-                "employmentStatus,income,architechtureStyle from client WHERE client_id = '"+browseClientsView->tableRowString+"'");
-    */
+    //qry.prepare("SELECT name,age from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
+
+    qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
+
     qry.exec();
-    //qry.next();
+    qry.next();
     qDebug()<<qry.value(0);
 
     clientDetailsView->getName()->setText(qry.value(0).toString());
     clientDetailsView->getNumber()->setText(qry.value(1).toString());
     clientDetailsView->getEmail()->setText(qry.value(2).toString());
-    clientDetailsView->getNumChild()->setText(qry.value(3).toString());
-    clientDetailsView->getAgeChild()->setText(qry.value(4).toString());
-    clientDetailsView->getOtherAnimal()->setText(qry.value(5).toString());
-    clientDetailsView->getEmploymentType()->setText(qry.value(6).toString());
-    clientDetailsView->getMStatus()->setText(qry.value(7).toString());
-    clientDetailsView->getEStatus()->setText(qry.value(8).toString());
-    clientDetailsView->getIncome()->setText(qry.value(9).toString());
-    clientDetailsView->getStyle()->setText(qry.value(10).toString());
+    clientDetailsView->getAge()->setText(qry.value(3).toString());
+    clientDetailsView->getNumChild()->setText(qry.value(4).toString());
+    clientDetailsView->getAgeChild()->setText(qry.value(5).toString());
+    clientDetailsView->getOtherAnimal()->setText(qry.value(6).toString());
+    clientDetailsView->getEmploymentType()->setText(qry.value(7).toString());
+    clientDetailsView->getMStatus()->setText(qry.value(8).toString());
+    clientDetailsView->getEStatus()->setText(qry.value(9).toString());
+    clientDetailsView->getIncome()->setText(qry.value(10).toString());
+    clientDetailsView->getStyle()->setText(qry.value(11).toString());
 
     clientDetailsView->show();
 }
@@ -213,7 +212,8 @@ void StaffController::insertClientButtonDone()
     if (this->addClientView->name != "" && this->addClientView->number != "" && this->addClientView->email != ""){
         qry.prepare("INSERT INTO client VALUES (Null,'"+this->addClientView->name+"',"
                                                      "'"+this->addClientView->number+"',"
-                                                     "'"+this->addClientView->email+"')");
+                                                     "'"+this->addClientView->email+"',"
+                                                     "Null,Null,Null,Null,Null,Null,Null,Null,Null)");
         ret = qry.exec();
     }
 

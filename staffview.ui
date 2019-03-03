@@ -26,45 +26,6 @@
     <string>Logout</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="browseButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>120</y>
-     <width>111</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Browse Animals</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="addAnimalButton">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>120</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add Animal</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="addClientButton">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>120</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add Client</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="algorithmButton">
    <property name="geometry">
     <rect>
@@ -77,6 +38,58 @@
    <property name="text">
     <string>Execute ACM</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>80</y>
+     <width>85</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="addAnimalButton">
+      <property name="text">
+       <string>Add Animal</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="addClientButton">
+      <property name="text">
+       <string>Add Client</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>80</y>
+     <width>114</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="browseAnimalsButton">
+      <property name="text">
+       <string>Browse Animals</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="browseClientsButton">
+      <property name="text">
+       <string>Browse Clients</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

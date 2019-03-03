@@ -11,9 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Client</string>
   </property>
-  <widget class="QPushButton" name="addButton">
+  <widget class="QPushButton" name="clientAddButton">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -30,36 +30,36 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
-     <width>71</width>
+     <y>10</y>
+     <width>103</width>
      <height>251</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="nameLabel">
       <property name="text">
        <string>Name:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="numberLabel">
+      <property name="text">
+       <string>Phone Number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="emailLabel">
       <property name="text">
        <string>Email:</string>
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>TextLabel:</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="backButton">
+  <widget class="QPushButton" name="clientBackButton">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -72,24 +72,24 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget1">
    <property name="geometry">
     <rect>
      <x>150</x>
      <y>0</y>
      <width>144</width>
-     <height>281</height>
+     <height>261</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="nameValue"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_2"/>
+     <widget class="QLineEdit" name="numberValue"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_3"/>
+     <widget class="QLineEdit" name="emailValue"/>
     </item>
    </layout>
   </widget>

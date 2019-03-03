@@ -15,6 +15,7 @@ public:
 
     bool makeAnimalTable();
     bool makeStaffTable();
+    bool makeClientTable();
 
     bool insertAnimal(QString name,QString type, QString breed);
 

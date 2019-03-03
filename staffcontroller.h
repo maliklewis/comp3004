@@ -10,6 +10,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include "animaldetailsview.h"
+#include "addclientview.h"
+#include "browseclientview.h"
 
 class StaffController : public QObject
 {
@@ -25,6 +27,8 @@ class StaffController : public QObject
          BrowseAnimalsView* browseView;
          AddAnimalView* addAnimalView;
          AnimalDetailsView* animalDetailsView;
+         addclientview* addClientView;
+         BrowseClientView* browseClientsView;
 
     public slots:
          void staffButtonDone();
@@ -36,6 +40,11 @@ class StaffController : public QObject
          void staffLogoutDone();
          void insertAnimalBackButtonDone();
          void tableItemDone();
+         void addClientButtonDone();
+         void insertClientButtonDone();
+         void insertClientBackButtonDone();
+         void browseClientsButtonDone();
+         void clientTableItemDone();
 
 
 };

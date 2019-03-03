@@ -46,7 +46,8 @@ void StaffController::loginButtonDone()
        this->connect(staffView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
        this->connect(staffView,SIGNAL(addAnimalButtonClicked()),this,SLOT(addAnimalButtonDone()));
        this->connect(staffView,SIGNAL(staffLogoutClicked()),this,SLOT(staffLogoutDone()));
-
+       this->connect(staffView,SIGNAL(addClientButtonClicked()),this,SLOT(addClientButtonDone()));
+       this->connect(staffView,SIGNAL(browseClientsButtonClicked()),this,SLOT(browseClientsButtonDone()));
     }
     else
     {
@@ -85,12 +86,28 @@ void StaffController::browseBackButtonDone()
     this->staffView->show();
 }
 
+void StaffController::browseClientsButtonDone()
+{
+    qDebug()<<"Main Staff Window: Browse Clients button pressed";
+
+    //user chooses to browse clients
+    this->staffView->hide();
+    browseClientsView = new BrowseClientView;
+    QSqlQueryModel *modal = new QSqlQueryModel();
+    QSqlQuery qry;
+    qry.prepare("Select name, number, email from client");
+    qry.exec();
+    modal->setQuery(qry);
+    browseClientsView->getForm()->setModel(modal);
+    browseClientsView->show();
+
+    this->connect(browseClientsView,SIGNAL(tableItemClicked()),this,SLOT(clientTableItemDone()));
+}
+
 void StaffController::staffLogoutDone()
 {
     //staff member logouts of the system
     this->staffView->close();
-
-
     this->mainWindow->show();
 }
 
@@ -129,7 +146,7 @@ void StaffController::insertAnimalButtonDone()
         QMessageBox::information(addAnimalView,tr("Success!"),tr("Animal Added"));
     }
     else{
-        QMessageBox::information(addAnimalView,tr("Error!"),tr("Missing Field"));
+        QMessageBox::information(addAnimalView,tr("Error!"),tr("Missing Field(s)"));
     }
 }
 
@@ -149,15 +166,60 @@ void StaffController::tableItemDone()
 
     qry.prepare("SELECT name,type,breed,gender,age from animal WHERE animal_id = '"+browseView->tableRowString+"'");
     qry.exec();
-    //QSqlRecord rec = qry.record();
-    //int nameval = rec.indexOf("name");
     qry.next();
-    //qDebug()<<nameval;
-    //qDebug()<<qry.value(nameval).toString();
     animalDetailsView->getName()->setText(qry.value(0).toString());
     animalDetailsView->getType()->setText(qry.value(1).toString());
     animalDetailsView->getBreed()->setText(qry.value(2).toString());
     animalDetailsView->getGender()->setText(qry.value(3).toString());
     animalDetailsView->getAge()->setText(qry.value(4).toString() + " years");
     animalDetailsView->show();
+}
+
+void StaffController::clientTableItemDone()
+{
+    //test
+}
+
+void StaffController::addClientButtonDone()
+{
+    qDebug()<<"Main Staff Window: Add Client button pressed";
+    this->staffView->hide();
+    addClientView = new addclientview;
+    addClientView->show();
+
+    this->connect(addClientView,SIGNAL(insertClientButtonClicked()),this,SLOT(insertClientButtonDone()));
+    this->connect(addClientView,SIGNAL(insertClientBackButtonClicked()),this,SLOT(insertClientBackButtonDone()));
+}
+
+void StaffController::insertClientButtonDone()
+{
+    qDebug()<<"Add Client Window: Add button pressed";
+
+    //user attempts to add an animal to the database
+    bool ret = false;
+
+    QSqlQuery qry;
+    if (this->addClientView->name != "" && this->addClientView->number != "" && this->addClientView->email != ""){
+        qry.prepare("INSERT INTO client VALUES (Null,'"+this->addClientView->name+"',"
+                                                     "'"+this->addClientView->number+"',"
+                                                     "'"+this->addClientView->email+"')");
+        ret = qry.exec();
+    }
+
+
+    if (ret){
+        QMessageBox::information(addClientView,tr("Success!"),tr("Client Added"));
+    }
+    else{
+        QMessageBox::information(addClientView,tr("Error!"),tr("Missing Field(s)"));
+    }
+}
+
+void StaffController::insertClientBackButtonDone()
+{
+    qDebug()<<"Add Client Window: Back button pressed";
+
+    //return to staff view from add client form
+    this->addClientView->hide();
+    this->staffView->show();
 }

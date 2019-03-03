@@ -9,7 +9,6 @@ databasemanager::databasemanager(QObject *parent) : QObject(parent)
 
 bool databasemanager::dbOpen(){
 
-
     //sqlite driver
     db = QSqlDatabase::addDatabase("QSQLITE");
     //db.setHostName("QDir::currentPath()");
@@ -34,8 +33,9 @@ bool databasemanager::dbOpen(){
 
 bool databasemanager::dbBuild(){
     //Create required tables for the database
-    databasemanager::makeAnimalTable();
-    databasemanager::makeStaffTable();
+    makeAnimalTable();
+    makeStaffTable();
+    makeClientTable();
     return true;
 }
 
@@ -71,6 +71,30 @@ bool databasemanager::makeStaffTable(){
     return ret;
 }
 
+bool databasemanager::makeClientTable(){
+    bool ret = false;
+    if(db.isOpen()){
+        QSqlQuery qry;
+        ret = qry.exec("CREATE TABLE IF NOT EXISTS client"
+                      "(client_id INTEGER PRIMARY KEY, "
+                      "name TEXT,"
+                      "number TEXT,"
+                      "email TEXT NOT NULL UNIQUE,"
+                      "age INT,"
+                      "numberOfChildren INT,"
+                      "ageOfChildren INT,"
+                      "otherAnimals BOOL,"
+                      "employmentType TEXT,"
+                      "maritalStatus INT,"
+                      "employmentStatus BOOL,"
+                      "income INT,"
+                      "architectureStyle TEXT)");
+        if(!ret)
+            qDebug()<<"Client Table not created";
+    }
+    return ret;
+}
+
 
 void databasemanager::dbPopulate(){
      QSqlQuery query;
@@ -78,6 +102,8 @@ void databasemanager::dbPopulate(){
 
      if (!query.next()) {
         qDebug()<<"running";
+
+        //animals
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0)"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7)"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0)"));
@@ -105,12 +131,9 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Bloodhound','Female',1.5)"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Toy Poodle','Female',3.5)"));
 
-
-
-
-
-
+        //staff members
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
+
      }
 }
 

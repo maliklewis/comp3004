@@ -33,7 +33,9 @@ SOURCES += \
     browseanimalsview.cpp \
     addanimalview.cpp \
     animaldetailsview.cpp \
-    addclientview.cpp
+    addclientview.cpp \
+    browseclientview.cpp \
+    clientdetailsview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +46,9 @@ HEADERS += \
     browseanimalsview.h \
     addanimalview.h \
     animaldetailsview.h \
-    addclientview.h
+    addclientview.h \
+    browseclientview.h \
+    clientdetailsview.h
 
 FORMS += \
         mainwindow.ui \
@@ -53,5 +57,6 @@ FORMS += \
     browseanimalsview.ui \
     addanimalview.ui \
     animaldetailsview.ui \
-    browseclientsview.ui \
-    addclientview.ui
+    addclientview.ui \
+    browseclientview.ui \
+    clientdetailsview.ui

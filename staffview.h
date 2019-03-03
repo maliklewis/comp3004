@@ -20,11 +20,15 @@ private slots:
     void browseButtonSlot();
     void addAnimalButtonSlot();
     void staffLogoutButtonSlot();
+    void addClientButtonSlot();
+    void browseClientsButtonSlot();
 
 signals:
     void browseButtonClicked();
     void addAnimalButtonClicked();
     void staffLogoutClicked();
+    void addClientButtonClicked();
+    void browseClientsButtonClicked();
 
 private:
     Ui::StaffView *ui;

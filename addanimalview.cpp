@@ -24,6 +24,20 @@ void AddAnimalView::insertAnimalButtonSlot()
     type   = ui->typeDropdown->currentText();
     breed  = ui->breedDropdown->currentText();
     gender = ui->genderDropdown->currentText();
+    housetrained = ui->housetrainedDropdown->currentText();
+    specialneeds = ui->specialNeedsDropdown->currentText();
+    lifespan = ui->lifeSpanValue->text();
+    size = ui->sizeDropdown->currentText();
+    carecost = ui->costofCareLabel->text();
+    shedAmount = ui->sheddingBar->text().remove(QRegularExpression("%"));//test later with debug
+    aggression = ui->agressionBar->text().remove(QRegularExpression("%"));
+    playfulness = ui->playfulnessDropdown->currentText();
+    solitudialBehavior = ui->solittudialBehaviourDropdown->currentText();
+    deseaseResistance = ui->dResistanceDropdown->currentText();
+    parasiticResistance = ui->pResistanceDropdown->currentText();
+    goodForNowners = ui->noviceOwnerDropdown->currentText();
+    trainingEase = ui->easeofTraingDropdown->currentText();
+    environmentType = ui->environmentDropdown->currentText();
 
     emit insertAnimalButtonClicked();
 }

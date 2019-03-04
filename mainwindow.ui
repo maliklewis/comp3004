@@ -6,22 +6,55 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>409</width>
+    <height>305</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>409</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <pointsize>12</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>cuACS</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 0, 0);</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255,255,255);
+</string>
+   </property>
    <widget class="QPushButton" name="staffButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>110</y>
-      <width>83</width>
-      <height>25</height>
+      <x>110</x>
+      <y>160</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;DejaVu Sans Mono&quot;;
+color: rgb(255, 255, 255);
+selection-background-color: rgb(115, 210, 22);
+background-color: rgb(164, 0, 0);
+gridline-color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+selection-color: rgb(239, 41, 41);</string>
     </property>
     <property name="text">
      <string>Staff</string>
@@ -30,14 +63,88 @@
    <widget class="QPushButton" name="clientButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>110</y>
-      <width>83</width>
-      <height>25</height>
+      <x>110</x>
+      <y>200</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Sans Mono</family>
+      <pointsize>12</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;DejaVu Sans Mono&quot;;
+color: rgb(255, 255, 255);
+selection-background-color: rgb(115, 210, 22);
+background-color: rgb(164, 0, 0);
+gridline-color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);
+selection-color: rgb(239, 41, 41);</string>
     </property>
     <property name="text">
      <string>Client</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>120</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>URW Chancery L</family>
+      <pointsize>20</pointsize>
+      <weight>9</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 italic 20pt &quot;URW Chancery L&quot;;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#a40000;&quot;&gt;Welcome&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>10</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/cuacs logo (b&amp;w).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -46,7 +153,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>409</width>
      <height>22</height>
     </rect>
    </property>

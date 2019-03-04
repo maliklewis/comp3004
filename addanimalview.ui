@@ -13,27 +13,32 @@
   <property name="windowTitle">
    <string>Add Animal</string>
   </property>
-  <widget class="QPushButton" name="backButton">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>400</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QPushButton" name="animalAddButton">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>380</y>
-     <width>83</width>
+     <x>320</x>
+     <y>420</y>
+     <width>111</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Serif</family>
+     <pointsize>13</pointsize>
+     <weight>9</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
+</string>
    </property>
    <property name="text">
     <string>Add</string>
@@ -42,10 +47,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>122</x>
-     <y>23</y>
+     <x>190</x>
+     <y>60</y>
      <width>149</width>
-     <height>321</height>
+     <height>351</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -197,15 +202,34 @@
       </item>
      </widget>
     </item>
+    <item>
+     <widget class="QComboBox" name="playfulnessDropdown">
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>23</y>
-     <width>94</width>
-     <height>311</height>
+     <x>80</x>
+     <y>60</y>
+     <width>101</width>
+     <height>351</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -217,16 +241,16 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="typeLabel">
+     <widget class="QLabel" name="breedLabel">
       <property name="text">
-       <string>Type:</string>
+       <string>Breed:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="breedLabel">
+     <widget class="QLabel" name="typeLabel">
       <property name="text">
-       <string>Breed:</string>
+       <string>Type:</string>
       </property>
      </widget>
     </item>
@@ -272,304 +296,437 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="playfulnessLabel">
+      <property name="text">
+       <string>Playfulness</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>22</y>
-     <width>232</width>
-     <height>372</height>
+     <x>20</x>
+     <y>10</y>
+     <width>741</width>
+     <height>51</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_5">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(168, 36, 36);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/cuacs logo (b&amp;w).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>83</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
+</string>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>310</y>
+     <width>251</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <widget class="QLabel" name="noviceOwnderLabel">
+      <property name="text">
+       <string>Good for Novice Owners</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="noviceOwnerDropdown">
       <item>
-       <widget class="QLabel" name="costofCareLabel">
-        <property name="text">
-         <string>Cost of Care</string>
+       <property name="text">
+        <string>Yes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>No</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>211</y>
+     <width>220</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QLabel" name="solitudialLabel">
+      <property name="text">
+       <string>Solitudial Behaviour</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="solittudialBehaviourDropdown">
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>244</y>
+     <width>219</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_10">
+    <item>
+     <widget class="QLabel" name="dResistanceLabel">
+      <property name="text">
+       <string>Desease Resistance</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="dResistanceDropdown">
+      <item>
+       <property name="text">
+        <string>Low </string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>277</y>
+     <width>218</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <widget class="QLabel" name="pResistanceLabel">
+      <property name="text">
+       <string>Parasitic Resistance</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="pResistanceDropdown">
+      <item>
+       <property name="text">
+        <string>Low </string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>343</y>
+     <width>221</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_8">
+    <item>
+     <widget class="QLabel" name="easeofTrainingLabel">
+      <property name="text">
+       <string>Ease of Training</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="easeofTraingDropdown">
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>380</y>
+     <width>211</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_9">
+    <item>
+     <widget class="QLabel" name="environmentTypeLabel">
+      <property name="text">
+       <string>Environment Type</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="environmentDropdown">
+      <item>
+       <property name="text">
+        <string>Indoor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Outdoor</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>422</x>
+     <y>70</y>
+     <width>306</width>
+     <height>135</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="costofCareLabel">
+      <property name="text">
+       <string>Cost of Care</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="sheddingLabel">
+      <property name="text">
+       <string>Shedding Amount</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" colspan="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="4">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QProgressBar" name="sheddingBar">
+        <property name="value">
+         <number>24</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="costofCareValue"/>
+       <widget class="QSlider" name="sheddingSlider">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="sheddingLabel">
-        <property name="text">
-         <string>Shedding Amount</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QProgressBar" name="sheddingBar">
-          <property name="value">
-           <number>24</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSlider" name="sheddingSlider">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
+    <item row="2" column="0">
+     <widget class="QLabel" name="aggressionLabel">
+      <property name="text">
+       <string>Aggression</string>
+      </property>
+     </widget>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item row="2" column="4" rowspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="aggressionLabel">
-        <property name="text">
-         <string>Aggression</string>
+       <widget class="QProgressBar" name="agressionBar">
+        <property name="value">
+         <number>24</number>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QProgressBar" name="agressionBar">
-          <property name="value">
-           <number>24</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSlider" name="aggressionSlider">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="QLabel" name="playfulnessLabel">
-        <property name="text">
-         <string>Playfulness</string>
+       <widget class="QSlider" name="aggressionSlider">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="playfulnessDropdown">
-        <item>
-         <property name="text">
-          <string>Low</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Medium</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>High</string>
-         </property>
-        </item>
        </widget>
       </item>
      </layout>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <item>
-       <widget class="QLabel" name="solitudialLabel">
-        <property name="text">
-         <string>Solitudial Behaviour</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="solittudialBehaviourDropdown">
-        <item>
-         <property name="text">
-          <string>Low</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Medium</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>High</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
+    <item row="3" column="2" colspan="2">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_10">
+    <item row="0" column="4">
+     <widget class="QComboBox" name="comboBox">
       <item>
-       <widget class="QLabel" name="dResistanceLabel">
-        <property name="text">
-         <string>Desease Resistance</string>
-        </property>
-       </widget>
+       <property name="text">
+        <string>$0 - $1000</string>
+       </property>
       </item>
       <item>
-       <widget class="QComboBox" name="dResistanceDropdown">
-        <item>
-         <property name="text">
-          <string>Low </string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Medium</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>High</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-        </item>
-       </widget>
+       <property name="text">
+        <string>$1000 - $2000</string>
+       </property>
       </item>
-     </layout>
+      <item>
+       <property name="text">
+        <string>$2000 - $3000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$4000 and above</string>
+       </property>
+      </item>
+     </widget>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
-      <item>
-       <widget class="QLabel" name="pResistanceLabel">
-        <property name="text">
-         <string>Parasitic Resistance</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="pResistanceDropdown">
-        <item>
-         <property name="text">
-          <string>Low </string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Medium</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>High</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_7">
-      <item>
-       <widget class="QLabel" name="noviceOwnderLabel">
-        <property name="text">
-         <string>Good for Novice Owners</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="noviceOwnerDropdown">
-        <item>
-         <property name="text">
-          <string>Yes</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>No</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_8">
-      <item>
-       <widget class="QLabel" name="easeofTrainingLabel">
-        <property name="text">
-         <string>Ease of Training</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="easeofTraingDropdown">
-        <item>
-         <property name="text">
-          <string>Low</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Medium</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>High</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_9">
-      <item>
-       <widget class="QLabel" name="environmentTypeLabel">
-        <property name="text">
-         <string>Environment Type</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="environmentDropdown">
-        <item>
-         <property name="text">
-          <string>Indoor</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Outdoor</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
+    <item row="0" column="1" colspan="3">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>

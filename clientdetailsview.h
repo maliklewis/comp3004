@@ -28,9 +28,6 @@ public:
     QLabel* getIncome();
     QLabel* getStyle();
 
-
-
-
 private:
     Ui::ClientDetailsView *ui;
 };

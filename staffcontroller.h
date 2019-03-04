@@ -22,8 +22,6 @@ class StaffController : public QObject
         //void launch();
         ~StaffController();
     private:
-         //MainWindow* mainWindow;
-         StaffLogin* staffLogin;
          StaffView* staffView;
          BrowseAnimalsView* browseView;
          AddAnimalView* addAnimalView;
@@ -31,11 +29,9 @@ class StaffController : public QObject
          ClientDetailsView* clientDetailsView;
          addclientview* addClientView;
          BrowseClientView* browseClientsView;
-         //SystemController* systemControl;
 
 
     public slots:
-         //void staffButtonDone();
          void loginButtonDone();
          void browseButtonDone();
          void addAnimalButtonDone();

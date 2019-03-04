@@ -6,9 +6,15 @@ ClientView::ClientView(QWidget *parent) :
     ui(new Ui::ClientView)
 {
     ui->setupUi(this);
+    this->connect(this->ui->browseAnimalsButton,SIGNAL(clicked()),this,SLOT(browseButtonSlot()));
 }
 
 ClientView::~ClientView()
 {
     delete ui;
+}
+
+void ClientView::browseButtonSlot()
+{
+    emit browseButtonClicked();
 }

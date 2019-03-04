@@ -15,6 +15,12 @@ public:
     explicit ClientView(QWidget *parent = 0);
     ~ClientView();
 
+private slots:
+    void browseButtonSlot();
+
+signals:
+    void browseButtonClicked();
+
 private:
     Ui::ClientView *ui;
 };

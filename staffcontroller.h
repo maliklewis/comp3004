@@ -48,7 +48,7 @@ class StaffController : public QObject
          void browseClientsBackButtonDone();
 
     signals:
-         void staffLoginClicked();
+         //void staffLoginClicked();
          void showMain();
 };
 

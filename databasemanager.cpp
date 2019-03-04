@@ -59,11 +59,11 @@ bool databasemanager::makeAnimalTable(){
                       "aggression INT,"
                       "playfulness TEXT,"
                       "solitudialBehaviour TEXT,"
-                      "deseaseResistance TEXT,"
+                      "diseaseResistance TEXT,"
                       "parasiticResistance TEXT,"
                       "goodforNOwners TEXT,"
                       "easeOfTraining TEXT,"
-                      "trainingType TEXT)");
+                      "environmentType TEXT)");
         if(!ret)
             qDebug()<<"Animal Table not created";
     }
@@ -118,7 +118,7 @@ void databasemanager::dbPopulate(){
         qDebug()<<"running";
 
         //animals
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Mild','3 Years','Large',68,66,33,'High','Medium,','Medium','High','Yes','Medium','Outdoor')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Mild','3 Years','Large',68,66,33,'High','Medium','Medium','High','Yes','Medium','Outdoor')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7,'No','Mild','4 Years','Medium',99,33,77,'Low','High','Medium','High','No','Low','Indoor')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0,'Yes','Mild','7 Years','Small',54,64,52,'Low','High','High','High','Yes','Low','Indoor')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Tommy', 'Dog','German Shepherd','Female',3.7,'Yes','Mild','2 Years','Small',65,98,36,'Low','High','High','High','Yes','Low','Indoor')"));
@@ -149,11 +149,11 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
 
         //client members
-        db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 240000, 'townhouse')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Johnny Cage','(613)-756-1237','cage2434@gmail.com',30, 1, 14, 'FALSE', 'B', '0', 'FALSE', 45000, 'apartment')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Patrick Tahar','(343)-721-5431','taharpatrick40@hotmail.com',40, 2, 23, 'TRUE', 'C', '1', 'FALSE', 35000, 'detached')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Arnold Volkswagen','(613)-884-2201','arniev24@yahoo.co.uk',45, 3, 20, 'FALSE', 'A', '1', 'TRUE', 150000, 'semi-detached')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Cardi Blackie','(514)-834-3345','cblackie1@gmail.com',23, 0, 0, 'FALSE', 'C', '0', 'FALSE', 30000, 'apartment')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 240000, 'Townhouse')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Johnny Cage','(613)-756-1237','cage2434@gmail.com',30, 1, 14, 'FALSE', 'B', '0', 'FALSE', 45000, 'Apartment')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Patrick Tahar','(343)-721-5431','taharpatrick40@hotmail.com',40, 2, 23, 'TRUE', 'C', '1', 'FALSE', 35000, 'Detached')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Arnold Volkswagen','(613)-884-2201','arniev24@yahoo.co.uk',45, 3, 20, 'FALSE', 'A', '1', 'TRUE', 150000, 'Semi-Detached')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Cardi Blackie','(514)-834-3345','cblackie1@gmail.com',23, 0, 0, 'FALSE', 'C', '0', 'FALSE', 30000, 'Apartment')"));
 
      }
 }

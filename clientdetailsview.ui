@@ -7,18 +7,18 @@
     <x>0</x>
     <y>0</y>
     <width>540</width>
-    <height>300</height>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Client Details</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>120</x>
      <y>20</y>
-     <width>93</width>
+     <width>151</width>
      <height>241</height>
     </rect>
    </property>
@@ -70,9 +70,9 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>440</x>
      <y>20</y>
-     <width>101</width>
+     <width>91</width>
      <height>241</height>
     </rect>
    </property>
@@ -121,19 +121,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="backButton">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>270</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -175,7 +162,7 @@
     <item>
      <widget class="QLabel" name="incomeLabel">
       <property name="text">
-       <string>Income</string>
+       <string>Income:</string>
       </property>
      </widget>
     </item>
@@ -191,7 +178,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>290</x>
      <y>20</y>
      <width>130</width>
      <height>241</height>
@@ -236,7 +223,7 @@
     <item>
      <widget class="QLabel" name="styleLabel">
       <property name="text">
-       <string>Architecture Style</string>
+       <string>Architecture Style:</string>
       </property>
      </widget>
     </item>

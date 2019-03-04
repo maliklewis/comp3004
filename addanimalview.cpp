@@ -33,7 +33,7 @@ void AddAnimalView::insertAnimalButtonSlot()
     aggression = ui->agressionBar->text().remove(QRegularExpression("%"));
     playfulness = ui->playfulnessDropdown->currentText();
     solitudialBehavior = ui->solittudialBehaviourDropdown->currentText();
-    deseaseResistance = ui->dResistanceDropdown->currentText();
+    diseaseResistance = ui->dResistanceDropdown->currentText();
     parasiticResistance = ui->pResistanceDropdown->currentText();
     goodForNowners = ui->noviceOwnerDropdown->currentText();
     trainingEase = ui->easeofTraingDropdown->currentText();

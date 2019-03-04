@@ -44,7 +44,7 @@ void SystemController::staffLoginButtonDone()
     qry.prepare("Select * from staff where name = '"+staffLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Login Successfull";
+       qDebug()<<"Staff login Successfull";
        this->staffLogin->hide();
        staffControl = new StaffController;
        this->connect(staffControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
@@ -65,10 +65,10 @@ void SystemController::clientLoginButtonDone()
     qry.prepare("Select * from client where name = '"+clientLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Login Successfull";
+       qDebug()<<"Client login Successfull";
        this->clientLogin->hide();
        clientControl = new ClientController;
-       //this->connect(clientControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
+       this->connect(clientControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
     }
     else
     {

@@ -63,25 +63,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="logoutButton">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>10</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);
-</string>
-    </property>
-    <property name="text">
-     <string>logout</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QPushButton" name="backButton">
    <property name="geometry">

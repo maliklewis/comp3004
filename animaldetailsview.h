@@ -20,6 +20,21 @@ public:
     QLabel* getBreed();
     QLabel* getGender();
     QLabel* getAge();
+    QLabel* getHousetrained();
+    QLabel* getSpecial();
+    QLabel* getSpan();
+    QLabel* getSize();
+    QLabel* getPlayful();
+    QLabel* getCost();
+    QLabel* getShedding();
+    QLabel* getAggression();
+    QLabel* getBehaviour();
+    QLabel* getDisease();
+    QLabel* getParasite();
+    QLabel* getNovice();
+    QLabel* getEase();
+    QLabel* getEnivornment();
+
 
 private:
     Ui::AnimalDetailsView *ui;

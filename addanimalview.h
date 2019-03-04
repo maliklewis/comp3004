@@ -33,7 +33,7 @@ public:
     QString goodForNowners;
     QString trainingEase;
     QString environmentType;
-    QString deseaseResistance;
+    QString diseaseResistance;
 
 
 signals:

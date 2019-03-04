@@ -26,6 +26,10 @@ class ClientController : public QObject
          void clientLoginButtonDone();
          void browseButtonDone();
          void tableItemDone();
+         void browseBackButtonDone();
+         void clientLogoutDone();
+    signals:
+         void showMain();
 
 };
 

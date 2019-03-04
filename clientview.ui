@@ -13,20 +13,7 @@
   <property name="windowTitle">
    <string>Main Client Window</string>
   </property>
-  <widget class="QPushButton" name="logoutButton">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>260</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Logout</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>134</x>
@@ -38,6 +25,10 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="browseAnimalsButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(244, 200, 200);
+border-color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
        <string>Browse Animals</string>
       </property>
@@ -45,12 +36,75 @@
     </item>
     <item>
      <widget class="QPushButton" name="editProfileButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(244, 200, 200);
+border-color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
        <string>Edit Profile</string>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>411</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(168, 36, 36);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/cuacs logo (b&amp;w).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="logoutButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>83</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Logout</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

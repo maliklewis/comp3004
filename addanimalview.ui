@@ -44,7 +44,7 @@
     <rect>
      <x>122</x>
      <y>23</y>
-     <width>144</width>
+     <width>149</width>
      <height>321</height>
     </rect>
    </property>
@@ -155,7 +155,12 @@
      <widget class="QComboBox" name="specialNeedsDropdown">
       <item>
        <property name="text">
-        <string>Mild</string>
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
        </property>
       </item>
       <item>

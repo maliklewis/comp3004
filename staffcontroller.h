@@ -13,7 +13,6 @@
 #include "addclientview.h"
 #include "browseclientview.h"
 #include "clientdetailsview.h"
-//#include "systemcontroller.h"
 
 class StaffController : public QObject
 {
@@ -23,7 +22,7 @@ class StaffController : public QObject
         //void launch();
         ~StaffController();
     private:
-         MainWindow* mainWindow;
+         //MainWindow* mainWindow;
          StaffLogin* staffLogin;
          StaffView* staffView;
          BrowseAnimalsView* browseView;

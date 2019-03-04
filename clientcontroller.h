@@ -6,8 +6,6 @@
 #include <QMessageBox>
 #include "databasemanager.h"
 #include "clientlogin.h"
-#include "staffcontroller.h"
-
 
 class ClientController : public QObject
 {
@@ -18,7 +16,7 @@ class ClientController : public QObject
     private:
          MainWindow* mainWindow;
          ClientLogin* clientLogin;
-         StaffController* staffController;
+         //StaffController* staffController;
     private slots:
          void clientButtonDone();
 };

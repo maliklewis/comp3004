@@ -12,6 +12,6 @@ ClientController::~ClientController()
 
 void ClientController::clientButtonDone()
 {
-    //staffView = new StaffView;
-    //staffView->show();
+    staffView = new StaffView;
+    staffView->show();
 }

@@ -35,17 +35,17 @@ void SystemController::staffLoginButtonDone()
     if (qry.exec() && qry.first())
     {
        qDebug()<<"Login Successfull";
-       this->staffLogin->close();
+       this->staffLogin->hide();
        staffControl = new StaffController;
+       this->connect(staffControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
     }
     else
     {
         qDebug()<<"Login failed";
         QMessageBox::information(staffLogin,tr("Error"),tr("Login Failed"));
-        staffLogin->getForm()->clear();
+        this->staffLogin->getForm()->clear();
     }
-    //staf = new StaffView;
-    this->connect(staffControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
+
 }
 
 void SystemController::loggedOutDone()

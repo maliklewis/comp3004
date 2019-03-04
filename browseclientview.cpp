@@ -24,9 +24,9 @@ void BrowseClientView::browseClientsBackButtonSlot()
     emit browseClientsBackButtonClicked();
 }
 
-void BrowseClientView::on_tableView_doubleClicked(const QModelIndex &index)
+void BrowseClientView::on_tableView_doubleClicked(const QModelIndex &numb)
 {
-    clientTableRow = index.row() +1;
+    clientTableRow = numb.row() +1;
     clientTableRowString = QString::number(clientTableRow);
     emit clientTableItemClicked();
 }

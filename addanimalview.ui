@@ -160,6 +160,11 @@ border-color: rgb(0, 0, 0);
      <widget class="QComboBox" name="specialNeedsDropdown">
       <item>
        <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>Low</string>
        </property>
       </item>

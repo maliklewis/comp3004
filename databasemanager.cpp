@@ -121,32 +121,35 @@ void databasemanager::dbPopulate(){
         qDebug()<<"running";
 
         //animals
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Low','3 Years','Large','$0-$1000','Medium','High','High','Medium','High','High','No','Medium','Outdoor','N/A','High','N/A')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7,'No','Mild','4 Years','Medium',99,33,77,'Low','High','Medium','High','No','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0,'Yes','Mild','7 Years','Small',54,64,52,'Low','High','High','High','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tommy', 'Dog','German Shepherd','Female',3.7,'Yes','Mild','2 Years','Small',65,98,36,'Low','High','High','High','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Holly', 'Dog','Poodle','Female',1.2,'Yes','Mild','5 Years','Small',44,85,53,'Medium','High','High','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rocky', 'Dog','Boxer','Male',0.3,'No','Mild','9 Years','Medium',96,24,78,'Low','Medium','High','High','No','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Donna', 'Dog','Pug','Female',2.0,'Yes','Mild','2 Years','Medium',34,33,12,'Low','High','Low','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Husky','Male',2.0,'No','Mild','6 Years','Large',80,24,53,'Low','High','Low','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Diasy', 'Dog','Great Dane','Female',1.0,'Yes','Mild','1 Year','Small',39,24,33,'Low','High','Medium','High','Yes','Medium','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Jazzy', 'Dog','Greyhound','Female',0.5,'No','Mild','6 Years','Medium',55,55,21,'Low','Medium','High','Low','Yes','High','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Jerry', 'Cat','Munchkin','Male',2.0,'Yes','Mild','7 Years','Small',92,39,43,'Low','High','Low','Medium','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Scrappy','Cat','Persian','Male',2.0,'No','Mild','4 Years','Medium',83,16,32,'Low','High','Low','Low','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rondo','Cat','Bengal','Male',0.6,'Yes','Mild','1 Year','Small''49,34,62,'Low','High','Medium','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Boots','Cat','Egyptian','Male',2.0,'Yes','Mild','9 Years','Medium',74,19,29,'High','Low','High','Low','Yes','Medium','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Luca','Cat','Himalayan','Male',1.3,'No','Mild','3 Years','Large',99,77,21,'Low','High','High','Medium','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','Coundhound','Male',2.0,'Yes','Mild','5 Years','Small',88,36,34,'Low','High','Low','High','No','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Max', 'Dog','Hunting Dog','Male',4.7,'No','Mild','2 Years','Medium',39,44,23,'Low','Medium','High','Low','Yes','Medium','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Luna', 'Dog','Toy Dog','Female',3.2,'No','Mild','1 Year','Small',65,33,12,'Low','High','Low','High','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Sadie', 'Dog','Setter','Male',3.3,'Yes','Mild','8 Years','Medium',78,61,33,'Low','High','High','Medium','Yes','Low','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Spaniel','Female',2.5,'No','Mild','4 Years','Small',74,25,67,'Low','Low','Medium','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','Coundhound','Male',2.0,'Yes','Mild','7 Years','Medium',57,4,62,'Low','High','Medium','Low','Yes','High','Indoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Max', 'Dog','Bull Terrier','Male',3.7,'Yes','Mild','2 Years','Small',63,45,9,'High','Low','High','Medium','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Luna', 'Dog','Doberman','Female',2.3,'No','Mild','6 Years','Large',41,76,5,'Low','High','Medium','Low','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Sadie', 'Dog','Cane Corso','Male',3.3,'No','Mild','2 Years','Small',77,98,36,'Medium','Medium','High','Low','Yes','Medium','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Bloodhound','Female',1.5,'No','Mild','7 Years','Large',62,43,47,'Low','High','Low','High','Yes','Low','Outdoor')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Toy Poodle','Female',3.5,'Yes','N/A','9 Years','Medium',95,24,54,'High','Low','High','Medium','Yes','High','Indoor')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Low','3 Years','Large','$0-$1000','Medium','High','High','Medium','High','High','No','Medium','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7,'No','Medium','4 Years','Medium','$1000-$2000','Medium','Low','High','Medium','High','Medium','No','Low','Indoor','No','High','Intact')"));
+
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0,'Yes','High','7 Years','Small','$4000+','Medium','High','Low','High','High','High','Yes','Low','Indoor','No','High','Intact')"));
+
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tommy', 'Dog','German Shepherd','Female',3.7,'Yes','Medium','14 Years','Small','$2000-$3000','High','Low','Low','High','High','High','Yes','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Holly', 'Dog','Poodle','Female',1.2,'Yes','Low','14 Years','Small','$1000-$2000','Low','Medium','Medium','High','High','High','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rocky', 'Dog','Boxer','Male',0.3,'No','High','14 Years','Medium','$4000+','Low','Low','Low','Medium','High','High','No','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Donna', 'Dog','Pug','Female',2.0,'Yes','Medium','14 Years','Medium','$2000-$3000','Low','High','Low','High','Low','High','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Ralph', 'Dog','Husky','Male',2.0,'No','Low','14 Years','Large','$0-$1000','High','Medium','Low','High','Low','High','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Diasy', 'Dog','Great Dane','Female',1.0,'Yes','High','14 Year','Small','$4000+','Low','Low','Low','High','Medium','High','Yes','Medium','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Jazzy', 'Dog','Greyhound','Female',0.5,'No','Medium','14 Years','Medium','$1000-$2000','Medium','High','Low','Medium','High','Low','Yes','High','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Jerry', 'Cat','Munchkin','Male',2.0,'Yes','Medium','15 Years','Small','$2000-$2000','High','Medium','Low','High','Low','Medium','Yes','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Scrappy','Cat','Persian','Male',2.0,'No','High','15 Years','Medium','4000+','High','Low','High','Low','Low','Yes','Low','Indoor','No','High','Removed')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rondo','Cat','Bengal','Male',0.6,'Yes','Low','15 Year','Small','$0-$1000','Medium','Low','Low','High','Medium','High','Yes','Low','Outdoor','No','High','Removed')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Boots','Cat','Egyptian','Male',2.0,'Yes','High','15 Years','Medium','4000+','Medium','Medium','High','Low','High','Low','Yes','Medium','Outdoor','No','High','Removed')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Luca','Cat','Himalayan','Male',1.3,'No','Medium','15 Years','Large','$1000-$2000','High','Low','Low','High','High','Medium','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','German Shepherd','Male',2.0,'Yes','High','14 Years','Small','$2000-$3000','High','Medium','High','Low','High','Low','No','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Max', 'Dog','Greyhound','Male',4.7,'No','Low','14 Years','Medium','$0-$1000','Low','High','Medium','Low','Medium','High','Yes','Medium','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Luna', 'Dog','Boxer','Female',3.2,'No','High','14 Year','Small','$4000+','Medium','Low','High','Low','High','Low','Yes','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Sadie', 'Dog','Pitbull','Male',3.3,'Yes','High','14 Years','Medium','$2000-$3000','Medium','Low','Low','High','High','Medium','Yes','Low','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Dog','Pug','Female',2.5,'No','Low','14 Years','Small','$0-$1000','Low','Medium','Low','Low','Medium','High','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','Beagle','Male',2.0,'Yes','Medium','14 Years','Medium','$1000-$2000','Low','High','Low','High','Medium','Low','Yes','High','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Max', 'Dog','Chihuahua','Male',3.7,'Yes','Low','14 Years','Small','$0-$1000','Medium','Low','High','Low','High','Medium','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Claire', 'Dog','Great Dane','Female',2.3,'No','Medium','14 Years','Large','$1000-$2000','Medium','High','Low','High','Medium','Low','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Sadie', 'Bird','Dove','Male',3.3,'No','High','20 Years','Small','$2000-$3000','Low','Low','Medium','Medium','High','Low','Yes','Medium','Outdoor','Yes','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Jolly', 'Bird','Canary','Female',1.5,'No','High','20 Years','Large','$4000+','Medium','High','Low','High','Low','High','Yes','Low','Outdoor','Yes','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Molly', 'Bird','Lovebird','Female',3.5,'Yes','Low','20 Years','Medium','$0-$1000','Medium','Medium','High','Low','High','Medium','Yes','High','Indoor','Yes','High','Intact')"));
+
 
         //staff members
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));

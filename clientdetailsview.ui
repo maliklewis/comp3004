@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>540</width>
-    <height>282</height>
+    <height>329</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>20</y>
+     <x>110</x>
+     <y>70</y>
      <width>151</width>
      <height>241</height>
     </rect>
@@ -25,6 +25,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QLabel" name="nameValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -32,6 +35,9 @@
     </item>
     <item>
      <widget class="QLabel" name="numberValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -39,6 +45,9 @@
     </item>
     <item>
      <widget class="QLabel" name="emailValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -46,6 +55,9 @@
     </item>
     <item>
      <widget class="QLabel" name="ageValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -53,6 +65,9 @@
     </item>
     <item>
      <widget class="QLabel" name="incomeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -60,6 +75,9 @@
     </item>
     <item>
      <widget class="QLabel" name="numChildValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -70,8 +88,8 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>20</y>
+     <x>430</x>
+     <y>70</y>
      <width>91</width>
      <height>241</height>
     </rect>
@@ -79,6 +97,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
      <widget class="QLabel" name="childAgeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -86,6 +107,9 @@
     </item>
     <item>
      <widget class="QLabel" name="otherValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -93,6 +117,9 @@
     </item>
     <item>
      <widget class="QLabel" name="EstatusValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -100,6 +127,9 @@
     </item>
     <item>
      <widget class="QLabel" name="empTypeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -107,6 +137,9 @@
     </item>
     <item>
      <widget class="QLabel" name="MStatusValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -114,6 +147,9 @@
     </item>
     <item>
      <widget class="QLabel" name="styleValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -124,8 +160,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>10</x>
+     <y>70</y>
      <width>93</width>
      <height>241</height>
     </rect>
@@ -178,8 +214,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>20</y>
+     <x>280</x>
+     <y>70</y>
      <width>130</width>
      <height>241</height>
     </rect>
@@ -228,6 +264,47 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>541</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(168, 36, 36);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/cuacs logo (b&amp;w).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

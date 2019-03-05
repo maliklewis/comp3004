@@ -241,6 +241,11 @@ border-color: rgb(0, 0, 0);
      <widget class="QComboBox" name="wingedDropdown">
       <item>
        <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>Yes</string>
        </property>
       </item>
@@ -402,7 +407,7 @@ border-color: rgb(0, 0, 0);
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -738,6 +743,11 @@ border-color: rgb(0, 0, 0);
       </item>
       <item row="0" column="1">
        <widget class="QComboBox" name="clawDropdown">
+        <item>
+         <property name="text">
+          <string>N/A</string>
+         </property>
+        </item>
         <item>
          <property name="text">
           <string>Intact</string>

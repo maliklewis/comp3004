@@ -25,6 +25,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QLabel" name="nameValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -32,6 +35,9 @@
     </item>
     <item>
      <widget class="QLabel" name="numberValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -39,6 +45,9 @@
     </item>
     <item>
      <widget class="QLabel" name="emailValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -46,6 +55,9 @@
     </item>
     <item>
      <widget class="QLabel" name="ageValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -53,6 +65,9 @@
     </item>
     <item>
      <widget class="QLabel" name="incomeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -60,6 +75,9 @@
     </item>
     <item>
      <widget class="QLabel" name="numChildValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -79,6 +97,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
      <widget class="QLabel" name="childAgeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -86,6 +107,9 @@
     </item>
     <item>
      <widget class="QLabel" name="otherValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -93,6 +117,9 @@
     </item>
     <item>
      <widget class="QLabel" name="EstatusValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -100,6 +127,9 @@
     </item>
     <item>
      <widget class="QLabel" name="empTypeValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -107,6 +137,9 @@
     </item>
     <item>
      <widget class="QLabel" name="MStatusValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -114,6 +147,9 @@
     </item>
     <item>
      <widget class="QLabel" name="styleValue">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
        <string/>
       </property>

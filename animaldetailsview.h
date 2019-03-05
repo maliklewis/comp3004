@@ -34,7 +34,9 @@ public:
     QLabel* getNovice();
     QLabel* getEase();
     QLabel* getEnivornment();
-
+    QLabel* getWinged();
+    QLabel* getVocal();
+    QLabel* getclawState();
 
 private:
     Ui::AnimalDetailsView *ui;

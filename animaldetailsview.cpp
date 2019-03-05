@@ -93,3 +93,15 @@ QLabel* AnimalDetailsView::getEnivornment()
 {
     return ui->enivronmentLabel;
 }
+QLabel* AnimalDetailsView::getWinged()
+{
+    return ui->wingedLabel;
+}
+QLabel* AnimalDetailsView::getVocal()
+{
+    return ui->vocalLabel;
+}
+QLabel* AnimalDetailsView::getclawState()
+{
+    return ui->clawLabel;
+}

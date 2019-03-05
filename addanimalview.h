@@ -34,6 +34,9 @@ public:
     QString trainingEase;
     QString environmentType;
     QString diseaseResistance;
+    QString winged;
+    QString vocal;
+    QString clawState;
 
 
 signals:

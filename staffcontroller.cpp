@@ -120,7 +120,10 @@ void StaffController::insertAnimalButtonDone()
                                                      "'"+this->addAnimalView->parasiticResistance+"',"
                                                      "'"+this->addAnimalView->goodForNowners+"',"
                                                      "'"+this->addAnimalView->trainingEase+"',"
-                                                     "'"+this->addAnimalView->environmentType+"')");
+                                                     "'"+this->addAnimalView->environmentType+"',"
+                                                     "'"+this->addAnimalView->winged+"',"
+                                                     "'"+this->addAnimalView->vocal+"',"
+                                                     "'"+this->addAnimalView->clawState+"')");
         ret = qry.exec();
     }
 
@@ -147,9 +150,9 @@ void StaffController::tableItemDone()
     animalDetailsView = new AnimalDetailsView;
     QSqlQuery qry;
 
-    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,costOfCare,sheddingAmount,"
-                "aggression,playfulness,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                "easeOfTraining,environmentType from animal WHERE animal_id = '"+browseView->tableRowString+"'");
+    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,playfulness,winged,costOfCare,sheddingAmount,"
+                "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
+                "easeOfTraining,environmentType,vocal,clawState from animal WHERE animal_id = '"+browseView->tableRowString+"'");
     qry.exec();
     qry.next();
     animalDetailsView->getName()->setText(qry.value(0).toString());
@@ -162,15 +165,18 @@ void StaffController::tableItemDone()
     animalDetailsView->getSpan()->setText(qry.value(7).toString());
     animalDetailsView->getSize()->setText(qry.value(8).toString());
     animalDetailsView->getPlayful()->setText(qry.value(9).toString());
-    animalDetailsView->getCost()->setText(qry.value(10).toString());
-    animalDetailsView->getShedding()->setText(qry.value(11).toString());
-    animalDetailsView->getAggression()->setText(qry.value(12).toString());
-    animalDetailsView->getBehaviour()->setText(qry.value(13).toString());
-    animalDetailsView->getDisease()->setText(qry.value(14).toString());
-    animalDetailsView->getParasite()->setText(qry.value(15).toString());
-    animalDetailsView->getNovice()->setText(qry.value(16).toString());
-    animalDetailsView->getEase()->setText(qry.value(17).toString());
-    animalDetailsView->getEnivornment()->setText(qry.value(18).toString());
+    animalDetailsView->getWinged()->setText(qry.value(10).toString());
+    animalDetailsView->getCost()->setText(qry.value(11).toString());
+    animalDetailsView->getShedding()->setText(qry.value(12).toString());
+    animalDetailsView->getAggression()->setText(qry.value(13).toString());
+    animalDetailsView->getBehaviour()->setText(qry.value(14).toString());
+    animalDetailsView->getDisease()->setText(qry.value(15).toString());
+    animalDetailsView->getParasite()->setText(qry.value(16).toString());
+    animalDetailsView->getNovice()->setText(qry.value(17).toString());
+    animalDetailsView->getEase()->setText(qry.value(18).toString());
+    animalDetailsView->getEnivornment()->setText(qry.value(19).toString());
+    animalDetailsView->getVocal()->setText(qry.value(20).toString());
+    animalDetailsView->getclawState()->setText(qry.value(21).toString());
     animalDetailsView->show();
 }
 
@@ -179,7 +185,6 @@ void StaffController::clientTableItemDone()
     clientDetailsView = new ClientDetailsView;
     QSqlQuery qry;
     qDebug()<<browseClientsView->clientTableRowString;
-    //qry.prepare("SELECT name,age from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
 
     qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
 
@@ -250,6 +255,7 @@ void StaffController::insertClientBackButtonDone()
 void StaffController::browseClientsBackButtonDone()
 {
     qDebug()<<"Client List Window: Back button pressed";
+
     //return to staff view from browsing animals
     this->browseClientsView->hide();
     this->staffView->show();

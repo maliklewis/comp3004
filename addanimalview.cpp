@@ -26,11 +26,11 @@ void AddAnimalView::insertAnimalButtonSlot()
     gender = ui->genderDropdown->currentText();
     housetrained = ui->housetrainedDropdown->currentText();
     specialneeds = ui->specialNeedsDropdown->currentText();
-    lifespan = ui->lifeSpanValue->text();
+    lifespan = ui->lifespanDropwdown->currentText();
     size = ui->sizeDropdown->currentText();
-    carecost = ui->costofCareLabel->text();
-    shedAmount = ui->sheddingBar->text().remove(QRegularExpression("%"));//test later with debug
-    aggression = ui->agressionBar->text().remove(QRegularExpression("%"));
+    carecost = ui->costDropdown->currentText();
+    shedAmount = ui->sheddingDropwdown->currentText();
+    aggression = ui->aggressionDropdown->currentText();
     playfulness = ui->playfulnessDropdown->currentText();
     solitudialBehavior = ui->solittudialBehaviourDropdown->currentText();
     diseaseResistance = ui->dResistanceDropdown->currentText();
@@ -38,6 +38,9 @@ void AddAnimalView::insertAnimalButtonSlot()
     goodForNowners = ui->noviceOwnerDropdown->currentText();
     trainingEase = ui->easeofTraingDropdown->currentText();
     environmentType = ui->environmentDropdown->currentText();
+    winged = ui->wingedDropdown->currentText();
+    vocal = ui->vocalDropdown->currentText();
+    clawState = ui->clawDropdown->currentText();
 
     emit insertAnimalButtonClicked();
 }
@@ -61,6 +64,8 @@ void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)
         ui->breedDropdown->addItem("Husky");
         ui->breedDropdown->addItem("Great Dane");
         ui->breedDropdown->addItem("Greyhound");
+        ui->lifespanDropwdown->clear();
+        ui->lifespanDropwdown->addItem("14 Years");
     }
     else if (arg1 == "Cat") {
         ui->breedDropdown->clear();
@@ -69,6 +74,8 @@ void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)
         ui->breedDropdown->addItem("Bengal");
         ui->breedDropdown->addItem("Egyptian");
         ui->breedDropdown->addItem("Himalayan");
+        ui->lifespanDropwdown->clear();
+        ui->lifespanDropwdown->addItem("15 Years");
     }
     else if (arg1 == "Bird"){
         ui->breedDropdown->clear();
@@ -77,5 +84,7 @@ void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)
         ui->breedDropdown->addItem("Lovebird");
         ui->breedDropdown->addItem("Canary");
         ui->breedDropdown->addItem("Dove");
+        ui->lifespanDropwdown->clear();
+        ui->lifespanDropwdown->addItem("20 Years");
     }
 }

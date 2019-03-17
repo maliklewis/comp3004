@@ -39,7 +39,8 @@ SOURCES += \
     clientlogin.cpp \
     clientcontroller.cpp \
     systemcontroller.cpp \
-    editclientdetailsview.cpp
+    editclientdetailsview.cpp \
+    clientdetailsview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -56,7 +57,8 @@ HEADERS += \
     clientlogin.h \
     clientcontroller.h \
     systemcontroller.h \
-    editclientdetailsview.h
+    editclientdetailsview.h \
+    clientdetailsview.h
 
 FORMS += \
         mainwindow.ui \
@@ -69,4 +71,5 @@ FORMS += \
     browseclientview.ui \
     clientview.ui \
     clientlogin.ui \
-    editclientdetailsview.ui
+    editclientdetailsview.ui \
+    clientdetailsview.ui

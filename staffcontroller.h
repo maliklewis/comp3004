@@ -46,6 +46,7 @@ class StaffController : public QObject
          void browseClientsButtonDone();
          void clientTableItemDone();
          void browseClientsBackButtonDone();
+         void updateButtonDone();
 
     signals:
          //void staffLoginClicked();

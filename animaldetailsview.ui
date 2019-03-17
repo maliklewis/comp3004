@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>329</height>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,128 +102,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>50</y>
-     <width>101</width>
-     <height>251</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_4">
-    <item>
-     <widget class="QLabel" name="costLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="sheddingLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="aggressionLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="solitudeLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="diseaseLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="parasiteLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="noviceLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="trainingLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="enivronmentLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="vocalLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="clawLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -235,114 +113,37 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="nameLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="nameLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="typeLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="typeLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="breedLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="breedLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="genderLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="genderLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="ageLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="ageLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="TrainedLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="trainedLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="specialNeedsLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="specialNeedsLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="lifeSpanLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lifeSpanLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="sizeLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="sizeLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="playfulnessLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="playfulnessLabel"/>
     </item>
     <item>
-     <widget class="QLabel" name="wingedLabel">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="wingedLabel"/>
     </item>
    </layout>
   </widget>
@@ -475,6 +276,68 @@
      <bool>true</bool>
     </property>
    </widget>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>399</x>
+     <y>50</y>
+     <width>91</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QLineEdit" name="costLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="sheddingLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="aggressionLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="solitudeLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="diseaseLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="parasiteLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="noviceLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="trainingLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="environmentLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="vocalLabel"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="clawLabel"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="updateButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>310</y>
+     <width>83</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Update</string>
+   </property>
   </widget>
  </widget>
  <resources/>

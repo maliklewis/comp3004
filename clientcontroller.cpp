@@ -17,6 +17,8 @@ void ClientController::clientLoginButtonDone()
     clientView->show();
     this->connect(clientView,SIGNAL(browseButtonClicked()),this,SLOT(browseButtonDone()));
     this->connect(clientView,SIGNAL(clientLogoutClicked()),this,SLOT(clientLogoutDone()));
+    this->connect(clientView,SIGNAL(editProfileClicked()),this,SLOT(editProfileDone()));
+
 }
 
 void ClientController::browseButtonDone()
@@ -95,4 +97,28 @@ void ClientController::clientLogoutDone()
     //staff member logouts of the system
     emit showMain();
     this->clientView->close();
+}
+
+void ClientController::editProfileDone()
+{
+    editDetailsView = new EditClientDetailsView;
+    this->clientView->hide();
+    editDetailsView->show();
+    this->editDetailsView->getName()->setText(username);
+
+    this->connect(editDetailsView,SIGNAL(editClientBackButtonClicked()),this,SLOT(editClientBackButtonDone()));
+    //this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
+    databasemanager cuacsdb;
+    QVector<QString> v = cuacsdb.editClientGetinfo(username);
+    this->editDetailsView->getNumber()->setText(v.value(0));
+    this->editDetailsView->getEmail()->setText(v.value(1));
+}
+
+void ClientController::editClientBackButtonDone()
+{
+    qDebug()<<"Edit Client Window: Back button pressed";
+
+    //return to client view from Edit details view
+    this->editDetailsView->hide();
+    this->clientView->show();
 }

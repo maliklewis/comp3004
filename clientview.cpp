@@ -8,6 +8,8 @@ ClientView::ClientView(QWidget *parent) :
     ui->setupUi(this);
     this->connect(this->ui->browseAnimalsButton,SIGNAL(clicked()),this,SLOT(browseButtonSlot()));
     this->connect(this->ui->logoutButton,SIGNAL(clicked()),this,SLOT(clientLogoutButtonSlot()));
+    this->connect(this->ui->editProfileButton,SIGNAL(clicked()),this,SLOT(editProfileButtonSlot()));
+
 }
 
 ClientView::~ClientView()
@@ -23,4 +25,9 @@ void ClientView::browseButtonSlot()
 void ClientView::clientLogoutButtonSlot()
 {
     emit clientLogoutClicked();
+}
+
+void ClientView::editProfileButtonSlot()
+{
+    emit editProfileClicked();
 }

@@ -35,11 +35,11 @@ SOURCES += \
     animaldetailsview.cpp \
     addclientview.cpp \
     browseclientview.cpp \
-    clientdetailsview.cpp \
     clientview.cpp \
     clientlogin.cpp \
     clientcontroller.cpp \
-    systemcontroller.cpp
+    systemcontroller.cpp \
+    editclientdetailsview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,11 +52,11 @@ HEADERS += \
     animaldetailsview.h \
     addclientview.h \
     browseclientview.h \
-    clientdetailsview.h \
     clientview.h \
     clientlogin.h \
     clientcontroller.h \
-    systemcontroller.h
+    systemcontroller.h \
+    editclientdetailsview.h
 
 FORMS += \
         mainwindow.ui \
@@ -67,6 +67,6 @@ FORMS += \
     animaldetailsview.ui \
     addclientview.ui \
     browseclientview.ui \
-    clientdetailsview.ui \
     clientview.ui \
-    clientlogin.ui
+    clientlogin.ui \
+    editclientdetailsview.ui

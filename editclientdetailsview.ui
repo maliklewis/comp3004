@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditClientDetailsView</class>
+ <widget class="QDialog" name="EditClientDetailsView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>299</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget1_2">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>80</y>
+     <width>101</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QLineEdit" name="otheranimalsValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="employmenttypeValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="maritalstatusValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="employmentstatusValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="incomeValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="architecturalstyleValue"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget1">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>80</y>
+     <width>111</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLineEdit" name="nameValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="numberValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="emailValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="ageValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="numofchildrenValue"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="ageofchildrenValue"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>80</y>
+     <width>135</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QLabel" name="otheranimalsLabel">
+      <property name="text">
+       <string>Other Animals:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="employmenttyLabel">
+      <property name="text">
+       <string>Employment Type:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="maritalstatusLabel">
+      <property name="text">
+       <string>Marital Status:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="employmentstatusLabel">
+      <property name="text">
+       <string>Employment Status:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="incomeLabel">
+      <property name="text">
+       <string>Income:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="architecturalstyleLabel">
+      <property name="text">
+       <string>Architectural Style:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>561</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(168, 36, 36);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/cuacs logo (b&amp;w).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="clientAddButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>270</y>
+     <width>91</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clientBackButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>270</y>
+     <width>83</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>134</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="nameLabel">
+      <property name="text">
+       <string>Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="numberLabel">
+      <property name="text">
+       <string>Phone Number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="emailLabel">
+      <property name="text">
+       <string>Email:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="ageLabel">
+      <property name="text">
+       <string>Age:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="numofchildrenLabel">
+      <property name="text">
+       <string>Number of Children:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="ageofchildrenLabel">
+      <property name="text">
+       <string>Age of Children:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

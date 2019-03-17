@@ -164,6 +164,19 @@ void databasemanager::dbPopulate(){
      }
 }
 
+QVector<QString> databasemanager::editClientGetinfo(QString name)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT number, email from client WHERE name = '"+name+"'");
+    qry.exec();
+    qry.next();
+    QVector<QString> vector;
+    vector.append(qry.value(0).toString());
+    vector.append(qry.value(1).toString());
+
+    return vector;
+}
+
 
 
 

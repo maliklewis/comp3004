@@ -407,7 +407,7 @@ border-color: rgb(0, 0, 0);
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="layoutWidget2">
    <property name="geometry">
     <rect>
      <x>420</x>

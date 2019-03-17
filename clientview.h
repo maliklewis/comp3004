@@ -18,10 +18,12 @@ public:
 private slots:
     void browseButtonSlot();
     void clientLogoutButtonSlot();
+    void editProfileButtonSlot();
 
 signals:
     void browseButtonClicked();
     void clientLogoutClicked();
+    void editProfileClicked();
 
 private:
     Ui::ClientView *ui;

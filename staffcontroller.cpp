@@ -156,10 +156,15 @@ void StaffController::tableItemDone()
     qry.exec();
     qry.next();
     animalDetailsView->getName()->setText(qry.value(0).toString());
+    animalDetailsView->getName()->setReadOnly(true);
     animalDetailsView->getType()->setText(qry.value(1).toString());
+    animalDetailsView->getType()->setReadOnly(true);
     animalDetailsView->getBreed()->setText(qry.value(2).toString());
+    animalDetailsView->getBreed()->setReadOnly(true);
     animalDetailsView->getGender()->setText(qry.value(3).toString());
+    animalDetailsView->getGender()->setReadOnly(true);
     animalDetailsView->getAge()->setText(qry.value(4).toString() + " years");
+    animalDetailsView->getAge()->setReadOnly(true);
     animalDetailsView->getHousetrained()->setText(qry.value(5).toString());
     animalDetailsView->getSpecial()->setText(qry.value(6).toString());
     animalDetailsView->getSpan()->setText(qry.value(7).toString());
@@ -178,6 +183,8 @@ void StaffController::tableItemDone()
     animalDetailsView->getVocal()->setText(qry.value(20).toString());
     animalDetailsView->getclawState()->setText(qry.value(21).toString());
     animalDetailsView->show();
+
+    this->connect(animalDetailsView,SIGNAL(updateButtonClicked()),this,SLOT(updateButtonDone()));
 }
 
 void StaffController::clientTableItemDone()
@@ -259,4 +266,20 @@ void StaffController::browseClientsBackButtonDone()
     //return to staff view from browsing animals
     this->browseClientsView->hide();
     this->staffView->show();
+}
+
+void StaffController::updateButtonDone()
+{
+    qDebug()<<"Animal Details Window: Update button pressed";
+
+    bool ret = false;
+    QSqlQuery qry;
+    qry.prepare("UPDATE animal SET houstrained = '"+this->animalDetailsView->getHousetrained()->text()+"', specialNeeds = '"+this->animalDetailsView->getSpecial()->text()+"', lifespan = '"+this->animalDetailsView->getSpan()->text()+"', size = '"+this->animalDetailsView->getSize()->text()+"', costOfCare = '"+this->animalDetailsView->getCost()->text()+"', sheddingAmount = '"+this->animalDetailsView->getShedding()->text()+"', aggression = '"+this->animalDetailsView->getAggression()->text()+"', playfulness = '"+this->animalDetailsView->getPlayful()->text()+"', solitudialBehaviour = '"+this->animalDetailsView->getBehaviour()->text()+"', diseaseResistance = '"+this->animalDetailsView->getDisease()->text()+"', parasiticResistance = '"+this->animalDetailsView->getParasite()->text()+"', goodforNOwners = '"+this->animalDetailsView->getNovice()->text()+"', easeOfTraining = '"+this->animalDetailsView->getEase()->text()+"', environmentType = '"+this->animalDetailsView->getEnivornment()->text()+"', winged = '"+this->animalDetailsView->getWinged()->text()+"', vocal = '"+this->animalDetailsView->getVocal()->text()+"', clawState = '"+this->animalDetailsView->getclawState()->text()+"' WHERE name = '"+this->animalDetailsView->getName()->text()+"'");
+    ret = qry.exec();
+    if (ret){
+        QMessageBox::information(this->animalDetailsView,tr("Success!"),tr("Animal Updated"));
+    }
+    else{
+        QMessageBox::information(this->animalDetailsView,tr("Error!"),tr("Error updating field(s)"));
+    }
 }

@@ -6,6 +6,7 @@ AnimalDetailsView::AnimalDetailsView(QWidget *parent) :
     ui(new Ui::AnimalDetailsView)
 {
     ui->setupUi(this);
+    this->connect(this->ui->updateButton,SIGNAL(clicked()),this,SLOT(updateButtonSlot()));
 }
 
 AnimalDetailsView::~AnimalDetailsView()
@@ -13,95 +14,108 @@ AnimalDetailsView::~AnimalDetailsView()
     delete ui;
 }
 
-QLabel* AnimalDetailsView::getName()
+QLineEdit* AnimalDetailsView::getName()
 {
     return ui->nameLabel;
 }
 
-QLabel* AnimalDetailsView::getType()
+QLineEdit* AnimalDetailsView::getType()
 {
     return ui->typeLabel;
 }
 
-QLabel* AnimalDetailsView::getBreed()
+QLineEdit* AnimalDetailsView::getBreed()
 {
     return ui->breedLabel;
 }
 
-QLabel* AnimalDetailsView::getGender()
+QLineEdit* AnimalDetailsView::getGender()
 {
     return ui->genderLabel;
 }
 
-QLabel* AnimalDetailsView::getAge()
+QLineEdit* AnimalDetailsView::getAge()
 {
     return ui->ageLabel;
 }
-QLabel* AnimalDetailsView::getHousetrained()
+QLineEdit* AnimalDetailsView::getHousetrained()
 {
-    return ui->TrainedLabel;
+    return ui->trainedLabel;
 }
-QLabel* AnimalDetailsView::getSpecial()
+QLineEdit* AnimalDetailsView::getSpecial()
 {
     return ui->specialNeedsLabel;
 }
-QLabel* AnimalDetailsView::getSpan()
+QLineEdit* AnimalDetailsView::getSpan()
 {
     return ui->lifeSpanLabel;
 }
-QLabel* AnimalDetailsView::getSize()
+QLineEdit* AnimalDetailsView::getSize()
 {
     return ui->sizeLabel;
 }
-QLabel* AnimalDetailsView::getPlayful()
+QLineEdit* AnimalDetailsView::getPlayful()
 {
     return ui->playfulnessLabel;
 }
-QLabel* AnimalDetailsView::getCost()
+QLineEdit* AnimalDetailsView::getCost()
 {
     return ui->costLabel;
 }
-QLabel* AnimalDetailsView::getShedding()
+QLineEdit* AnimalDetailsView::getShedding()
 {
     return ui->sheddingLabel;
 }
-QLabel* AnimalDetailsView::getAggression()
+QLineEdit* AnimalDetailsView::getAggression()
 {
     return ui->aggressionLabel;
 }
-QLabel* AnimalDetailsView::getBehaviour()
+QLineEdit* AnimalDetailsView::getBehaviour()
 {
     return ui->solitudeLabel;
 }
-QLabel* AnimalDetailsView::getDisease()
+QLineEdit* AnimalDetailsView::getDisease()
 {
     return ui->diseaseLabel;
 }
-QLabel* AnimalDetailsView::getParasite()
+QLineEdit* AnimalDetailsView::getParasite()
 {
     return ui->parasiteLabel;
 }
-QLabel* AnimalDetailsView::getNovice()
+QLineEdit* AnimalDetailsView::getNovice()
 {
     return ui->noviceLabel;
 }
-QLabel* AnimalDetailsView::getEase()
+QLineEdit* AnimalDetailsView::getEase()
 {
     return ui->trainingLabel;
 }
-QLabel* AnimalDetailsView::getEnivornment()
+QLineEdit* AnimalDetailsView::getEnivornment()
 {
-    return ui->enivronmentLabel;
+    return ui->environmentLabel;
 }
-QLabel* AnimalDetailsView::getWinged()
+QLineEdit* AnimalDetailsView::getWinged()
 {
     return ui->wingedLabel;
 }
-QLabel* AnimalDetailsView::getVocal()
+QLineEdit* AnimalDetailsView::getVocal()
 {
     return ui->vocalLabel;
 }
-QLabel* AnimalDetailsView::getclawState()
+QLineEdit* AnimalDetailsView::getclawState()
 {
     return ui->clawLabel;
+}
+
+void AnimalDetailsView::setClient(bool clientValue)
+{
+    if (clientValue == true)
+    {
+        ui->updateButton->hide();
+    }
+}
+
+void AnimalDetailsView::updateButtonSlot()
+{
+    emit updateButtonClicked();
 }

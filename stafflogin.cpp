@@ -7,6 +7,7 @@ StaffLogin::StaffLogin(QWidget *parent) :
 {
     ui->setupUi(this);
     this->connect(this->ui->loginButton,SIGNAL(clicked()),this,SLOT(loginButtonSlot()));
+    this->connect(this->ui->backButton,SIGNAL(clicked()),this,SLOT(backButtonSlot()));
     ui->userName->setFocus();
 }
 
@@ -26,4 +27,9 @@ void StaffLogin::loginButtonSlot()
     username = ui->userName->text();
     emit loginButtonClicked();
     qDebug()<<username;
+}
+
+void StaffLogin::backButtonSlot()
+{
+    emit staffLoginBackButtonClicked();
 }

@@ -14,7 +14,7 @@
    <string>Add Animal</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="animalAddButton">
    <property name="geometry">

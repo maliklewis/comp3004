@@ -34,6 +34,7 @@ void SystemController::staffButtonDone()
     this->mainWindow->hide();
     staffLogin = new StaffLogin;
     this->connect(staffLogin,SIGNAL(loginButtonClicked()),this,SLOT(staffLoginButtonDone()));
+    this->connect(staffLogin,SIGNAL(staffLoginBackButtonClicked()),this,SLOT(staffLoginBackButtonDone()));
     staffLogin->show();
 }
 
@@ -43,6 +44,7 @@ void SystemController::clientButtonDone()
     this->mainWindow->hide();
     clientLogin = new ClientLogin;
     this->connect(clientLogin,SIGNAL(clientLoginButtonClicked()),this,SLOT(clientLoginButtonDone()));
+    this->connect(clientLogin,SIGNAL(clientLoginBackButtonClicked()),this,SLOT(clientLoginBackButtonDone()));
     clientLogin->show();
 }
 
@@ -89,9 +91,22 @@ void SystemController::clientLoginButtonDone()
 
 }
 
-
 void SystemController::loggedOutDone()
 {
     qDebug()<<"system logout function";
+    this->mainWindow->show();
+}
+
+void SystemController::staffLoginBackButtonDone()
+{
+    qDebug()<<"STAFF login window: Back button pressed";
+    this->staffLogin->hide();
+    this->mainWindow->show();
+}
+
+void SystemController::clientLoginBackButtonDone()
+{
+    qDebug()<<"STAFF login window: Back button pressed";
+    this->clientLogin->hide();
     this->mainWindow->show();
 }

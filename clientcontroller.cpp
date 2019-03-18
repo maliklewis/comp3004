@@ -145,3 +145,5 @@ void ClientController::editClientBackButtonDone()
     this->editDetailsView->hide();
     this->clientView->show();
 }
+
+

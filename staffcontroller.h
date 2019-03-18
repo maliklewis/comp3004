@@ -19,8 +19,8 @@ class StaffController : public QObject
     Q_OBJECT
     public:
         StaffController();
-        //void launch();
         ~StaffController();
+
     private:
          StaffView* staffView;
          BrowseAnimalsView* browseView;

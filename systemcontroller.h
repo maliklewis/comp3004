@@ -16,8 +16,9 @@ class SystemController : public QObject
 {
     Q_OBJECT
     public:
-        SystemController();
+        //SystemController();
         ~SystemController();
+        static SystemController* getInstance();
     private:
         StaffController* staffControl;
         ClientController* clientControl;
@@ -25,6 +26,12 @@ class SystemController : public QObject
         StaffLogin* staffLogin;
         StaffView* staffView;
         ClientLogin* clientLogin;
+
+        //Instance will be stored here
+        static SystemController* instance;
+
+        //private constructor to prevent instancing
+        SystemController();
     public slots:
          void staffButtonDone();
          void clientButtonDone();

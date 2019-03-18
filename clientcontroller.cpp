@@ -131,8 +131,8 @@ void ClientController::editProfileDone()
 
     this->connect(editDetailsView,SIGNAL(editClientBackButtonClicked()),this,SLOT(editClientBackButtonDone()));
     //this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
-    databasemanager cuacsdb;
-    QVector<QString> v = cuacsdb.editClientGetinfo(username);
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    QVector<QString> v = cuacsdb->editClientGetinfo(username);
     this->editDetailsView->getNumber()->setText(v.value(0));
     this->editDetailsView->getEmail()->setText(v.value(1));
 }

@@ -7,7 +7,8 @@ class databasemanager : public QObject
 {
     Q_OBJECT
 public:
-    explicit databasemanager(QObject *parent = 0);
+    static databasemanager* getInstance();
+    //explicit databasemanager(QObject *parent = 0);
     bool dbOpen();
     bool dbBuild();
     bool dbClose();
@@ -19,16 +20,12 @@ public:
     QVector<QString> editClientGetinfo(QString);
     QVector<QString> editClientaddInfo(QString);
 
-    //bool insertAnimal(QString name,QString type, QString breed);
-
-    //QSqlQuery exec(const QString & query = QString()) const;
-
-    //QSqlQuery getAnimalTable();
-
-
 
 private:
     QSqlDatabase db;
+    static databasemanager* instance;
+
+    databasemanager();
 
 signals:
 

@@ -2,19 +2,28 @@
 
 SystemController::SystemController()
 {
-    databasemanager cuacsdb;
-    cuacsdb.dbOpen();
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    cuacsdb->dbOpen();
     mainWindow = new MainWindow;
-    //staffLogin = new StaffLogin;
     mainWindow->show();
     qDebug()<<"started here";
     this->connect(mainWindow,SIGNAL(staffButtonClicked()),this,SLOT(staffButtonDone()));
     this->connect(mainWindow,SIGNAL(clientButtonClicked()),this,SLOT(clientButtonDone()));
 }
 
+SystemController* SystemController::instance = 0;
+
+SystemController* SystemController::getInstance()
+{
+    if (instance == 0)
+    {
+        instance = new SystemController();
+    }
+    return instance;
+}
+
 SystemController::~SystemController()
 {
-
     qDebug()<<"destructor";
 }
 

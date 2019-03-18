@@ -7,6 +7,7 @@ StaffLogin::StaffLogin(QWidget *parent) :
 {
     ui->setupUi(this);
     this->connect(this->ui->loginButton,SIGNAL(clicked()),this,SLOT(loginButtonSlot()));
+    ui->userName->setFocus();
 }
 
 StaffLogin::~StaffLogin()

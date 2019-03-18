@@ -2,16 +2,29 @@
 #include <QtSql>
 #include <QDebug>
 
-
+/*
 databasemanager::databasemanager(QObject *parent) : QObject(parent)
 {
+}
+*/
+
+databasemanager::databasemanager(){}
+
+databasemanager* databasemanager::instance = 0;
+
+databasemanager* databasemanager::getInstance()
+{
+    if (instance == 0)
+    {
+        instance = new databasemanager();
+    }
+    return instance;
 }
 
 bool databasemanager::dbOpen(){
 
     //sqlite driver
     db = QSqlDatabase::addDatabase("QSQLITE");
-    //db.setHostName("QDir::currentPath()");
     db.setDatabaseName(QDir::currentPath() + "/tables.db");
     qDebug()<<QDir::currentPath();
 
@@ -153,6 +166,7 @@ void databasemanager::dbPopulate(){
 
         //staff members
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Smith', 'jsmith@gmail.com')"));
+        db.exec(QString("INSERT INTO staff VALUES(Null, 'John Doe', 'jdoe@gmail.com')"));
 
         //client members
         db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 240000, 'Townhouse')"));

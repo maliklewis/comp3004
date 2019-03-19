@@ -18,7 +18,7 @@ public:
     bool makeStaffTable();
     bool makeClientTable();
     QVector<QString> editClientGetinfo(QString);
-    QVector<QString> editClientaddInfo(QString);
+    bool editClientaddInfo(QVector<QString>);
 
 
 private:

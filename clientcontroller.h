@@ -33,7 +33,7 @@ class ClientController : public QObject
          void clientLogoutDone();
          void editProfileDone();
          void editClientBackButtonDone();
-         //void editClientAddButtonDone();
+         void editClientAddButtonDone();
     signals:
          void showMain();
 

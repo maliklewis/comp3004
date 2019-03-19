@@ -191,6 +191,14 @@ QVector<QString> databasemanager::editClientGetinfo(QString name)
     return vector;
 }
 
+bool databasemanager::editClientaddInfo(QVector<QString> v){
+    QSqlQuery qry;
+    bool ret = false;
+    qry.prepare("UPDATE client SET age ='"+v.at(3)+"', numberOfChildren ='"+v.at(4)+"', ageOfChildren ='"+v.at(5)+"',otherAnimals = '"+v.at(6)+"',employmentType = '"+v.at(7)+"',maritalStatus ='"+v.at(8)+"',employmentStatus = '"+v.at(9)+"',income = '"+v.at(10)+"',architectureStyle = '"+v.at(11)+"' WHERE name = '"+v.at(0)+"'");
+    ret = qry.exec();
+    return ret;
+}
+
 
 
 

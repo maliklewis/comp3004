@@ -130,7 +130,7 @@ void ClientController::editProfileDone()
     this->editDetailsView->getName()->setText(username);
 
     this->connect(editDetailsView,SIGNAL(editClientBackButtonClicked()),this,SLOT(editClientBackButtonDone()));
-    //this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
+    this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
     databasemanager* cuacsdb = databasemanager::getInstance();
     QVector<QString> v = cuacsdb->editClientGetinfo(username);
     this->editDetailsView->getNumber()->setText(v.value(0));
@@ -144,4 +144,36 @@ void ClientController::editClientBackButtonDone()
     //return to client view from Edit details view
     this->editDetailsView->hide();
     this->clientView->show();
+}
+
+void ClientController::editClientAddButtonDone()
+{
+
+    qDebug()<<"Edit Client Window: Add button pressed";
+    QVector<QString> v;
+    v.append(this->editDetailsView->getName()->text());
+    v.append(this->editDetailsView->getNumber()->text());
+    v.append(this->editDetailsView->getEmail()->text());
+    v.append(this->editDetailsView->getAge()->text());
+    v.append(this->editDetailsView->getNumChild()->text());
+    v.append(this->editDetailsView->getAgeChild()->text());
+    v.append(this->editDetailsView->getOtherAnimal()->text());
+    v.append(this->editDetailsView->getEmploymentType()->text());
+    v.append(this->editDetailsView->getMStatus()->text());
+    v.append(this->editDetailsView->getEStatus()->text());
+    v.append(this->editDetailsView->getIncome()->text());
+    v.append(this->editDetailsView->getStyle()->text());
+
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    bool ret=cuacsdb->editClientaddInfo(v);
+
+    if (ret){
+        QMessageBox::information(this->editDetailsView,tr("Success!"),tr("Client Profile Set"));
+    }
+    else{
+        QMessageBox::information(this->editDetailsView,tr("Error!"),tr("Error updating field(s)"));
+    }
+
+
+
 }

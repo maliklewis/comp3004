@@ -30,10 +30,10 @@ public:
 
 private slots:
     void editClientBackButtonSlot();
-    //void editClientAddButtonSlot();
+    void editClientAddButtonSlot();
 
 signals:
-    //void editClientAddButtonClicked();
+    void editClientAddButtonClicked();
     void editClientBackButtonClicked();
 
 private:

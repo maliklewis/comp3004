@@ -13,13 +13,16 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="layoutWidget1_2">
    <property name="geometry">
     <rect>
      <x>440</x>
      <y>80</y>
      <width>101</width>
-     <height>171</height>
+     <height>182</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -49,7 +52,7 @@
      <x>160</x>
      <y>80</y>
      <width>111</width>
-     <height>171</height>
+     <height>182</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">

@@ -21,9 +21,11 @@ public:
 
 private slots:
     void loginButtonSlot();
+    void backButtonSlot();
 
 signals:
     void loginButtonClicked();
+    void staffLoginBackButtonClicked();
 
 private:
     Ui::StaffLogin *ui;

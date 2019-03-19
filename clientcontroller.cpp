@@ -146,6 +146,7 @@ void ClientController::editClientBackButtonDone()
     this->clientView->show();
 }
 
+
 void ClientController::editClientAddButtonDone()
 {
 
@@ -177,3 +178,4 @@ void ClientController::editClientAddButtonDone()
 
 
 }
+

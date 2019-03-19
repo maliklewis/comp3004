@@ -38,6 +38,8 @@ class SystemController : public QObject
          void staffLoginButtonDone();
          void clientLoginButtonDone();
          void loggedOutDone();
+         void staffLoginBackButtonDone();
+         void clientLoginBackButtonDone();
     signals:
          void startStaffController();
 };

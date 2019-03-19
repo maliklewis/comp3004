@@ -7,6 +7,8 @@ ClientLogin::ClientLogin(QWidget *parent) :
 {
     ui->setupUi(this);
     this->connect(this->ui->loginButton,SIGNAL(clicked()),this,SLOT(loginButtonSlot()));
+	this->connect(this->ui->backButton,SIGNAL(clicked()),this,SLOT(backButtonSlot()));
+
 }
 
 ClientLogin::~ClientLogin()
@@ -19,4 +21,9 @@ void ClientLogin::loginButtonSlot()
     username = ui->userName->text();
     emit clientLoginButtonClicked();
     qDebug()<<username;
+}
+
+void ClientLogin::backButtonSlot()
+{
+    emit clientLoginBackButtonClicked();
 }

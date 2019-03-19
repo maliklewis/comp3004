@@ -19,9 +19,11 @@ public:
 
 private slots:
     void loginButtonSlot();
+    void backButtonSlot();
 
 signals:
     void clientLoginButtonClicked();
+    void clientLoginBackButtonClicked();
 
 private:
     Ui::ClientLogin *ui;

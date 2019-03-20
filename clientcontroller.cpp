@@ -30,8 +30,10 @@ void ClientController::browseButtonDone()
     browseView = new BrowseAnimalsView;
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery qry;
-    qry.prepare("Select name, type, breed from animal");
-    qry.exec();
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    qry = cuacsdb->browseAnimalsQuery();
+
+
     modal->setQuery(qry);
     browseView->getForm()->setModel(modal);
     browseView->show();
@@ -52,62 +54,55 @@ void ClientController::browseBackButtonDone()
 void ClientController::tableItemDone()
 {
     animalDetailsView = new AnimalDetailsView;
-    QSqlQuery qry;
-    /*
-    //qry.prepare("SELECT name,type,breed,gender,age from animal WHERE animal_id = '"+browseView->tableRowString+"'");
-    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,costOfCare,sheddingAmount,"
-                "aggression,playfulness,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                "easeOfTraining,environmentType,winged,vocal,vocal from animal WHERE animal_id = '"+browseView->tableRowString+"'");
-                */
-    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,playfulness,winged,costOfCare,sheddingAmount,"
-                "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                "easeOfTraining,environmentType,vocal,clawState from animal WHERE animal_id = '"+browseView->tableRowString+"'");
-    qry.exec();
-    qry.next();
-    qDebug()<<qry.value(0);
-    animalDetailsView->getName()->setText(qry.value(0).toString());
+
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    QVector<QString> v = cuacsdb->getAnimalinfo(browseView->tableRowString);
+
+
+    qDebug()<<v.at(0);
+    animalDetailsView->getName()->setText(v.at(0));
     animalDetailsView->getName()->setReadOnly(true);
-    animalDetailsView->getType()->setText(qry.value(1).toString());
+    animalDetailsView->getType()->setText(v.at(1));
     animalDetailsView->getType()->setReadOnly(true);
-    animalDetailsView->getBreed()->setText(qry.value(2).toString());
+    animalDetailsView->getBreed()->setText(v.at(2));
     animalDetailsView->getBreed()->setReadOnly(true);
-    animalDetailsView->getGender()->setText(qry.value(3).toString());
+    animalDetailsView->getGender()->setText(v.at(3));
     animalDetailsView->getGender()->setReadOnly(true);
-    animalDetailsView->getAge()->setText(qry.value(4).toString() + " years");
+    animalDetailsView->getAge()->setText(v.at(4) + " years");
     animalDetailsView->getAge()->setReadOnly(true);
-    animalDetailsView->getHousetrained()->setText(qry.value(5).toString());
+    animalDetailsView->getHousetrained()->setText(v.at(5));
     animalDetailsView->getHousetrained()->setReadOnly(true);
-    animalDetailsView->getSpecial()->setText(qry.value(6).toString());
+    animalDetailsView->getSpecial()->setText(v.at(6));
     animalDetailsView->getSpecial()->setReadOnly(true);
-    animalDetailsView->getSpan()->setText(qry.value(7).toString());
+    animalDetailsView->getSpan()->setText(v.at(7));
     animalDetailsView->getSpan()->setReadOnly(true);
-    animalDetailsView->getSize()->setText(qry.value(8).toString());
+    animalDetailsView->getSize()->setText(v.at(8));
     animalDetailsView->getSize()->setReadOnly(true);
-    animalDetailsView->getPlayful()->setText(qry.value(9).toString());
+    animalDetailsView->getPlayful()->setText(v.at(9));
     animalDetailsView->getPlayful()->setReadOnly(true);
-    animalDetailsView->getWinged()->setText(qry.value(10).toString());
+    animalDetailsView->getWinged()->setText(v.at(10));
     animalDetailsView->getWinged()->setReadOnly(true);
-    animalDetailsView->getCost()->setText(qry.value(11).toString());
+    animalDetailsView->getCost()->setText(v.at(11));
     animalDetailsView->getCost()->setReadOnly(true);
-    animalDetailsView->getShedding()->setText(qry.value(12).toString());
+    animalDetailsView->getShedding()->setText(v.at(12));
     animalDetailsView->getShedding()->setReadOnly(true);
-    animalDetailsView->getAggression()->setText(qry.value(13).toString());
+    animalDetailsView->getAggression()->setText(v.at(13));
     animalDetailsView->getAggression()->setReadOnly(true);
-    animalDetailsView->getBehaviour()->setText(qry.value(14).toString());
+    animalDetailsView->getBehaviour()->setText(v.at(14));
     animalDetailsView->getBehaviour()->setReadOnly(true);
-    animalDetailsView->getDisease()->setText(qry.value(15).toString());
+    animalDetailsView->getDisease()->setText(v.at(15));
     animalDetailsView->getDisease()->setReadOnly(true);
-    animalDetailsView->getParasite()->setText(qry.value(16).toString());
+    animalDetailsView->getParasite()->setText(v.at(16));
     animalDetailsView->getParasite()->setReadOnly(true);
-    animalDetailsView->getNovice()->setText(qry.value(17).toString());
+    animalDetailsView->getNovice()->setText(v.at(17));
     animalDetailsView->getNovice()->setReadOnly(true);
-    animalDetailsView->getEase()->setText(qry.value(18).toString());
+    animalDetailsView->getEase()->setText(v.at(18));
     animalDetailsView->getEase()->setReadOnly(true);
-    animalDetailsView->getEnivornment()->setText(qry.value(19).toString());
+    animalDetailsView->getEnivornment()->setText(v.at(19));
     animalDetailsView->getEnivornment()->setReadOnly(true);
-    animalDetailsView->getVocal()->setText(qry.value(20).toString());
+    animalDetailsView->getVocal()->setText(v.at(20));
     animalDetailsView->getVocal()->setReadOnly(true);
-    animalDetailsView->getclawState()->setText(qry.value(21).toString());
+    animalDetailsView->getclawState()->setText(v.at(21));
     animalDetailsView->getclawState()->setReadOnly(true);
     animalDetailsView->setClient(true);
     animalDetailsView->show();

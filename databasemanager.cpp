@@ -191,13 +191,147 @@ QVector<QString> databasemanager::editClientGetinfo(QString name)
     return vector;
 }
 
-bool databasemanager::editClientaddInfo(QVector<QString> v){
+bool databasemanager::editClientaddInfo(QVector<QString> v)
+{
     QSqlQuery qry;
     bool ret = false;
     qry.prepare("UPDATE client SET age ='"+v.at(3)+"', numberOfChildren ='"+v.at(4)+"', ageOfChildren ='"+v.at(5)+"',otherAnimals = '"+v.at(6)+"',employmentType = '"+v.at(7)+"',maritalStatus ='"+v.at(8)+"',employmentStatus = '"+v.at(9)+"',income = '"+v.at(10)+"',architectureStyle = '"+v.at(11)+"' WHERE name = '"+v.at(0)+"'");
     ret = qry.exec();
     return ret;
 }
+
+bool databasemanager::insertClientquery(QVector<QString> v)
+{
+    QSqlQuery qry;
+    bool ret = false;
+
+    qry.prepare("INSERT INTO client VALUES (Null,'"+v.at(0)+"',"
+                                                         "'"+v.at(1)+"',"
+                                                         "'"+v.at(2)+"',"
+                                                         "Null,Null,Null,Null,Null,Null,Null,Null,Null)");
+            ret = qry.exec();
+            return ret;
+}
+
+bool databasemanager::insertAnimalquery(QVector<QString> v)
+{
+    QSqlQuery qry;
+    bool ret = false;
+
+    qry.prepare("INSERT INTO animal VALUES (Null,'"+v.at(0)+"',"
+                                                 "'"+v.at(1)+"',"
+                                                 "'"+v.at(2)+"',"
+                                                 "'"+v.at(3)+"',"
+                                                 "'"+v.at(4)+"',"
+                                                 "'"+v.at(5)+"',"
+                                                 "'"+v.at(6)+"',"
+                                                 "'"+v.at(7)+"',"
+                                                 "'"+v.at(8)+"',"
+                                                 "'"+v.at(9)+"',"
+                                                 "'"+v.at(10)+"',"
+                                                 "'"+v.at(11)+"',"
+                                                 "'"+v.at(12)+"',"
+                                                 "'"+v.at(13)+"',"
+                                                 "'"+v.at(14)+"',"
+                                                 "'"+v.at(15)+"',"
+                                                 "'"+v.at(16)+"',"
+                                                 "'"+v.at(17)+"',"
+                                                 "'"+v.at(18)+"',"
+                                                 "'"+v.at(19)+"',"
+                                                 "'"+v.at(20)+"',"
+                                                 "'"+v.at(21)+"')");
+            ret = qry.exec();
+
+
+            return ret;
+}
+QVector<QString> databasemanager::getClientinfo(QString client_id)
+{
+    QSqlQuery qry;
+    QVector<QString> vector;
+
+    qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle from client WHERE client_id = '"+client_id+"'");
+
+    qry.exec();
+    qry.next();
+    vector.append(qry.value(0).toString());
+    vector.append(qry.value(1).toString());
+    vector.append(qry.value(2).toString());
+    vector.append(qry.value(3).toString());
+    vector.append(qry.value(4).toString());
+    vector.append(qry.value(5).toString());
+    vector.append(qry.value(6).toString());
+    vector.append(qry.value(7).toString());
+    vector.append(qry.value(8).toString());
+    vector.append(qry.value(9).toString());
+    vector.append(qry.value(10).toString());
+    vector.append(qry.value(11).toString());
+
+    return vector;
+
+}
+
+QVector<QString> databasemanager::getAnimalinfo(QString animal_id)
+{
+    QSqlQuery qry;
+    QVector<QString> vector;
+    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,playfulness,winged,costOfCare,sheddingAmount,"
+                "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
+                "easeOfTraining,environmentType,vocal,clawState from animal WHERE animal_id = '"+animal_id+"'");
+    qry.exec();
+    qry.next();
+    
+    vector.append(qry.value(0).toString());
+    vector.append(qry.value(1).toString());
+    vector.append(qry.value(2).toString());
+    vector.append(qry.value(3).toString());
+    vector.append(qry.value(4).toString());
+    vector.append(qry.value(5).toString());
+    vector.append(qry.value(6).toString());
+    vector.append(qry.value(7).toString());
+    vector.append(qry.value(8).toString());
+    vector.append(qry.value(9).toString());
+    vector.append(qry.value(10).toString());
+    vector.append(qry.value(11).toString());
+    vector.append(qry.value(12).toString());
+    vector.append(qry.value(13).toString());
+    vector.append(qry.value(14).toString());
+    vector.append(qry.value(15).toString());
+    vector.append(qry.value(16).toString());
+    vector.append(qry.value(17).toString());
+    vector.append(qry.value(18).toString());
+    vector.append(qry.value(19).toString());
+    vector.append(qry.value(20).toString());
+    vector.append(qry.value(21).toString());
+
+    return vector;
+}
+
+bool databasemanager::updateAnimalquery(QVector<QString> v)
+{
+    QSqlQuery qry;
+    bool ret = false;
+
+    qry.prepare("UPDATE animal SET houstrained = '"+v.at(0)+"', specialNeeds = '"+v.at(1)+"', lifespan = '"+v.at(2)+"', size = '"+v.at(3)+"', costOfCare = '"+v.at(4)+"', sheddingAmount = '"+v.at(5)+"', aggression = '"+v.at(6)+"', playfulness = '"+v.at(7)+"', solitudialBehaviour = '"+v.at(8)+"', diseaseResistance = '"+v.at(9)+"', parasiticResistance = '"+v.at(10)+"', goodforNOwners = '"+v.at(11)+"', easeOfTraining = '"+v.at(12)+"', environmentType = '"+v.at(13)+"', winged = '"+v.at(14)+"', vocal = '"+v.at(15)+"', clawState = '"+v.at(16)+"' WHERE name = '"+v.at(17)+"'");
+    ret = qry.exec();
+    return ret;
+}
+
+QSqlQuery databasemanager::browseAnimalsQuery(){
+    QSqlQuery qry;
+    qry.prepare("Select name, type, breed from animal");
+    qry.exec();
+    return qry;
+}
+
+QSqlQuery databasemanager::browseClientsQuery(){
+    QSqlQuery qry;
+    qry.prepare("Select name, number, email from client");
+    qry.exec();
+    return qry;
+}
+
+
 
 
 

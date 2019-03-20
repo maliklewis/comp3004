@@ -32,8 +32,8 @@ void StaffController::browseButtonDone()
     browseView = new BrowseAnimalsView;
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery qry;
-    qry.prepare("Select name, type, breed from animal");
-    qry.exec();
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    qry = cuacsdb->browseAnimalsQuery();
     modal->setQuery(qry);
     browseView->getForm()->setModel(modal);
     browseView->show();
@@ -61,8 +61,11 @@ void StaffController::browseClientsButtonDone()
     browseClientsView = new BrowseClientView;
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery qry;
-    qry.prepare("Select name, number, email from client");
-    qry.exec();
+   /* qry.prepare("Select name, number, email from client");
+    qry.exec();*/
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    qry = cuacsdb->browseClientsQuery();
+
     modal->setQuery(qry);
     browseClientsView->getForm()->setModel(modal);
     browseClientsView->show();
@@ -99,34 +102,36 @@ void StaffController::insertAnimalButtonDone()
     qDebug()<<"Add Animal Window: Add button pressed";
     //user attempts to add an animal to the database
     bool ret = false;
+    QVector<QString> v;
 
     QSqlQuery qry;
     if (this->addAnimalView->name != "" && this->addAnimalView->age != ""){
-        qry.prepare("INSERT INTO animal VALUES (Null,'"+this->addAnimalView->name+"',"
-                                                     "'"+this->addAnimalView->type+"',"
-                                                     "'"+this->addAnimalView->breed+"',"
-                                                     "'"+this->addAnimalView->gender+"',"
-                                                     "'"+this->addAnimalView->age+"',"
-                                                     "'"+this->addAnimalView->housetrained+"',"
-                                                     "'"+this->addAnimalView->specialneeds+"',"
-                                                     "'"+this->addAnimalView->lifespan+"',"
-                                                     "'"+this->addAnimalView->size+"',"
-                                                     "'"+this->addAnimalView->carecost+"',"
-                                                     "'"+this->addAnimalView->shedAmount+"',"
-                                                     "'"+this->addAnimalView->aggression+"',"
-                                                     "'"+this->addAnimalView->playfulness+"',"
-                                                     "'"+this->addAnimalView->solitudialBehavior+"',"
-                                                     "'"+this->addAnimalView->diseaseResistance+"',"
-                                                     "'"+this->addAnimalView->parasiticResistance+"',"
-                                                     "'"+this->addAnimalView->goodForNowners+"',"
-                                                     "'"+this->addAnimalView->trainingEase+"',"
-                                                     "'"+this->addAnimalView->environmentType+"',"
-                                                     "'"+this->addAnimalView->winged+"',"
-                                                     "'"+this->addAnimalView->vocal+"',"
-                                                     "'"+this->addAnimalView->clawState+"')");
-        ret = qry.exec();
-    }
+        v.append(this->addAnimalView->name);
+        v.append(this->addAnimalView->type);
+        v.append(this->addAnimalView->breed);
+        v.append(this->addAnimalView->gender);
+        v.append(this->addAnimalView->age);
+        v.append(this->addAnimalView->housetrained);
+        v.append(this->addAnimalView->specialneeds);
+        v.append(this->addAnimalView->lifespan);
+        v.append(this->addAnimalView->size);
+        v.append(this->addAnimalView->carecost);
+        v.append(this->addAnimalView->shedAmount);
+        v.append(this->addAnimalView->aggression);
+        v.append(this->addAnimalView->playfulness);
+        v.append(this->addAnimalView->solitudialBehavior);
+        v.append(this->addAnimalView->diseaseResistance);
+        v.append(this->addAnimalView->parasiticResistance);
+        v.append(this->addAnimalView->goodForNowners);
+        v.append(this->addAnimalView->trainingEase);
+        v.append(this->addAnimalView->environmentType);
+        v.append(this->addAnimalView->winged);
+        v.append(this->addAnimalView->vocal);
+        v.append(this->addAnimalView->clawState);
 
+        databasemanager* cuacsdb = databasemanager::getInstance();
+        ret=cuacsdb->insertAnimalquery(v);
+    }
 
     if (ret){
         QMessageBox::information(addAnimalView,tr("Success!"),tr("Animal Added"));
@@ -146,71 +151,89 @@ void StaffController::insertAnimalBackButtonDone()
 
 void StaffController::tableItemDone()
 {
-    //browseView->tableRow;
     animalDetailsView = new AnimalDetailsView;
     QSqlQuery qry;
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    QVector<QString> v = cuacsdb->getAnimalinfo(browseView->tableRowString);
 
-    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,playfulness,winged,costOfCare,sheddingAmount,"
-                "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                "easeOfTraining,environmentType,vocal,clawState from animal WHERE animal_id = '"+browseView->tableRowString+"'");
-    qry.exec();
-    qry.next();
-    animalDetailsView->getName()->setText(qry.value(0).toString());
+
+    qDebug()<<v.at(0);
+    animalDetailsView->getName()->setText(v.at(0));
     animalDetailsView->getName()->setReadOnly(true);
-    animalDetailsView->getType()->setText(qry.value(1).toString());
+    animalDetailsView->getType()->setText(v.at(1));
     animalDetailsView->getType()->setReadOnly(true);
-    animalDetailsView->getBreed()->setText(qry.value(2).toString());
+    animalDetailsView->getBreed()->setText(v.at(2));
     animalDetailsView->getBreed()->setReadOnly(true);
-    animalDetailsView->getGender()->setText(qry.value(3).toString());
+    animalDetailsView->getGender()->setText(v.at(3));
     animalDetailsView->getGender()->setReadOnly(true);
-    animalDetailsView->getAge()->setText(qry.value(4).toString() + " years");
+    animalDetailsView->getAge()->setText(v.at(4) + " years");
     animalDetailsView->getAge()->setReadOnly(true);
-    animalDetailsView->getHousetrained()->setText(qry.value(5).toString());
-    animalDetailsView->getSpecial()->setText(qry.value(6).toString());
-    animalDetailsView->getSpan()->setText(qry.value(7).toString());
-    animalDetailsView->getSize()->setText(qry.value(8).toString());
-    animalDetailsView->getPlayful()->setText(qry.value(9).toString());
-    animalDetailsView->getWinged()->setText(qry.value(10).toString());
-    animalDetailsView->getCost()->setText(qry.value(11).toString());
-    animalDetailsView->getShedding()->setText(qry.value(12).toString());
-    animalDetailsView->getAggression()->setText(qry.value(13).toString());
-    animalDetailsView->getBehaviour()->setText(qry.value(14).toString());
-    animalDetailsView->getDisease()->setText(qry.value(15).toString());
-    animalDetailsView->getParasite()->setText(qry.value(16).toString());
-    animalDetailsView->getNovice()->setText(qry.value(17).toString());
-    animalDetailsView->getEase()->setText(qry.value(18).toString());
-    animalDetailsView->getEnivornment()->setText(qry.value(19).toString());
-    animalDetailsView->getVocal()->setText(qry.value(20).toString());
-    animalDetailsView->getclawState()->setText(qry.value(21).toString());
-    animalDetailsView->show();
+    animalDetailsView->getHousetrained()->setText(v.at(5));
 
+    animalDetailsView->getSpecial()->setText(v.at(6));
+
+    animalDetailsView->getSpan()->setText(v.at(7));
+
+    animalDetailsView->getSize()->setText(v.at(8));
+
+    animalDetailsView->getPlayful()->setText(v.at(9));
+
+    animalDetailsView->getWinged()->setText(v.at(10));
+
+    animalDetailsView->getCost()->setText(v.at(11));
+
+    animalDetailsView->getShedding()->setText(v.at(12));
+
+    animalDetailsView->getAggression()->setText(v.at(13));
+
+    animalDetailsView->getBehaviour()->setText(v.at(14));
+
+    animalDetailsView->getDisease()->setText(v.at(15));
+
+    animalDetailsView->getParasite()->setText(v.at(16));
+
+    animalDetailsView->getNovice()->setText(v.at(17));
+
+    animalDetailsView->getEase()->setText(v.at(18));
+
+    animalDetailsView->getEnivornment()->setText(v.at(19));
+
+    animalDetailsView->getVocal()->setText(v.at(20));
+
+    animalDetailsView->getclawState()->setText(v.at(21));
+
+
+    animalDetailsView->show();
     this->connect(animalDetailsView,SIGNAL(updateButtonClicked()),this,SLOT(updateButtonDone()));
 }
 
 void StaffController::clientTableItemDone()
 {
     clientDetailsView = new ClientDetailsView;
-    QSqlQuery qry;
+    /*QSqlQuery qry;
     qDebug()<<browseClientsView->clientTableRowString;
 
     qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
 
     qry.exec();
-    qry.next();
-    qDebug()<<qry.value(0);
+    qry.next();*/
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    QVector<QString> v = cuacsdb->getClientinfo(browseClientsView->clientTableRowString);
 
-    clientDetailsView->getName()->setText(qry.value(0).toString());
-    clientDetailsView->getNumber()->setText(qry.value(1).toString());
-    clientDetailsView->getEmail()->setText(qry.value(2).toString());
-    clientDetailsView->getAge()->setText(qry.value(3).toString());
-    clientDetailsView->getNumChild()->setText(qry.value(4).toString());
-    clientDetailsView->getAgeChild()->setText(qry.value(5).toString());
-    clientDetailsView->getOtherAnimal()->setText(qry.value(6).toString());
-    clientDetailsView->getEmploymentType()->setText(qry.value(7).toString());
-    clientDetailsView->getMStatus()->setText(qry.value(8).toString());
-    clientDetailsView->getEStatus()->setText(qry.value(9).toString());
-    clientDetailsView->getIncome()->setText(qry.value(10).toString());
-    clientDetailsView->getStyle()->setText(qry.value(11).toString());
+    qDebug()<<v.at(0);
+
+    clientDetailsView->getName()->setText(v.at(0));
+    clientDetailsView->getNumber()->setText(v.at(1));
+    clientDetailsView->getEmail()->setText(v.at(2));
+    clientDetailsView->getAge()->setText(v.at(3));
+    clientDetailsView->getNumChild()->setText(v.at(4));
+    clientDetailsView->getAgeChild()->setText(v.at(5));
+    clientDetailsView->getOtherAnimal()->setText(v.at(6));
+    clientDetailsView->getEmploymentType()->setText(v.at(7));
+    clientDetailsView->getMStatus()->setText(v.at(8));
+    clientDetailsView->getEStatus()->setText(v.at(9));
+    clientDetailsView->getIncome()->setText(v.at(10));
+    clientDetailsView->getStyle()->setText(v.at(11));
     clientDetailsView->show();
 }
 
@@ -231,14 +254,25 @@ void StaffController::insertClientButtonDone()
 
     //user attempts to add an animal to the database
     bool ret = false;
+    QVector<QString> v;
 
     QSqlQuery qry;
     if (this->addClientView->name != "" && this->addClientView->number != "" && this->addClientView->email != ""){
-        qry.prepare("INSERT INTO client VALUES (Null,'"+this->addClientView->name+"',"
+        /*qry.prepare("INSERT INTO client VALUES (Null,'"+this->addClientView->name+"',"
                                                      "'"+this->addClientView->number+"',"
                                                      "'"+this->addClientView->email+"',"
                                                      "Null,Null,Null,Null,Null,Null,Null,Null,Null)");
-        ret = qry.exec();
+        ret = qry.exec();*/
+
+        v.append(this->addClientView->name);
+        v.append(this->addClientView->number);
+        v.append(this->addClientView->email);
+
+
+
+
+        databasemanager* cuacsdb = databasemanager::getInstance();
+        ret=cuacsdb->insertClientquery(v);
     }
 
 
@@ -271,11 +305,34 @@ void StaffController::browseClientsBackButtonDone()
 void StaffController::updateButtonDone()
 {
     qDebug()<<"Animal Details Window: Update button pressed";
-
+    QVector<QString> v;
     bool ret = false;
     QSqlQuery qry;
-    qry.prepare("UPDATE animal SET houstrained = '"+this->animalDetailsView->getHousetrained()->text()+"', specialNeeds = '"+this->animalDetailsView->getSpecial()->text()+"', lifespan = '"+this->animalDetailsView->getSpan()->text()+"', size = '"+this->animalDetailsView->getSize()->text()+"', costOfCare = '"+this->animalDetailsView->getCost()->text()+"', sheddingAmount = '"+this->animalDetailsView->getShedding()->text()+"', aggression = '"+this->animalDetailsView->getAggression()->text()+"', playfulness = '"+this->animalDetailsView->getPlayful()->text()+"', solitudialBehaviour = '"+this->animalDetailsView->getBehaviour()->text()+"', diseaseResistance = '"+this->animalDetailsView->getDisease()->text()+"', parasiticResistance = '"+this->animalDetailsView->getParasite()->text()+"', goodforNOwners = '"+this->animalDetailsView->getNovice()->text()+"', easeOfTraining = '"+this->animalDetailsView->getEase()->text()+"', environmentType = '"+this->animalDetailsView->getEnivornment()->text()+"', winged = '"+this->animalDetailsView->getWinged()->text()+"', vocal = '"+this->animalDetailsView->getVocal()->text()+"', clawState = '"+this->animalDetailsView->getclawState()->text()+"' WHERE name = '"+this->animalDetailsView->getName()->text()+"'");
-    ret = qry.exec();
+    /*qry.prepare("UPDATE animal SET houstrained = '"+this->animalDetailsView->getHousetrained()->text()+"', specialNeeds = '"+this->animalDetailsView->getSpecial()->text()+"', lifespan = '"+this->animalDetailsView->getSpan()->text()+"', size = '"+this->animalDetailsView->getSize()->text()+"', costOfCare = '"+this->animalDetailsView->getCost()->text()+"', sheddingAmount = '"+this->animalDetailsView->getShedding()->text()+"', aggression = '"+this->animalDetailsView->getAggression()->text()+"', playfulness = '"+this->animalDetailsView->getPlayful()->text()+"', solitudialBehaviour = '"+this->animalDetailsView->getBehaviour()->text()+"', diseaseResistance = '"+this->animalDetailsView->getDisease()->text()+"', parasiticResistance = '"+this->animalDetailsView->getParasite()->text()+"', goodforNOwners = '"+this->animalDetailsView->getNovice()->text()+"', easeOfTraining = '"+this->animalDetailsView->getEase()->text()+"', environmentType = '"+this->animalDetailsView->getEnivornment()->text()+"', winged = '"+this->animalDetailsView->getWinged()->text()+"', vocal = '"+this->animalDetailsView->getVocal()->text()+"', clawState = '"+this->animalDetailsView->getclawState()->text()+"' WHERE name = '"+this->animalDetailsView->getName()->text()+"'");
+    ret = qry.exec();*/
+    v.append(this->animalDetailsView->getHousetrained()->text());
+    v.append(this->animalDetailsView->getSpecial()->text());
+    v.append(this->animalDetailsView->getSpan()->text());
+    v.append(this->animalDetailsView->getSize()->text());
+    v.append(this->animalDetailsView->getCost()->text());
+    v.append(this->animalDetailsView->getShedding()->text());
+    v.append(this->animalDetailsView->getAggression()->text());
+    v.append(this->animalDetailsView->getPlayful()->text());
+    v.append(this->animalDetailsView->getBehaviour()->text());
+    v.append(this->animalDetailsView->getDisease()->text());
+    v.append(this->animalDetailsView->getParasite()->text());
+    v.append(this->animalDetailsView->getNovice()->text());
+    v.append(this->animalDetailsView->getEase()->text());
+    v.append(this->animalDetailsView->getEnivornment()->text());
+    v.append(this->animalDetailsView->getWinged()->text());
+    v.append(this->animalDetailsView->getVocal()->text());
+    v.append(this->animalDetailsView->getclawState()->text());
+    v.append(this->animalDetailsView->getName()->text());
+
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    ret=cuacsdb->updateAnimalquery(v);
+
+
     if (ret){
         QMessageBox::information(this->animalDetailsView,tr("Success!"),tr("Animal Updated"));
     }

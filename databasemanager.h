@@ -19,6 +19,13 @@ public:
     bool makeClientTable();
     QVector<QString> editClientGetinfo(QString);
     bool editClientaddInfo(QVector<QString>);
+    QVector<QString> getAnimalinfo(QString);
+    QVector<QString> getClientinfo(QString);
+    QSqlQuery browseAnimalsQuery();
+    QSqlQuery browseClientsQuery();
+    bool insertAnimalquery(QVector<QString>);
+    bool insertClientquery(QVector<QString>);
+    bool updateAnimalquery(QVector<QString>);
 
 
 private:

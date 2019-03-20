@@ -434,57 +434,41 @@ void databasemanager::createAnimalObjects()
         qry.exec();
         qry.next();
         QVector<int> att;
+
         //age
         att.append(ageConversion(qry.value(0).toDouble()));
-        //qDebug()<<qry.value(0).toString();
         //housetrained
         att.append(yesOrNoConversion(qry.value(1).toString()));
-        //qDebug()<<qry.value(1).toString();
         //special
         att.append(highGoodConversion(qry.value(2).toString()));
-        //qDebug()<<qry.value(2).toString();;
         //playfulness
         att.append(highGoodConversion(qry.value(3).toString()));
-        //qDebug()<<qry.value(3).toString();
-        //winged
-        att.append(yesOrNoConversion(qry.value(4).toString()));
-        //qDebug()<<qry.value(4).toString();
         //cost
-        att.append(lowGoodConversion(qry.value(5).toString()));
-        //qDebug()<<qry.value(5).toString();
+        att.append(lowGoodConversion(qry.value(4).toString()));
         //shedding
-        att.append(highGoodConversion(qry.value(6).toString()));
-        //qDebug()<<qry.value(6).toString();
+        att.append(highGoodConversion(qry.value(5).toString()));
         //aggression
-        att.append(highGoodConversion(qry.value(7).toString()));
-        //qDebug()<<qry.value(7).toString();
+        att.append(highGoodConversion(qry.value(6).toString()));
         //solitude
-        att.append(highGoodConversion(qry.value(8).toString()));
-        //qDebug()<<qry.value(8).toString();
+        att.append(highGoodConversion(qry.value(7).toString()));
         //disease
-        att.append(yesOrNoConversion(qry.value(9).toString()));
-        //qDebug()<<qry.value(9).toString();
+        att.append(yesOrNoConversion(qry.value(8).toString()));
         //parasite
-        att.append(highGoodConversion(qry.value(10).toString()));
-        //qDebug()<<qry.value(10).toString();
+        att.append(highGoodConversion(qry.value(9).toString()));
         //novice
-        att.append(lowGoodConversion(qry.value(11).toString()));
-        //qDebug()<<qry.value(11).toString();
+        att.append(lowGoodConversion(qry.value(10).toString()));
         //ease
-        att.append(clawStateConversion(qry.value(12).toString()));
-        //qDebug()<<qry.value(12).toString();
+        att.append(clawStateConversion(qry.value(11).toString()));
         //vocal
-        att.append(lowGoodConversion(qry.value(13).toString()));
-        //qDebug()<<qry.value(13).toString();
+        att.append(lowGoodConversion(qry.value(12).toString()));
         //claw
-        att.append(clawStateConversion(qry.value(14).toString()));
-        //qDebug()<<qry.value(14).toString();
-        //name
-        //qDebug()<<qry.value(15).toString();
-        animals.append(factory->create(att, qry.value(15).toString()));
-        qDebug()<<animals;
-        //qDebug()<<"";
+        att.append(clawStateConversion(qry.value(13).toString()));
+
+        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(14).toString()));
+        //animals2.insert(qry.value(15).toString(),animals.);
     }
+    //qDebug()<< animals.keys() << animals.values();
+
 }
 
 

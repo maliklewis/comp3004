@@ -4,15 +4,17 @@
 #include <QSqlDatabase>
 #include "animalfactory.h"
 #include "animal.h"
-#include <QList>
+#include <QVector>
+#include <QMapIterator>
 
 class databasemanager : public QObject
 {
     Q_OBJECT
 public:
     static databasemanager* getInstance();
-    QList<Animal*> animals;
-    //explicit databasemanager(QObject *parent = 0);
+    QMap<QString, Animal*> animals;
+    //QVector<Animal*> animals;
+    //QMap<QString, QMapIterator<animals,animals>> animals2;
     bool dbOpen();
     bool dbBuild();
     bool dbClose();
@@ -37,7 +39,6 @@ public:
     int clawStateConversion(QString);
     int ageConversion(double);
     int yesOrNoConversion(QString);
-    //int wingedConversion(QString);
     void createAnimalObjects();
 
 

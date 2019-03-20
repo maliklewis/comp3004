@@ -26,7 +26,6 @@ void StaffLogin::loginButtonSlot()
 {
     username = ui->userName->text();
     emit loginButtonClicked();
-    qDebug()<<username;
 }
 
 void StaffLogin::backButtonSlot()

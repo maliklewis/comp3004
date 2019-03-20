@@ -52,10 +52,10 @@ void SystemController::staffLoginButtonDone()
 {
     qDebug()<<"Staff Login Window: LOGIN button pressed";
     QSqlQuery qry;
-    qry.prepare("Select * from staff where name = '"+staffLogin->username+"'");
+    qry.prepare("Select * from staff where email = '"+staffLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Staff login Successfull";
+       qDebug()<<"Staff login Successfull" << qry.value(1);
        this->staffLogin->hide();
        staffControl = new StaffController;
        this->connect(staffControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
@@ -73,10 +73,10 @@ void SystemController::clientLoginButtonDone()
 {
     qDebug()<<"Client Login Window: LOGIN button pressed";
     QSqlQuery qry;
-    qry.prepare("Select * from client where name = '"+clientLogin->username+"'");
+    qry.prepare("Select * from client where email = '"+clientLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Client login Successfull";
+       qDebug()<<"Client login Successfull" << qry.value(1);
        this->clientLogin->hide();
        clientControl = new ClientController;
        clientControl->username = clientLogin->username;

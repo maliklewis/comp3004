@@ -20,7 +20,6 @@ void ClientLogin::loginButtonSlot()
 {
     username = ui->userName->text();
     emit clientLoginButtonClicked();
-    qDebug()<<username;
 }
 
 void ClientLogin::backButtonSlot()

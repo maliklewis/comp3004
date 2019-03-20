@@ -22,6 +22,7 @@ void StaffController::loginButtonDone()
     this->connect(staffView,SIGNAL(staffLogoutClicked()),this,SLOT(staffLogoutDone()));
     this->connect(staffView,SIGNAL(addClientButtonClicked()),this,SLOT(addClientButtonDone()));
     this->connect(staffView,SIGNAL(browseClientsButtonClicked()),this,SLOT(browseClientsButtonDone()));
+    this->connect(staffView,SIGNAL(algorithmButtonClicked()),this,SLOT(algorithmButtonDone()));
 }
 
 void StaffController::browseButtonDone()
@@ -339,4 +340,10 @@ void StaffController::updateButtonDone()
     else{
         QMessageBox::information(this->animalDetailsView,tr("Error!"),tr("Error updating field(s)"));
     }
+}
+
+void StaffController::algorithmButtonDone()
+{
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    cuacsdb->createAnimalObjects();
 }

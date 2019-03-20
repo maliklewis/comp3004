@@ -2,12 +2,16 @@
 #define DATABASEMANAGER_H
 #include <QObject>
 #include <QSqlDatabase>
+#include "animalfactory.h"
+#include "animal.h"
+#include <QList>
 
 class databasemanager : public QObject
 {
     Q_OBJECT
 public:
     static databasemanager* getInstance();
+    QList<Animal*> animals;
     //explicit databasemanager(QObject *parent = 0);
     bool dbOpen();
     bool dbBuild();
@@ -27,11 +31,20 @@ public:
     bool insertClientquery(QVector<QString>);
     bool updateAnimalquery(QVector<QString>);
 
+    int highGoodConversion(QString);
+    int lowGoodConversion(QString);
+    int costConversion(QString);
+    int clawStateConversion(QString);
+    int ageConversion(double);
+    int yesOrNoConversion(QString);
+    //int wingedConversion(QString);
+    void createAnimalObjects();
+
 
 private:
     QSqlDatabase db;
     static databasemanager* instance;
-
+    AnimalFactory* factory;
     databasemanager();
 
 signals:

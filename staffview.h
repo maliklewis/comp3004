@@ -22,6 +22,7 @@ private slots:
     void staffLogoutButtonSlot();
     void addClientButtonSlot();
     void browseClientsButtonSlot();
+    void algorithmButtonSlot();
 
 signals:
     void browseButtonClicked();
@@ -29,6 +30,7 @@ signals:
     void staffLogoutClicked();
     void addClientButtonClicked();
     void browseClientsButtonClicked();
+    void algorithmButtonClicked();
 
 private:
     Ui::StaffView *ui;

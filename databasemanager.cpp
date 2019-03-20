@@ -2,12 +2,6 @@
 #include <QtSql>
 #include <QDebug>
 
-/*
-databasemanager::databasemanager(QObject *parent) : QObject(parent)
-{
-}
-*/
-
 databasemanager::databasemanager(){}
 
 databasemanager* databasemanager::instance = 0;
@@ -92,9 +86,9 @@ bool databasemanager::makeStaffTable(){
     if(db.isOpen()){
         QSqlQuery qry;
         ret = qry.exec("CREATE TABLE IF NOT EXISTS staff"
-                      "(staff_id INTEGER PRIMARY KEY, "
+                      "(staff_id INTEGER, "
                       "name TEXT,"
-                      "email TEXT NOT NULL UNIQUE)");
+                      "email TEXT NOT NULL PRIMARY KEY)");
         if(!ret)
             qDebug()<<"Staff Table not created";
     }
@@ -106,10 +100,10 @@ bool databasemanager::makeClientTable(){
     if(db.isOpen()){
         QSqlQuery qry;
         ret = qry.exec("CREATE TABLE IF NOT EXISTS client"
-                      "(client_id INTEGER PRIMARY KEY, "
+                      "(client_id INTEGER, "
                       "name TEXT,"
                       "number TEXT,"
-                      "email TEXT NOT NULL UNIQUE,"
+                      "email TEXT NOT NULL PRIMARY KEY,"
                       "age INT,"
                       "numberOfChildren INT,"
                       "ageOfChildren INT,"
@@ -330,6 +324,169 @@ QSqlQuery databasemanager::browseClientsQuery(){
     qry.exec();
     return qry;
 }
+
+//converter function for string to positive int
+int databasemanager::highGoodConversion(QString value)
+{
+    int ret = 0;
+    if (value == "High"){
+        ret = 3;
+    }
+    else if (value == "Medium"){
+        ret = 2;
+    }
+    else if (value == "Low"){
+        ret = 1;
+    }
+    else {
+       ret = 0;
+    }
+    return ret;
+}
+
+int databasemanager::yesOrNoConversion(QString value)
+{
+    int ret = 0;
+    if (value == "Yes"){
+        ret = 1;
+    }
+    else {
+        ret = 0;
+    }
+    return ret;
+}
+
+int databasemanager::lowGoodConversion(QString value)
+{
+    int ret = 0;
+    if (value == "High"){
+        ret = 1;
+    }
+    else if (value == "Medium"){
+        ret = 2;
+    }
+    else if (value == "Low"){
+        ret = 3;
+    }
+    else {
+       ret = 0;
+    }
+    return ret;
+}
+
+int databasemanager::costConversion(QString value)
+{
+    int ret = 0;
+    if (value == "$0-$1000"){
+        ret = 3;
+    }
+    else if (value == "$1000-$2000"){
+        ret = 2;
+    }
+    else if (value == "$2000-$3000"){
+        ret = 1;
+    }
+    else {
+        ret = 1;
+    }
+    return ret;
+}
+
+int databasemanager::clawStateConversion(QString value)
+{
+    int ret = 0;
+    if (value == "Removed"){
+        ret = 1;
+    }
+    return ret;
+}
+
+int databasemanager::ageConversion(double value)
+{
+    int ret = 0;
+    if (value < 3.0){
+        ret = 4;
+    }
+    else if (value >=3 && value <= 10){
+        ret = 3;
+    }
+    else if (value > 10 && value <= 20){
+        ret = 2;
+    }
+    else {
+        ret = 1;
+    }
+    return ret;
+}
+
+void databasemanager::createAnimalObjects()
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT Count(*) from animal");
+    qry.exec();
+    qry.next();
+    int maxSize = qry.value(0).toInt();
+
+    for (int i=1; i<=maxSize; i++){
+        qry.prepare("SELECT age,houstrained,specialNeeds,playfulness,costOfCare,sheddingAmount,"
+                    "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
+                    "easeOfTraining,vocal,clawState, name from animal WHERE animal_id = '"+QString::number(i)+"'");
+        qry.exec();
+        qry.next();
+        QVector<int> att;
+        //age
+        att.append(ageConversion(qry.value(0).toDouble()));
+        //qDebug()<<qry.value(0).toString();
+        //housetrained
+        att.append(yesOrNoConversion(qry.value(1).toString()));
+        //qDebug()<<qry.value(1).toString();
+        //special
+        att.append(highGoodConversion(qry.value(2).toString()));
+        //qDebug()<<qry.value(2).toString();;
+        //playfulness
+        att.append(highGoodConversion(qry.value(3).toString()));
+        //qDebug()<<qry.value(3).toString();
+        //winged
+        att.append(yesOrNoConversion(qry.value(4).toString()));
+        //qDebug()<<qry.value(4).toString();
+        //cost
+        att.append(lowGoodConversion(qry.value(5).toString()));
+        //qDebug()<<qry.value(5).toString();
+        //shedding
+        att.append(highGoodConversion(qry.value(6).toString()));
+        //qDebug()<<qry.value(6).toString();
+        //aggression
+        att.append(highGoodConversion(qry.value(7).toString()));
+        //qDebug()<<qry.value(7).toString();
+        //solitude
+        att.append(highGoodConversion(qry.value(8).toString()));
+        //qDebug()<<qry.value(8).toString();
+        //disease
+        att.append(yesOrNoConversion(qry.value(9).toString()));
+        //qDebug()<<qry.value(9).toString();
+        //parasite
+        att.append(highGoodConversion(qry.value(10).toString()));
+        //qDebug()<<qry.value(10).toString();
+        //novice
+        att.append(lowGoodConversion(qry.value(11).toString()));
+        //qDebug()<<qry.value(11).toString();
+        //ease
+        att.append(clawStateConversion(qry.value(12).toString()));
+        //qDebug()<<qry.value(12).toString();
+        //vocal
+        att.append(lowGoodConversion(qry.value(13).toString()));
+        //qDebug()<<qry.value(13).toString();
+        //claw
+        att.append(clawStateConversion(qry.value(14).toString()));
+        //qDebug()<<qry.value(14).toString();
+        //name
+        //qDebug()<<qry.value(15).toString();
+        animals.append(factory->create(att, qry.value(15).toString()));
+        qDebug()<<animals;
+        //qDebug()<<"";
+    }
+}
+
 
 
 

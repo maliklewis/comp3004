@@ -40,7 +40,10 @@ SOURCES += \
     clientcontroller.cpp \
     systemcontroller.cpp \
     editclientdetailsview.cpp \
-    clientdetailsview.cpp
+    clientdetailsview.cpp \
+    animal.cpp \
+    dog.cpp \
+    animalfactory.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +61,10 @@ HEADERS += \
     clientcontroller.h \
     systemcontroller.h \
     editclientdetailsview.h \
-    clientdetailsview.h
+    clientdetailsview.h \
+    animal.h \
+    dog.h \
+    animalfactory.h
 
 FORMS += \
         mainwindow.ui \

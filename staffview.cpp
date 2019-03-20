@@ -11,6 +11,7 @@ StaffView::StaffView(QWidget *parent) :
     this->connect(this->ui->addAnimalButton,SIGNAL(clicked()),this,SLOT(addAnimalButtonSlot()));
     this->connect(this->ui->logoutButton,SIGNAL(clicked()),this,SLOT(staffLogoutButtonSlot()));
     this->connect(this->ui->addClientButton,SIGNAL(clicked()),this,SLOT(addClientButtonSlot()));
+    this->connect(this->ui->algorithmButton,SIGNAL(clicked()),this,SLOT(algorithmButtonSlot()));
 }
 
 StaffView::~StaffView()
@@ -39,4 +40,8 @@ void StaffView::addAnimalButtonSlot()
 void StaffView::addClientButtonSlot()
 {
     emit addClientButtonClicked();
+}
+void StaffView::algorithmButtonSlot()
+{
+    emit algorithmButtonClicked();
 }

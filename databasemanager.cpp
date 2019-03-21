@@ -100,19 +100,28 @@ bool databasemanager::makeClientTable(){
     if(db.isOpen()){
         QSqlQuery qry;
         ret = qry.exec("CREATE TABLE IF NOT EXISTS client"
-                      "(client_id INTEGER, "
-                      "name TEXT,"
-                      "number TEXT,"
-                      "email TEXT NOT NULL PRIMARY KEY,"
-                      "age INT,"
-                      "numberOfChildren INT,"
-                      "ageOfChildren INT,"
-                      "otherAnimals BOOL,"
-                      "employmentType TEXT,"
-                      "maritalStatus INT,"
-                      "employmentStatus BOOL,"
-                      "income INT,"
-                      "architectureStyle TEXT)");
+                     "(client_id INTEGER PRIMARY KEY,"
+                     "name TEXT,"
+                     "number TEXT,"
+                     "email TEXT NOT NULL,"
+                     "age INT,"
+                     "numberOfChildren INT,"
+                     "ageOfChildren INT,"
+                     "otherAnimals BOOL,"
+                     "employmentType TEXT,"
+                     "maritalStatus INT,"
+                     "employmentStatus BOOL,"
+                     "income INT,"
+                     "architectureStyle TEXT,"
+                     "pAnimaltype TEXT,"
+                     "pAnimalbreed TEXT,"
+                     "ageRange TEXT,"
+                     "prefEnvtype TEXT,"
+                     "vetFees TEXT,"
+                     "kidFriendly TEXT,"
+                     "easeTrain TEXT,"
+                     "healthCon TEXT,"
+                     "prefSize TEXT)");
         if(!ret)
             qDebug()<<"Client Table not created";
     }
@@ -164,11 +173,26 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO staff VALUES(Null, 'John Doe', 'jdoe@gmail.com')"));
 
         //client members
-        db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 240000, 'Townhouse')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Johnny Cage','(613)-756-1237','cage2434@gmail.com',30, 1, 14, 'FALSE', 'B', '0', 'FALSE', 45000, 'Apartment')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Patrick Tahar','(343)-721-5431','taharpatrick40@hotmail.com',40, 2, 23, 'TRUE', 'C', '1', 'FALSE', 35000, 'Detached')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Arnold Volkswagen','(613)-884-2201','arniev24@yahoo.co.uk',45, 3, 20, 'FALSE', 'A', '1', 'TRUE', 150000, 'Semi-Detached')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Cardi Blackie','(514)-834-3345','cblackie1@gmail.com',23, 0, 0, 'FALSE', 'C', '0', 'FALSE', 30000, 'Apartment')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jane Doe','(613)-700-1137','j.doe@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'TRUE', 240000, 'Townhouse','Dog','Chihuahua','0.6-2','Indoor','200-1500','Yes','High','High','Small')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Johnny Cage','(613)-756-1237','cage2434@gmail.com',30, 1, 14, 'FALSE', 'B', '0', 'FALSE', 45000, 'Apartment','Dog','German Shepherd','0.6-2','Indoor','500-2500','Yes','High','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Patrick Tahar','(343)-721-5431','taharpatrick40@hotmail.com',40, 2, 23, 'TRUE', 'C', '1', 'FALSE', 35000, 'Detached','Dog','Husky','0.6-2','Indoor','200-1500','Yes','High','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Arnold Volkswagen','(613)-884-2201','arniev24@yahoo.co.uk',45, 3, 20, 'FALSE', 'A', '1', 'TRUE', 150000, 'Semi-Detached','Dog','Pitbull','0.6-2','Outdoor','200-2500','Yes','High','High','Small')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Cardi Blackie','(514)-834-3345','cblackie1@gmail.com',23, 0, 0, 'FALSE', 'C', '0', 'TRUE', 30000, 'Apartment','Dog','Beagle','0.6-2','Indoor','200-2000','Yes','High','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jimmy Butler','(521)-884-4567','bjimmy@gmail.com',26, 0, 0, 'FALSE', 'A', '0', 'FALSE', 80000, 'Apartment','Dog','Poodle','0.6-2','Outdoor','200-4000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Stephen Curry','(321)-684-4367','csteph@gmail.com',23, 2, 4, 'FALSE', 'A', '1', 'TRUE', 90000, 'Townhouse','Dog','Great Dane','3-6','Outdoor','200-4000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Lebron James','(621)-854-4587','lebj@gmail.com',32, 3, 14, 'TRUE', 'B', '1', 'TRUE', 58000, 'Detached','Cat','Munchkin','0.6-2','Outdoor','200-3000','No','Low','Medium','Small')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Kobe Bryant','(445)-900-3456','kbryant@gmail.com',39, 3, 15, 'TRUE', 'C', '1', 'TRUE', 35000, 'Apartment','Cat','Bengal','6-14','Indoor','200-4000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Michael Jordan','(456)-883-4537','jordanm@gmail.com',66,0, 0, 'FALSE', '0', '0', 'FALSE', 20000, 'Semi-Detached','Cat','Himalayan','15+','Outdoor','200-2000','No','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Giannis Antetokunpo','(786)-667-334','gkunpo@gmail.com',22, 0, 0, 'TRUE', 'B', '0', 'TRUE', 80000, 'Apartment','Cat','Egyptian','3-6','Outdoor','200-4000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Ore Awokoya','(234)-887-1123','awok@gmail.com',58, 5, 19, 'TRUE', 'C', '1', 'TRUE', 25000, 'Townhouse','Bird','Canary','6-10','Outdoor','200-4000','No','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Paul Gasol','(331)-845-4887','gasolp@gmail.com',29, 2, 9, 'FALSE', 'B', '1', 'TRUE', 50000, 'Semi-Detached','Bird','Lovebird','0.6-2','Outdoor','200-4000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Joel Embiid','(541)-886-4967','jbiid@gmail.com',28, 0, 0, 'TRUE', '0', '0', 'FALSE', 15000, 'Detached','Bird','Dove','11-20','Outdoor','200-3500','No','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Martha Stewart','(521)-284-4867','mstewart@yahoo.com',38, 1, 17, 'FALSE', 'A', '1', 'TRUE', 80000, 'Townhouse','Dog','Poodle','3-6','Outdoor','200-1500','Yes','Medium','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Logan Paul','(721)-874-7767','lp14@gmail.com',22, 0, 0, 'FALSE', 'C', '1', 'TRUE', 35000, 'Apartment','Dog','','0.6-2','Indoor','200-1500','Yes','High','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jaslin Ryerson','(621)-882-4267','jryerson@gmail.com',29, 2, 8, 'TRUE', 'A', '1', 'TRUE', 100000, 'Semi-Detached','Bird','Lovebird','0.6-2','Indoor','200-4000','Yes','High','Medium','Small')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Michael Eshilama','(343)-262-8135','me96@gmail.com',22, 0, 0, 'FALSE', 'D', '0', 'TRUE', 14000, 'Apartment','Dog','Pitbull','3-6','Outdoor','200-1500','No','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Tom Jerry','(123)-824-4557','tj14@gmail.com',19, 0, 0, 'FALSE', '0', '0', 'FALSE', 5000, 'Apartment','Cat','Himalayan','0.6-2','Indoor','200-1000','Yes','Medium','Medium','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Jeremy Gascoigne','(522)-894-1267','gjeremy@gmail.com',50, 2, 20, 'TRUE', 'B', '1', 'TRUE', 60000, 'Townhouse','Cat','Bengal','7-14','Outdoor','600-4000','Yes','Medium','Medium','Medium')"));
 
      }
 }
@@ -180,8 +204,10 @@ QVector<QString> databasemanager::editClientGetinfo(QString name)
     qry.exec();
     qry.next();
     QVector<QString> vector;
+
     vector.append(qry.value(0).toString());
     vector.append(qry.value(1).toString());
+
 
     return vector;
 }

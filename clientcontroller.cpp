@@ -124,6 +124,7 @@ void ClientController::editProfileDone()
     editDetailsView->show();
     this->editDetailsView->getName()->setText(username);
 
+
     this->connect(editDetailsView,SIGNAL(editClientBackButtonClicked()),this,SLOT(editClientBackButtonDone()));
     this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
     this->connect(editDetailsView,SIGNAL(editClientPrefButtonClicked()),this,SLOT(editClientPrefButtonDone()));

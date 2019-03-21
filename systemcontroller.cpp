@@ -79,7 +79,7 @@ void SystemController::clientLoginButtonDone()
        qDebug()<<"Client login Successfull" << qry.value(1);
        this->clientLogin->hide();
        clientControl = new ClientController;
-       clientControl->username = clientLogin->username;
+       clientControl->username =qry.value(1).toString();
        this->connect(clientControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
     }
     else

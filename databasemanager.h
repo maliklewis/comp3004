@@ -32,6 +32,7 @@ public:
     bool insertAnimalquery(QVector<QString>);
     bool insertClientquery(QVector<QString>);
     bool updateAnimalquery(QVector<QString>);
+    bool editClientPrefInfo(QVector<QString>);
 
     int highGoodConversion(QString);
     int lowGoodConversion(QString);

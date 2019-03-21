@@ -116,6 +116,7 @@ bool databasemanager::makeClientTable(){
         if(!ret)
             qDebug()<<"Client Table not created";
     }
+
     return ret;
 }
 
@@ -430,7 +431,7 @@ void databasemanager::createAnimalObjects()
     for (int i=1; i<=maxSize; i++){
         qry.prepare("SELECT age,houstrained,specialNeeds,playfulness,costOfCare,sheddingAmount,"
                     "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                    "easeOfTraining,vocal,clawState, name from animal WHERE animal_id = '"+QString::number(i)+"'");
+                    "easeOfTraining,vocal,clawState, name, type from animal WHERE animal_id = '"+QString::number(i)+"'");
         qry.exec();
         qry.next();
         QVector<int> att;
@@ -464,11 +465,18 @@ void databasemanager::createAnimalObjects()
         //claw
         att.append(clawStateConversion(qry.value(13).toString()));
 
-        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(14).toString()));
-        //animals2.insert(qry.value(15).toString(),animals.);
+        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(15).toString()));
     }
-    //qDebug()<< animals.keys() << animals.values();
+}
 
+bool databasemanager::editClientPrefInfo(QVector<QString> v)
+{
+    QSqlQuery qry;
+    bool ret = false;
+
+    qry.prepare("UPDATE client SET pAnimaltype = '"+v.at(0)+"', pAnimalbreed = '"+v.at(1)+"', ageRange = '"+v.at(2)+"', prefEnvtype = '"+v.at(3)+"', vetFees = '"+v.at(4)+"', kidFriendly = '"+v.at(5)+"', easeTrain = '"+v.at(6)+"', healthCon = '"+v.at(7)+"', prefSize = '"+v.at(8)+"' WHERE name = '"+v.at(9)+"'");
+    ret = qry.exec();
+    return ret;
 }
 
 

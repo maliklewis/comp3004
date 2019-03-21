@@ -8,6 +8,7 @@ EditClientDetailsView::EditClientDetailsView(QWidget *parent) :
     ui->setupUi(this);
     this->connect(this->ui->clientBackButton,SIGNAL(clicked()),this,SLOT(editClientBackButtonSlot()));
     this->connect(this->ui->clientAddButton,SIGNAL(clicked()),this,SLOT(editClientAddButtonSlot()));
+    this->connect(this->ui->prefButton,SIGNAL(clicked()),this,SLOT(editClientPrefButtonSlot()));
     ui->nameValue->setReadOnly(true);
     ui->numberValue->setReadOnly(true);
     ui->emailValue->setReadOnly(true);
@@ -86,4 +87,9 @@ void EditClientDetailsView::editClientBackButtonSlot()
 void EditClientDetailsView::editClientAddButtonSlot()
 {
     emit editClientAddButtonClicked();
+}
+
+void EditClientDetailsView::editClientPrefButtonSlot()
+{
+    emit editClientPrefButtonClicked();
 }

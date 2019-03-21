@@ -1,11 +1,11 @@
-#include "dog.h"
+#include "cat.h"
 
-Dog::Dog(QVector<int> a)
+Cat::Cat(QVector<int> a)
 {
     setAttributes(a);
 }
 
-void Dog::setAttributes(QVector<int> a)
+void Cat::setAttributes(QVector<int> a)
 {
     attributes = { {"age", a.at(0)}, {"housetrained", a.at(1)}, {"special needs", a.at(2)},
                    {"cost of care", a.at(3)}, {"shedding amount", a.at(4)}, {"aggression", a.at(5)},

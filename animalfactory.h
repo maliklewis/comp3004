@@ -3,6 +3,7 @@
 
 #include "animal.h"
 #include "dog.h"
+#include "cat.h"
 
 class AnimalFactory
 {

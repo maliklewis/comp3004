@@ -126,6 +126,7 @@ void ClientController::editProfileDone()
 
     this->connect(editDetailsView,SIGNAL(editClientBackButtonClicked()),this,SLOT(editClientBackButtonDone()));
     this->connect(editDetailsView,SIGNAL(editClientAddButtonClicked()),this,SLOT(editClientAddButtonDone()));
+    this->connect(editDetailsView,SIGNAL(editClientPrefButtonClicked()),this,SLOT(editClientPrefButtonDone()));
     databasemanager* cuacsdb = databasemanager::getInstance();
     QVector<QString> v = cuacsdb->editClientGetinfo(username);
     this->editDetailsView->getNumber()->setText(v.value(0));
@@ -169,8 +170,40 @@ void ClientController::editClientAddButtonDone()
     else{
         QMessageBox::information(this->editDetailsView,tr("Error!"),tr("Error updating field(s)"));
     }
+}
 
+void ClientController::editClientPrefButtonDone()
+{
+    clientPrefView = new ClientPreferencesView;
+    clientPrefView->show();
+    //this->connect(clientPrefView,saveButtonClicked(),)
+    this->connect(clientPrefView,SIGNAL(saveButtonClicked()),this,SLOT(clientPrefSaveButtonDone()));
+}
 
+void ClientController::clientPrefSaveButtonDone()
+{
+    qDebug()<<"Edit Client Preference Window: Save button pressed";
+    QVector<QString> v;
+    v.append(this->clientPrefView->getPAnimalType());
+    v.append(this->clientPrefView->getPAnimalBreed());
+    v.append(this->clientPrefView->getAgeRange());
+    v.append(this->clientPrefView->getPAnimalType());
+    v.append(this->clientPrefView->getPrefEnvType());
+    v.append(this->clientPrefView->getVetFees());
+    v.append(this->clientPrefView->getKidFriendly());
+    v.append(this->clientPrefView->getEaseTrain());
+    v.append(this->clientPrefView->getHealthCon());
+    v.append(this->clientPrefView->getPrefSize());
+    v.append(this->editDetailsView->getName()->text());
 
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    bool ret=cuacsdb->editClientPrefInfo(v);
+
+    if (ret){
+        QMessageBox::information(this->clientPrefView,tr("Success!"),tr("Preferences Set"));
+    }
+    else{
+        QMessageBox::information(this->clientPrefView,tr("Error!"),tr("Error setting preferences"));
+    }
 }
 

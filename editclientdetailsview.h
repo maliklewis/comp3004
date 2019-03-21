@@ -31,10 +31,12 @@ public:
 private slots:
     void editClientBackButtonSlot();
     void editClientAddButtonSlot();
+    void editClientPrefButtonSlot();
 
 signals:
     void editClientAddButtonClicked();
     void editClientBackButtonClicked();
+    void editClientPrefButtonClicked();
 
 private:
     Ui::EditClientDetailsView *ui;

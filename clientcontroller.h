@@ -10,6 +10,7 @@
 #include "browseanimalsview.h"
 #include "animaldetailsview.h"
 #include "editclientdetailsview.h"
+#include "clientpreferencesview.h"
 
 class ClientController : public QObject
 {
@@ -25,6 +26,7 @@ class ClientController : public QObject
          BrowseAnimalsView* browseView;
          AnimalDetailsView* animalDetailsView;
          EditClientDetailsView* editDetailsView;
+         ClientPreferencesView* clientPrefView;
     public slots:
          void clientLoginButtonDone();
          void browseButtonDone();
@@ -34,6 +36,8 @@ class ClientController : public QObject
          void editProfileDone();
          void editClientBackButtonDone();
          void editClientAddButtonDone();
+         void editClientPrefButtonDone();
+         void clientPrefSaveButtonDone();
     signals:
          void showMain();
 

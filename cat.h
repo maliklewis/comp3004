@@ -1,17 +1,16 @@
-#ifndef DOG_H
-#define DOG_H
+#ifndef CAT_H
+#define CAT_H
 
 #include "animal.h"
 
-
-class Dog : public Animal
+class Cat : public Animal
 {
 public:
-    Dog(QVector<int>);
+    Cat(QVector<int>);
     void setAttributes(QVector<int>);
 
 private:
     QMap<QString,int> attributes;
 };
 
-#endif // DOG_H
+#endif // CAT_H

@@ -140,9 +140,7 @@ void databasemanager::dbPopulate(){
         //animals
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Billy', 'Dog','Pitbull','Male',2.0,'Yes','Low','3 Years','Large','$0-$1000','Medium','High','High','Medium','High','High','No','Medium','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Bud','Dog','Chihuahua','Female',0.7,'No','Medium','4 Years','Medium','$1000-$2000','Medium','Low','High','Medium','High','Medium','No','Low','Indoor','No','High','Intact')"));
-
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Snoopy', 'Dog','Beagle','Male',2.0,'Yes','High','7 Years','Small','$4000+','Medium','High','Low','High','High','High','Yes','Low','Indoor','No','High','Intact')"));
-
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Tommy', 'Dog','German Shepherd','Female',3.7,'Yes','Medium','14 Years','Small','$2000-$3000','High','Low','Low','High','High','High','Yes','Low','Indoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Holly', 'Dog','Poodle','Female',1.2,'Yes','Low','14 Years','Small','$1000-$2000','Low','Medium','Medium','High','High','High','Yes','Low','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Rocky', 'Dog','Boxer','Male',0.3,'No','High','14 Years','Medium','$4000+','Low','Low','Low','Medium','High','High','No','Low','Indoor','No','High','Intact')"));
@@ -151,8 +149,8 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Daisy', 'Dog','Great Dane','Female',1.0,'Yes','High','14 Year','Small','$4000+','Low','Low','Low','High','Medium','High','Yes','Medium','Indoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Jazzy', 'Dog','Greyhound','Female',0.5,'No','Medium','14 Years','Medium','$1000-$2000','Medium','High','Low','Medium','High','Low','Yes','High','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Jerry', 'Cat','Munchkin','Male',2.0,'Yes','Medium','15 Years','Small','$2000-$2000','High','Medium','Low','High','Low','Medium','Yes','Low','Indoor','No','High','Intact')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Scrappy','Cat','Persian','Male',2.0,'No','High','15 Years','Medium','4000+','High','Low','High','Low','Low','Yes','Low','Indoor','No','High','Removed')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rondo','Cat','Bengal','Male',0.6,'Yes','Low','15 Year','Small','$0-$1000','Medium','Low','Low','High','Medium','High','Yes','Low','Outdoor','No','High','Removed')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Scrappy','Cat','Persian','Male',2.0,'No','High','15 Years','Medium','4000+','High','Low','High','Low','Low','Low','Yes','Low','Indoor','No','High','Removed')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Rondo','Cat','Bengal','Male',0.6,'Yes','Low','15 Years','Small','$0-$1000','Medium','Low','Low','High','Medium','High','Yes','Low','Outdoor','No','High','Removed')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Boots','Cat','Egyptian','Male',2.0,'Yes','High','15 Years','Medium','4000+','Medium','Medium','High','Low','High','Low','Yes','Medium','Outdoor','No','High','Removed')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Luca','Cat','Himalayan','Male',1.3,'No','Medium','15 Years','Large','$1000-$2000','High','Low','Low','High','High','Medium','Yes','Low','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','German Shepherd','Male',2.0,'Yes','High','14 Years','Small','$2000-$3000','High','Medium','High','Low','High','Low','No','Low','Indoor','No','High','Intact')"));
@@ -160,8 +158,8 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Luna', 'Dog','Boxer','Female',3.2,'No','High','14 Year','Small','$4000+','Medium','Low','High','Low','High','Low','Yes','Low','Indoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Sandy', 'Dog','Pitbull','Male',3.3,'Yes','High','14 Years','Medium','$2000-$3000','Medium','Low','Low','High','High','Medium','Yes','Low','Indoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Moly', 'Dog','Pug','Female',2.5,'No','Low','14 Years','Small','$0-$1000','Low','Medium','Low','Low','Medium','High','Yes','Low','Outdoor','No','High','Intact')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Tucker', 'Dog','Beagle','Male',2.0,'Yes','Medium','14 Years','Medium','$1000-$2000','Low','High','Low','High','Medium','Low','Yes','High','Indoor','No','High','Intact')"));
-        db.exec(QString("INSERT INTO animal VALUES(Null, 'Max', 'Dog','Chihuahua','Male',3.7,'Yes','Low','14 Years','Small','$0-$1000','Medium','Low','High','Low','High','Medium','Yes','Low','Outdoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Roofy', 'Dog','Beagle','Male',2.0,'Yes','Medium','14 Years','Medium','$1000-$2000','Low','High','Low','High','Medium','Low','Yes','High','Indoor','No','High','Intact')"));
+        db.exec(QString("INSERT INTO animal VALUES(Null, 'Clinton', 'Dog','Chihuahua','Male',3.7,'Yes','Low','14 Years','Small','$0-$1000','Medium','Low','High','Low','High','Medium','Yes','Low','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Claire', 'Dog','Great Dane','Female',2.3,'No','Medium','14 Years','Large','$1000-$2000','Medium','High','Low','High','Medium','Low','Yes','Low','Outdoor','No','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Sadie', 'Bird','Dove','Male',3.3,'No','High','20 Years','Small','$2000-$3000','Low','Low','Medium','Medium','High','Low','Yes','Medium','Outdoor','Yes','High','Intact')"));
         db.exec(QString("INSERT INTO animal VALUES(Null, 'Jolly', 'Bird','Canary','Female',1.5,'No','High','20 Years','Large','$4000+','Medium','High','Low','High','Low','High','Yes','Low','Outdoor','Yes','High','Intact')"));

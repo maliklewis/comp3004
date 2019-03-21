@@ -43,7 +43,9 @@ SOURCES += \
     clientdetailsview.cpp \
     animal.cpp \
     dog.cpp \
-    animalfactory.cpp
+    animalfactory.cpp \
+    clientpreferencesview.cpp \
+    cat.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -64,7 +66,9 @@ HEADERS += \
     clientdetailsview.h \
     animal.h \
     dog.h \
-    animalfactory.h
+    animalfactory.h \
+    clientpreferencesview.h \
+    cat.h
 
 FORMS += \
         mainwindow.ui \
@@ -78,4 +82,5 @@ FORMS += \
     clientview.ui \
     clientlogin.ui \
     editclientdetailsview.ui \
-    clientdetailsview.ui
+    clientdetailsview.ui \
+    clientpreferencesview.ui

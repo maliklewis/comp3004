@@ -229,7 +229,7 @@ bool databasemanager::insertClientquery(QVector<QString> v)
     qry.prepare("INSERT INTO client VALUES (Null,'"+v.at(0)+"',"
                                                          "'"+v.at(1)+"',"
                                                          "'"+v.at(2)+"',"
-                                                         "Null,Null,Null,Null,Null,Null,Null,Null,Null)");
+                                                         "Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null)");
             ret = qry.exec();
             return ret;
 }
@@ -491,7 +491,7 @@ void databasemanager::createAnimalObjects()
         //claw
         att.append(clawStateConversion(qry.value(13).toString()));
 
-        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(15).toString()));
+        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(14).toString()));
     }
 }
 

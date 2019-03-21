@@ -7,8 +7,8 @@
 class Dog : public Animal
 {
 public:
-    Dog(QVector<int>);
-    void setAttributes(QVector<int>);
+    Dog(QVector<int>, QString);
+    void setAttributes(QVector<int>, QString);
 
 private:
     QMap<QString,int> attributes;

@@ -13,4 +13,6 @@ void Dog::setAttributes(QVector<int> a, QString name)
                    {"immune system", a.at(8) + a.at(9)}, {"good for novices owners", a.at(10)},
                    {"ease of training", a.at(11)},{"vocal", a.at(12)} };
 
+    qDebug()<< name << "attribute values" << attributes.values();
+
 }

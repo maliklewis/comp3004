@@ -55,7 +55,7 @@ void SystemController::staffLoginButtonDone()
     qry.prepare("Select * from staff where email = '"+staffLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Staff login Successfull" << qry.value(1);
+       qDebug()<<"Staff login Successfull" << qry.value(1).toString();
        this->staffLogin->hide();
        staffControl = new StaffController;
        this->connect(staffControl,SIGNAL(showMain()),this,SLOT(loggedOutDone()));
@@ -76,7 +76,7 @@ void SystemController::clientLoginButtonDone()
     qry.prepare("Select * from client where email = '"+clientLogin->username+"'");
     if (qry.exec() && qry.first())
     {
-       qDebug()<<"Client login Successfull" << qry.value(1);
+       qDebug()<<"Client login Successfull:" << qry.value(1).toString();
        this->clientLogin->hide();
        clientControl = new ClientController;
        clientControl->username =qry.value(1).toString();

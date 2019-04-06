@@ -51,7 +51,7 @@
     <rect>
      <x>160</x>
      <y>80</y>
-     <width>111</width>
+     <width>121</width>
      <height>182</height>
     </rect>
    </property>
@@ -82,7 +82,7 @@
      <x>300</x>
      <y>80</y>
      <width>135</width>
-     <height>171</height>
+     <height>181</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -215,7 +215,7 @@ border-color: rgb(0, 0, 0);
      <x>20</x>
      <y>80</y>
      <width>134</width>
-     <height>171</height>
+     <height>181</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">

@@ -459,7 +459,10 @@ void databasemanager::createAnimalObjects()
         qry.exec();
         qry.next();
         QVector<int> att;
-
+        //name
+        QString name = qry.value(14).toString();
+        //type
+        QString type = qry.value(15).toString();
         //age
         att.append(ageConversion(qry.value(0).toDouble()));
         //housetrained
@@ -483,13 +486,14 @@ void databasemanager::createAnimalObjects()
         //novice
         att.append(lowGoodConversion(qry.value(10).toString()));
         //ease
-        att.append(clawStateConversion(qry.value(11).toString()));
+        att.append(highGoodConversion(qry.value(11).toString()));
         //vocal
         att.append(lowGoodConversion(qry.value(12).toString()));
         //claw
         att.append(clawStateConversion(qry.value(13).toString()));
 
-        animals.insert(qry.value(14).toString(),factory->create(att, qry.value(14).toString()));
+        animals.insert(qry.value(14).toString(),factory->create(att, name));
+        //qDebug()<<qry.value(15);
     }
 }
 

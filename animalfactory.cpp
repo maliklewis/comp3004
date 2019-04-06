@@ -2,7 +2,10 @@
 
 //AnimalFactory::AnimalFactory() {}
 
-Animal* AnimalFactory::create(QVector<int> attributes, QString name)
+Animal* AnimalFactory::create(QVector<int> attributes, QString type)
 {
-    return (new Dog(attributes, name));
+    if (type == "Dog")
+        return new Dog(attributes);
 }
+
+

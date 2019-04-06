@@ -451,6 +451,7 @@ void databasemanager::createAnimalObjects()
     qry.exec();
     qry.next();
     int maxSize = qry.value(0).toInt();
+    int totalscore=0;
 
     for (int i=1; i<=maxSize; i++){
         qry.prepare("SELECT age,houstrained,specialNeeds,playfulness,costOfCare,sheddingAmount,"
@@ -459,10 +460,6 @@ void databasemanager::createAnimalObjects()
         qry.exec();
         qry.next();
         QVector<int> att;
-        //name
-        QString name = qry.value(14).toString();
-        //type
-        QString type = qry.value(15).toString();
         //age
         att.append(ageConversion(qry.value(0).toDouble()));
         //housetrained
@@ -491,10 +488,36 @@ void databasemanager::createAnimalObjects()
         att.append(lowGoodConversion(qry.value(12).toString()));
         //claw
         att.append(clawStateConversion(qry.value(13).toString()));
+        //name
+        //att.append(qry.value(14).toString());
 
-        animals.insert(qry.value(14).toString(),factory->create(att, name));
-        //qDebug()<<qry.value(15);
+        //animals.insert(qry.value(14).toString(),factory->create(att, qry.value(15).toString()));
+
+        //animalList.append(factory->create(att, qry.value(15).toString()));
+
+        QMap<QString, int> attributes = { {qry.value(14).toString(), 0}, {"age", att.at(0)}, {"housetrained", att.at(1)}, {"special needs", att.at(2)},
+                       {"cost of care", att.at(3)}, {"shedding amount", att.at(4)}, {"aggression", att.at(5)},
+                       {"playfulness", att.at(6)}, {"solitudial behaviour", att.at(7)},
+                       {"immune system", att.at(8) + att.at(9)}, {"good for novices owners", att.at(10)},
+                       {"ease of training", att.at(11)},{"vocal", att.at(12)} };
+        animalList.append(attributes);
+        //qDebug()<< animalList;
+        int sum = 0;
+
+        QList<int> values = attributes.values();
+        for(int i=0;i<values.size();i++){
+            sum += values.at(i);
+
+        }
+
+         totalscore+= sum;
+        qDebug()<<totalscore;
+
+
+
     }
+    benchMark = totalscore/maxSize;
+     qDebug()<<benchMark;
 }
 
 bool databasemanager::editClientPrefInfo(QVector<QString> v)

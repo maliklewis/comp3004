@@ -4,6 +4,7 @@
 #include "animal.h"
 #include "dog.h"
 #include "cat.h"
+#include "bird.h"
 
 class AnimalFactory
 {

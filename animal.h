@@ -9,7 +9,7 @@ class Animal
 {
 public:
     Animal();
-    virtual void setAttributes(QVector<int>, QString) = 0;
+    virtual void setAttributes(QVector<int>) = 0;
 };
 
 #endif // ANIMAL_H

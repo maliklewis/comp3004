@@ -12,7 +12,11 @@ class databasemanager : public QObject
     Q_OBJECT
 public:
     static databasemanager* getInstance();
-    QMap<QString, Animal*> animals;
+    //QMap<QString, Animal*> animals;
+
+    QVector<QMap<QString, int>> animalList;
+    //QVector<QMap<QString,
+    int benchMark =0;
     //QVector<Animal*> animals;
     //QMap<QString, QMapIterator<animals,animals>> animals2;
     bool dbOpen();

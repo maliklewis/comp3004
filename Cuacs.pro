@@ -45,7 +45,8 @@ SOURCES += \
     dog.cpp \
     animalfactory.cpp \
     clientpreferencesview.cpp \
-    cat.cpp
+    cat.cpp \
+    bird.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -68,7 +69,8 @@ HEADERS += \
     dog.h \
     animalfactory.h \
     clientpreferencesview.h \
-    cat.h
+    cat.h \
+    bird.h
 
 FORMS += \
         mainwindow.ui \

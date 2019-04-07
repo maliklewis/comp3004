@@ -80,8 +80,8 @@ void ClientController::tableItemDone()
     animalDetailsView->getSize()->setReadOnly(true);
     animalDetailsView->getPlayful()->setText(v.at(9));
     animalDetailsView->getPlayful()->setReadOnly(true);
-    animalDetailsView->getWinged()->setText(v.at(10));
-    animalDetailsView->getWinged()->setReadOnly(true);
+    animalDetailsView->getWinged()->setCurrentText(v.at(10));
+    animalDetailsView->getWinged()->setEditable(true);
     animalDetailsView->getCost()->setText(v.at(11));
     animalDetailsView->getCost()->setReadOnly(true);
     animalDetailsView->getShedding()->setText(v.at(12));

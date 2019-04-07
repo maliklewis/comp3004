@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>347</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>220</x>
      <y>50</y>
      <width>165</width>
-     <height>249</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -107,8 +107,8 @@
     <rect>
      <x>120</x>
      <y>50</y>
-     <width>80</width>
-     <height>251</height>
+     <width>93</width>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -143,7 +143,18 @@
      <widget class="QLineEdit" name="playfulnessLabel"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="wingedLabel"/>
+     <widget class="QComboBox" name="wingedDropdown">
+      <item>
+       <property name="text">
+        <string>Intacted</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Removed</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -153,7 +164,7 @@
      <x>10</x>
      <y>50</y>
      <width>98</width>
-     <height>249</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -283,7 +294,7 @@
      <x>400</x>
      <y>50</y>
      <width>91</width>
-     <height>251</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -326,7 +337,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>310</y>
+     <y>390</y>
      <width>83</width>
      <height>25</height>
     </rect>

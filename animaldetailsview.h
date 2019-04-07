@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QLabel>
 #include <QLineEdit>
+#include <QComboBox>
 #include <QDebug>
 
 namespace Ui {
@@ -36,7 +37,7 @@ public:
     QLineEdit* getNovice();
     QLineEdit* getEase();
     QLineEdit* getEnivornment();
-    QLineEdit* getWinged();
+    QComboBox* getWinged();
     QLineEdit* getVocal();
     QLineEdit* getclawState();
     void setClient(bool clientValue);

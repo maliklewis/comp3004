@@ -153,54 +153,34 @@ void StaffController::insertAnimalBackButtonDone()
 void StaffController::tableItemDone()
 {
     animalDetailsView = new AnimalDetailsView;
-    QSqlQuery qry;
+    //QSqlQuery qry;
     databasemanager* cuacsdb = databasemanager::getInstance();
     QVector<QString> v = cuacsdb->getAnimalinfo(browseView->tableRowString);
 
 
     qDebug()<<v.at(0);
     animalDetailsView->getName()->setText(v.at(0));
-    animalDetailsView->getName()->setReadOnly(true);
     animalDetailsView->getType()->setText(v.at(1));
-    animalDetailsView->getType()->setReadOnly(true);
     animalDetailsView->getBreed()->setText(v.at(2));
-    animalDetailsView->getBreed()->setReadOnly(true);
     animalDetailsView->getGender()->setText(v.at(3));
-    animalDetailsView->getGender()->setReadOnly(true);
     animalDetailsView->getAge()->setText(v.at(4) + " years");
-    animalDetailsView->getAge()->setReadOnly(true);
     animalDetailsView->getHousetrained()->setText(v.at(5));
-
     animalDetailsView->getSpecial()->setText(v.at(6));
-
     animalDetailsView->getSpan()->setText(v.at(7));
-
     animalDetailsView->getSize()->setText(v.at(8));
-
     animalDetailsView->getPlayful()->setText(v.at(9));
-
-    animalDetailsView->getWinged()->setText(v.at(10));
-
+    //animalDetailsView->getWinged()->setText(v.at(10));
+    animalDetailsView->getWinged()->setCurrentText(v.at(10));
     animalDetailsView->getCost()->setText(v.at(11));
-
     animalDetailsView->getShedding()->setText(v.at(12));
-
     animalDetailsView->getAggression()->setText(v.at(13));
-
     animalDetailsView->getBehaviour()->setText(v.at(14));
-
     animalDetailsView->getDisease()->setText(v.at(15));
-
     animalDetailsView->getParasite()->setText(v.at(16));
-
     animalDetailsView->getNovice()->setText(v.at(17));
-
     animalDetailsView->getEase()->setText(v.at(18));
-
     animalDetailsView->getEnivornment()->setText(v.at(19));
-
     animalDetailsView->getVocal()->setText(v.at(20));
-
     animalDetailsView->getclawState()->setText(v.at(21));
 
 
@@ -211,13 +191,6 @@ void StaffController::tableItemDone()
 void StaffController::clientTableItemDone()
 {
     clientDetailsView = new ClientDetailsView;
-    /*QSqlQuery qry;
-    qDebug()<<browseClientsView->clientTableRowString;
-
-    qry.prepare("SELECT name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle from client WHERE client_id = '"+browseClientsView->clientTableRowString+"'");
-
-    qry.exec();
-    qry.next();*/
     databasemanager* cuacsdb = databasemanager::getInstance();
     QVector<QString> v = cuacsdb->getClientinfo(browseClientsView->clientTableRowString);
 
@@ -325,7 +298,7 @@ void StaffController::updateButtonDone()
     v.append(this->animalDetailsView->getNovice()->text());
     v.append(this->animalDetailsView->getEase()->text());
     v.append(this->animalDetailsView->getEnivornment()->text());
-    v.append(this->animalDetailsView->getWinged()->text());
+    v.append(this->animalDetailsView->getWinged()->currentText());
     v.append(this->animalDetailsView->getVocal()->text());
     v.append(this->animalDetailsView->getclawState()->text());
     v.append(this->animalDetailsView->getName()->text());

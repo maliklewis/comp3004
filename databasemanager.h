@@ -15,7 +15,7 @@ public:
     //QMap<QString, Animal*> animals;
 
     QVector<QMap<QString, int>> animalList;
-    //QVector<QMap<QString,
+    QVector<QMap<QString, QString>> clientList;
     int benchMark =0;
     //QVector<Animal*> animals;
     //QMap<QString, QMapIterator<animals,animals>> animals2;

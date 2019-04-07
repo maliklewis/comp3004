@@ -48,6 +48,8 @@ private slots:
     void insertAnimalBackButtonSlot();
     void on_typeDropdown_currentTextChanged(const QString &arg1);
 
+    void on_easeofTraingDropdown_currentTextChanged(const QString &arg1);
+
 private:
     Ui::AddAnimalView *ui;
 };

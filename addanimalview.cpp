@@ -88,3 +88,16 @@ void AddAnimalView::on_typeDropdown_currentTextChanged(const QString &arg1)
         ui->lifespanDropwdown->addItem("20 Years");
     }
 }
+
+void AddAnimalView::on_easeofTraingDropdown_currentTextChanged(const QString &arg1)
+{
+    if (arg1 == "Low"){
+        ui->vocalDropdown->setCurrentText("High");
+    }
+    else if (arg1 == "Medium"){
+        ui->vocalDropdown->setCurrentText("Medium");
+    }
+    else if (arg1 == "High"){
+        ui->vocalDropdown->setCurrentText("Low");
+    }
+}

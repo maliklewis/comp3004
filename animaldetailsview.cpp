@@ -94,9 +94,9 @@ QLineEdit* AnimalDetailsView::getEnivornment()
 {
     return ui->environmentLabel;
 }
-QLineEdit* AnimalDetailsView::getWinged()
+QComboBox* AnimalDetailsView::getWinged()
 {
-    return ui->wingedLabel;
+    return ui->wingedDropdown;
 }
 QLineEdit* AnimalDetailsView::getVocal()
 {

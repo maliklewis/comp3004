@@ -402,6 +402,7 @@ int databasemanager::lowGoodConversion(QString value)
 int databasemanager::costConversion(QString value)
 {
     int ret = 0;
+    //animal cost of care
     if (value == "$0-$1000"){
         ret = 3;
     }
@@ -426,8 +427,9 @@ int databasemanager::clawStateConversion(QString value)
     return ret;
 }
 
-int databasemanager::ageConversion(double value)
+int databasemanager::animalAgeConversion(double value)
 {
+
     int ret = 0;
     if (value < 3.0){
         ret = 4;
@@ -443,6 +445,120 @@ int databasemanager::ageConversion(double value)
     }
     return ret;
 }
+
+int databasemanager::incomeConversion(int value){
+    int ret = 0;
+    if (value <=50000){
+        ret = 2;
+    }
+    else if (value >50000 && value <=70000){
+        ret = 3;
+    }
+    else if (value > 70000 && value <= 100000){
+        ret = 4;
+    }
+    else {
+        ret = 5;
+    }
+    return ret;
+
+}
+
+int databasemanager::styleConversion(QString value){
+    int ret = 0;
+    if (value =='School Residence'){
+        ret = 1;
+    }
+    else if (value =='Apartment'){
+        ret = 2;
+    }
+    else if (value == 'Townhouse'){
+        ret = 3;
+    }
+    else if (value == 'Semi-Detached'){
+        ret = 4;
+    }
+    else if (value == 'Detached'){
+        ret = 5;
+    }
+    return ret;
+
+}
+
+int databasemanager::clientAgeConversion(int value)
+{
+
+    int ret = 0;
+    if (value <= 18){
+        ret = -1;
+    }
+    else if (value >18 && value <= 25){
+        ret = 5;
+    }
+    else if (value >=26 && value <= 45){
+        ret = 4;
+    }
+    else if (value >=46 && value <= 59){
+        ret = 3;
+    }
+    else if (value >=60){
+        ret = 2;
+    }
+
+    return ret;
+}
+
+int databasemanager::houseSizeConversion(QString value){
+    int ret = 0;
+    if (value >= 5 ||value == 1){
+        ret = 1;
+    }
+    else if (value == 4){
+        ret = 2;
+    }
+    else if (value == 3){
+        ret = 3;
+    }
+    else if (value == 2){
+        ret = 4;
+    }
+
+    return ret;
+
+}
+
+int databasemanager::employmentConversion(QString value){
+    int ret = 0;
+
+    //employment type
+    if (value == 'A'){
+        ret = 4;
+    }
+    else if (value == 'B'){
+        ret = 3;
+    }
+    else if (value == 'C'){
+        ret = 2;
+    }
+    else if (value == 'D'){
+        ret = 1;
+    }
+    else if (value == '0'){
+        ret = 5;
+    }
+    //employment status
+    else if (value == 'unemployed'){
+        ret = 0;
+    }
+    else if (value == 'employed'){
+        ret = 1;
+    }
+
+    return ret;
+
+
+}
+
 
 void databasemanager::createAnimalObjects()
 {
@@ -469,7 +585,7 @@ void databasemanager::createAnimalObjects()
         //playfulness
         att.append(highGoodConversion(qry.value(3).toString()));
         //cost
-        att.append(lowGoodConversion(qry.value(4).toString()));
+        att.append(valueConversion(qry.value(4).toString()));
         //shedding
         att.append(highGoodConversion(qry.value(5).toString()));
         //aggression
@@ -528,6 +644,75 @@ bool databasemanager::editClientPrefInfo(QVector<QString> v)
     qry.prepare("UPDATE client SET pAnimaltype = '"+v.at(0)+"', pAnimalbreed = '"+v.at(1)+"', ageRange = '"+v.at(2)+"', prefEnvtype = '"+v.at(3)+"', vetFees = '"+v.at(4)+"', kidFriendly = '"+v.at(5)+"', easeTrain = '"+v.at(6)+"', healthCon = '"+v.at(7)+"', prefSize = '"+v.at(8)+"' WHERE name = '"+v.at(9)+"'");
     ret = qry.exec();
     return ret;
+}
+
+void databasemanager::createClientList(){
+
+
+    QSqlQuery qry;
+    qry.prepare("SELECT Count(*) from client");
+    qry.exec();
+    qry.next();
+    int maxSize = qry.value(0).toInt();
+
+
+    for (int i=1; i<=maxSize; i++){
+        qry.prepare("SELECT name,age,employmentType,employmentStatus,maritalStatus,income,architectureStyle,"
+                    "pAnimaltype,pAnimalbreed,ageRange,prefEnvtype,vetFees,kidFriendly,easeTrain,healthCon,prefSize"
+                    "from animal WHERE client_id = '"+QString::number(i)+"'");
+
+        QVector<int> att;
+        QVector<QString> pref;
+
+        //age
+        att.append(clientAgeConversion(qry.value(1).toInt()));
+
+        //etype
+        att.append(employmentConversion(qry.value(2).toString()));
+
+        //estatus
+        att.append(employmentConversion(qry.value(2).toString()));
+
+        //income
+        att.append(incomeConversion(qry.value(4).toString()));
+
+        //archstyle
+        att.append(styleConversion(qry.value(5).toString()));
+
+
+
+        //animalType
+        pref.append(qry.value(6).toString());
+
+        //animalBreed
+        pref.append(qry.value(7).toString());
+
+        //ageRange
+        pref.append(qry.value(8).toString());
+
+        //prefEnv
+        pref.append(qry.value(9).toString());
+
+        //vetfees
+        pref.append(qry.value(10).toString());
+
+        //kidfriendly
+        pref.append(qry.value(11).toString());
+
+        //easetrain
+        pref.append(qry.value(12).toString());
+
+        //healthcon
+        pref.append(qry.value(13).toString());
+
+        //prefSize
+        pref.append(qry.value(14).toString());
+
+    }
+
+
+
+
 }
 
 

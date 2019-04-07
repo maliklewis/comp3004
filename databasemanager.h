@@ -42,9 +42,16 @@ public:
     int lowGoodConversion(QString);
     int costConversion(QString);
     int clawStateConversion(QString);
-    int ageConversion(double);
+    int animalAgeConversion(double);
+    int clientAgeConversion(int);
     int yesOrNoConversion(QString);
     void createAnimalObjects();
+    int houseSizeConversion(QString);
+    int employmentConversion(QString);
+    int styleConversion(QString);
+    int incomeConversion(int);
+    void createClientList();
+
 
 
 private:

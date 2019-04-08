@@ -46,7 +46,8 @@ SOURCES += \
     animalfactory.cpp \
     clientpreferencesview.cpp \
     cat.cpp \
-    bird.cpp
+    bird.cpp \
+    algorithmcontroller.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -70,7 +71,8 @@ HEADERS += \
     animalfactory.h \
     clientpreferencesview.h \
     cat.h \
-    bird.h
+    bird.h \
+    algorithmcontroller.h
 
 FORMS += \
         mainwindow.ui \

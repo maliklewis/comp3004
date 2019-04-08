@@ -319,4 +319,5 @@ void StaffController::algorithmButtonDone()
 {
     databasemanager* cuacsdb = databasemanager::getInstance();
     cuacsdb->createAnimalObjects();
+    cuacsdb->createClientList();
 }

@@ -12,13 +12,9 @@ class databasemanager : public QObject
     Q_OBJECT
 public:
     static databasemanager* getInstance();
-    //QMap<QString, Animal*> animals;
-
-    QVector<QMap<QString, int>> animalList;
+    QVector<QMap<QString, QString>> animalList;
     QVector<QMap<QString, QString>> clientList;
     int benchMark =0;
-    //QVector<Animal*> animals;
-    //QMap<QString, QMapIterator<animals,animals>> animals2;
     bool dbOpen();
     bool dbBuild();
     bool dbClose();
@@ -38,19 +34,20 @@ public:
     bool updateAnimalquery(QVector<QString>);
     bool editClientPrefInfo(QVector<QString>);
 
-    int highGoodConversion(QString);
-    int lowGoodConversion(QString);
-    int costConversion(QString);
-    int clawStateConversion(QString);
-    int animalAgeConversion(double);
-    int clientAgeConversion(int);
-    int yesOrNoConversion(QString);
+    QString highGoodConversion(QString);
+    QString lowGoodConversion(QString);
+    QString costConversion(QString);
+    QString clawStateConversion(QString);
+    QString animalAgeConversion(double);
+    QString clientAgeConversion(int);
+    QString yesOrNoConversion(QString);
     void createAnimalObjects();
-    int houseSizeConversion(QString);
-    int employmentConversion(QString);
-    int styleConversion(QString);
-    int incomeConversion(int);
+    QString houseSizeConversion(QString);
+    QString employmentConversion(QString);
+    QString styleConversion(QString);
+    QString incomeConversion(int);
     void createClientList();
+    //void initMatches();
 
 
 

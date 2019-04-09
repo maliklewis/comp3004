@@ -44,7 +44,8 @@ SOURCES += \
     animal.cpp \
     clientpreferencesview.cpp \
     algorithmcontroller.cpp \
-    client.cpp
+    client.cpp \
+    algorithmoutputview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -66,7 +67,8 @@ HEADERS += \
     animal.h \
     clientpreferencesview.h \
     algorithmcontroller.h \
-    client.h
+    client.h \
+    algorithmoutputview.h
 
 FORMS += \
         mainwindow.ui \
@@ -81,4 +83,5 @@ FORMS += \
     clientlogin.ui \
     editclientdetailsview.ui \
     clientdetailsview.ui \
-    clientpreferencesview.ui
+    clientpreferencesview.ui \
+    algorithmoutputview.ui

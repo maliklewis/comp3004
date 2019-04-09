@@ -14,6 +14,7 @@
 #include "browseclientview.h"
 #include "clientdetailsview.h"
 #include "algorithmcontroller.h"
+#include "algorithmoutputview.h"
 
 class StaffController : public QObject
 {
@@ -30,6 +31,7 @@ class StaffController : public QObject
          ClientDetailsView* clientDetailsView;
          addclientview* addClientView;
          BrowseClientView* browseClientsView;
+         AlgorithmOutputView* algorithmOutputView;
 
 
     public slots:

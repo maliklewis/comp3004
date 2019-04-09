@@ -62,8 +62,6 @@ void StaffController::browseClientsButtonDone()
     browseClientsView = new BrowseClientView;
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery qry;
-   /* qry.prepare("Select name, number, email from client");
-    qry.exec();*/
     databasemanager* cuacsdb = databasemanager::getInstance();
     qry = cuacsdb->browseClientsQuery();
 
@@ -319,4 +317,14 @@ void StaffController::algorithmButtonDone()
     //AlgorithmController* algo = AlgorithmController::getInstance();
     //algo->giveScoreAttributes(algo->initMatches());
     //qDebug()<<algo->initMatches();
+    this->staffView->hide();
+    algorithmOutputView = new AlgorithmOutputView;
+    QSqlQueryModel *modal = new QSqlQueryModel();
+    QSqlQuery qry;
+    //databasemanager* cuacsdb = databasemanager::getInstance();
+    //qry = cuacsdb->displayMatchsQuery();
+    modal->setQuery(qry);
+    //algorithmOutputView->getClientForm()->setModel(modal);
+    //algorithmOutputView->getClientForm()
+    //algorithmOutputView->show();
 }

@@ -615,7 +615,18 @@ QString databasemanager::immuneConversion(QString value1, QString value2){
 }
 
 QString databasemanager::dependableConversion(QString v1, QString v2, QString v3){
+    QString ret = "0";
 
+    if (v1 == "Low" || v2 == "Low"){
+        ret = "Low";
+    }
+    else if (v1 == "Medium" || v2 == "Medium"){
+        ret = "Medium";
+    }
+    else if (v1 == "High" || v2 == "High"){
+        ret = "High";
+    }
+    return ret;
 }
 
 
@@ -700,7 +711,28 @@ void databasemanager::createClientList(){
        // QVector<QString> att;
         //QVector<QString> preferrences;
 
-        Client newAnimal()
+        Client newAnimal(qry.value(0).toString(),
+                         qry.value(1).toString(),
+                         qry.value(2).toString(),
+                         qry.value(3).toString(),
+                         clientAgeConversion(qry.value(4).toInt()),
+                         qry.value(5).toString(),
+                         qry.value(6).toString(),
+                         qry.value(7).toString(),
+                         employmentConversion(qry.value(8).toString()),
+                         qry.value(9).toString(),
+                         employmentConversion(qry.value(10).toString()),
+                         incomeConversion(qry.value(11).toInt()),
+                         styleConversion(qry.value(12).toString()),
+                         qry.value(13).toString(),
+                         qry.value(14).toString(),
+                         ageRangeConversion(qry.value(15).toString()),
+                         qry.value(16).toString(),
+                         qry.value(17).toString(),
+                         qry.value(18).toString(),
+                         qry.value(19).toString(),
+                         qry.value(20).toString(),
+                         qry.value(21).toString());
 
 
 

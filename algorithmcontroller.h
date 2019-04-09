@@ -9,6 +9,7 @@ class AlgorithmController
 {
 public:
     static AlgorithmController* getInstance();
+    void initMatches();
    // QVector<QPair<QVector<QString>,QVector<QVector<QString>>>>initMatches();
     QVector<QVector<QString>> animalList;
     QVector<QVector<QString>> clientList;
@@ -19,10 +20,9 @@ private:
     static AlgorithmController* instance;
     AlgorithmController();
 
-    void initMatches();
-    QVector<QMap<QString, QString>> animalList;
-    QVector<QMap<QString, QString>> clientList;
-    QMap<QMap<QString,QString>, QVector<QMap<QString, QString>>> initmatches;
+    //QVector<QMap<QString, QString>> animalList;
+    //QVector<QMap<QString, QString>> clientList;
+    //QMap<QMap<QString,QString>, QVector<QMap<QString, QString>>> initmatches;
 };
 
 #endif // ALGORITHMCONTROLLER_H

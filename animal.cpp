@@ -31,5 +31,6 @@ Animal::Animal(QString a,QString b, QString c,QString d,QString e,QString f,QStr
     winged=u;
     vocal=v;
     clawState=w;
+    score=0;
 
 }

@@ -36,6 +36,7 @@ public:
     QString winged;
     QString vocal;
     QString clawState;
+    int score;
 
 };
 

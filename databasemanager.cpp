@@ -673,7 +673,7 @@ void databasemanager::createAnimalObjects()
 
         //animalList1.append(newAnimal);
         animalList1.append(newAnimal);
-        qDebug()<<(animalList1.at(i-1).name);
+
 
 
     }
@@ -711,7 +711,7 @@ void databasemanager::createClientList(){
        // QVector<QString> att;
         //QVector<QString> preferrences;
 
-        Client newAnimal(qry.value(0).toString(),
+        Client newClient(qry.value(0).toString(),
                          qry.value(1).toString(),
                          qry.value(2).toString(),
                          qry.value(3).toString(),
@@ -735,6 +735,7 @@ void databasemanager::createClientList(){
                          qry.value(21).toString());
 
 
+        clientList1.append(newClient);
 
 
 

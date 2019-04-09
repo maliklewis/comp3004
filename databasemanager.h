@@ -14,8 +14,7 @@ class databasemanager : public QObject
     Q_OBJECT
 public:
     static databasemanager* getInstance();
-    QVector<QVector<QString>> animalList;
-    QVector<QVector<QString>> clientList;
+
     QList<Client> clientList1;
     QList<Animal> animalList1;
     int benchMark =0;

@@ -11,6 +11,7 @@ public:
     Client();
     Client(QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString,QString);
 
+    bool operator< (const Client&);
 
     QString id;
     QString name;
@@ -34,7 +35,7 @@ public:
     QString easeOfTraining;
     QString healthCondition;
     QString pSize;
-    QVector<Animal*> animalList;
+    //QList<Animal> List = {};
 
 };
 

@@ -30,4 +30,9 @@ Client:: Client(QString a,QString b,QString c,QString d,QString e,QString f,QStr
     healthCondition=u;
     pSize=v;
 
+
 }
+/*bool Client::operator< (const Client &c)
+{
+    return name < c.name;
+}*/

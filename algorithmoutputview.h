@@ -16,6 +16,16 @@ public:
     explicit AlgorithmOutputView(QWidget *parent = 0);
     ~AlgorithmOutputView();
     QTableView* getForm();
+    int acmTableRow;
+    QString acmTableRowString;
+
+private slots:
+    void browseBackButtonSlot();
+    void on_tableView_doubleClicked(const QModelIndex &index);
+
+signals:
+    void browseClientsBackButtonClicked();
+    void tableItemClicked();
 
 private:
     Ui::AlgorithmOutputView *ui;

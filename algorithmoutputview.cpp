@@ -6,6 +6,7 @@ AlgorithmOutputView::AlgorithmOutputView(QWidget *parent) :
     ui(new Ui::AlgorithmOutputView)
 {
     ui->setupUi(this);
+    this->connect(this->ui->backButton,SIGNAL(clicked()),this,SLOT(browseBackButtonSlot()));
 }
 
 AlgorithmOutputView::~AlgorithmOutputView()
@@ -16,5 +17,17 @@ AlgorithmOutputView::~AlgorithmOutputView()
 QTableView* AlgorithmOutputView::getForm()
 {
     return ui->tableView;
+}
+
+void AlgorithmOutputView::browseBackButtonSlot()
+{
+    emit browseClientsBackButtonClicked();
+}
+
+void AlgorithmOutputView::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    acmTableRow = index.row() + 1;
+    acmTableRowString = QString::number(acmTableRow);
+    emit tableItemClicked();
 }
 

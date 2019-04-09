@@ -317,15 +317,58 @@ void StaffController::algorithmButtonDone()
     AlgorithmController* algo = AlgorithmController::getInstance();
     algo->initMatches();
     algo->scoreMatches();
-    //qDebug()<<algo->initMatches();
+    qDebug()<<"Main Staff Window: Browse Clients button pressed";
+
+    //user chooses to browse clients
     this->staffView->hide();
     algorithmOutputView = new AlgorithmOutputView;
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery qry;
     //databasemanager* cuacsdb = databasemanager::getInstance();
-    //qry = cuacsdb->displayMatchsQuery();
+    qry = cuacsdb->browseClientsQuery();
+
     modal->setQuery(qry);
-    //algorithmOutputView->getClientForm()->setModel(modal);
-    //algorithmOutputView->getClientForm()
-    //algorithmOutputView->show();
+    algorithmOutputView->getForm()->setModel(modal);
+    algorithmOutputView->show();
+
+    this->connect(algorithmOutputView,SIGNAL(browseClientsBackButtonClicked()),this,SLOT(acmBrowseClientsBackButtonDone()));
+    this->connect(algorithmOutputView,SIGNAL(tableItemClicked()),this,SLOT(acmClientTableItemDone()));
+}
+
+void StaffController::acmBrowseClientsBackButtonDone(){
+    qDebug()<<"Client List Window: Back button pressed";
+
+    //return to staff view from browsing animals
+    this->algorithmOutputView->hide();
+    this->staffView->show();
+}
+
+void StaffController::acmClientTableItemDone(){
+    databasemanager* cuacsdb = databasemanager::getInstance();
+    QVector<QString> v = cuacsdb->acmGetAnimalinfo(algorithmOutputView->acmTableRowString);
+
+    animalDetailsView = new AnimalDetailsView;
+    this->animalDetailsView->getName()->setText(v.at(0));
+    this->animalDetailsView->getType()->setText(v.at(1));
+    this->animalDetailsView->getBreed()->setText(v.at(2));
+    this->animalDetailsView->getGender()->setCurrentText(v.at(3));
+    this->animalDetailsView->getAge()->setText(v.at(4) + " years");
+    this->animalDetailsView->getHousetrained()->setCurrentText(v.at(5));
+    this->animalDetailsView->getSpecial()->setCurrentText(v.at(6));
+    this->animalDetailsView->getSpan()->setCurrentText(v.at(7));
+    this->animalDetailsView->getSize()->setCurrentText(v.at(8));
+    this->animalDetailsView->getPlayful()->setCurrentText(v.at(9));
+    this->animalDetailsView->getWinged()->setCurrentText(v.at(10));
+    this-> animalDetailsView->getCost()->setCurrentText(v.at(11));
+    this->animalDetailsView->getShedding()->setCurrentText(v.at(12));
+    this->animalDetailsView->getAggression()->setCurrentText(v.at(13));
+    this->animalDetailsView->getBehaviour()->setCurrentText(v.at(14));
+    this->animalDetailsView->getDisease()->setCurrentText(v.at(15));
+    this->animalDetailsView->getParasite()->setCurrentText(v.at(16));
+    this->animalDetailsView->getNovice()->setCurrentText(v.at(17));
+    this->animalDetailsView->getEase()->setCurrentText(v.at(18));
+    this->animalDetailsView->getEnivornment()->setCurrentText(v.at(19));
+    this->animalDetailsView->getVocal()->setCurrentText(v.at(20));
+    this->animalDetailsView->getclawState()->setCurrentText(v.at(21));
+    this->animalDetailsView->show();
 }

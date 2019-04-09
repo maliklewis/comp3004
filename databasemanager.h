@@ -7,6 +7,7 @@
 #include <QVector>
 #include <QMapIterator>
 #include "client.h"
+#include "algorithmcontroller.h"
 
 
 class databasemanager : public QObject
@@ -29,6 +30,7 @@ public:
     QVector<QString> editClientGetinfo(QString);
     bool editClientaddInfo(QVector<QString>);
     QVector<QString> getAnimalinfo(QString);
+    QVector<QString> acmGetAnimalinfo(QString);
     QVector<QString> getClientinfo(QString);
     QSqlQuery browseAnimalsQuery();
     QSqlQuery browseClientsQuery();
@@ -36,6 +38,7 @@ public:
     bool insertClientquery(QVector<QString>);
     bool updateAnimalquery(QVector<QString>);
     bool editClientPrefInfo(QVector<QString>);
+
 
     QString highGoodConversion(QString);
     QString lowGoodConversion(QString);

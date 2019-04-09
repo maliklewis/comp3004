@@ -290,6 +290,45 @@ QVector<QString> databasemanager::getClientinfo(QString client_id)
 
 }
 
+QVector<QString> databasemanager::acmGetAnimalinfo(QString client_id){
+    QSqlQuery qry;
+    QVector<QString> vector;
+    AlgorithmController* algo = AlgorithmController::getInstance();
+    QString id = algo->aList.at(client_id.toInt()-1).at(0).id;
+    qry.prepare("SELECT name,type,breed,gender,age,houstrained,specialNeeds,lifeSpan,size,playfulness,winged,costOfCare,sheddingAmount,"
+                "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
+                "easeOfTraining,environmentType,vocal,clawState from animal WHERE animal_id = '"+id+"'");
+
+    qry.exec();
+    qry.next();
+
+    vector.append(qry.value(0).toString());
+    vector.append(qry.value(1).toString());
+    vector.append(qry.value(2).toString());
+    vector.append(qry.value(3).toString());
+    vector.append(qry.value(4).toString());
+    vector.append(qry.value(5).toString());
+    vector.append(qry.value(6).toString());
+    vector.append(qry.value(7).toString());
+    vector.append(qry.value(8).toString());
+    vector.append(qry.value(9).toString());
+    vector.append(qry.value(10).toString());
+    vector.append(qry.value(11).toString());
+    vector.append(qry.value(12).toString());
+    vector.append(qry.value(13).toString());
+    vector.append(qry.value(14).toString());
+    vector.append(qry.value(15).toString());
+    vector.append(qry.value(16).toString());
+    vector.append(qry.value(17).toString());
+    vector.append(qry.value(18).toString());
+    vector.append(qry.value(19).toString());
+    vector.append(qry.value(20).toString());
+    vector.append(qry.value(21).toString());
+
+    return vector;
+
+}
+
 QVector<QString> databasemanager::getAnimalinfo(QString animal_id)
 {
     QSqlQuery qry;

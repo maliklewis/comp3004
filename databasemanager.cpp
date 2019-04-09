@@ -186,7 +186,7 @@ void databasemanager::dbPopulate(){
         db.exec(QString("INSERT INTO client VALUES(Null,'Paul Gasol','(331)-845-4887','gasolp@gmail.com',29, 2, 9, 'FALSE', 'B', '1', 'TRUE', 50000, 'Semi-Detached','Bird','Lovebird','0.6-2','Outdoor','200-4000','Yes','Medium','Medium','Medium')"));
         db.exec(QString("INSERT INTO client VALUES(Null,'Joel Embiid','(541)-886-4967','jbiid@gmail.com',28, 0, 0, 'TRUE', '0', '0', 'FALSE', 15000, 'Detached','Bird','Dove','11-20','Outdoor','200-3500','No','Medium','Medium','Medium')"));
         db.exec(QString("INSERT INTO client VALUES(Null,'Martha Stewart','(521)-284-4867','mstewart@yahoo.com',38, 1, 17, 'FALSE', 'A', '1', 'TRUE', 80000, 'Townhouse','Dog','Poodle','3-6','Outdoor','200-1500','Yes','Medium','High','Medium')"));
-        db.exec(QString("INSERT INTO client VALUES(Null,'Logan Paul','(721)-874-7767','lp14@gmail.com',22, 0, 0, 'FALSE', 'C', '1', 'TRUE', 35000, 'Apartment','Dog','','0.6-2','Indoor','200-1500','Yes','High','High','Medium')"));
+        db.exec(QString("INSERT INTO client VALUES(Null,'Logan Paul','(721)-874-7767','lp14@gmail.com',22, 0, 0, 'FALSE', 'C', '1', 'TRUE', 35000, 'Apartment','Dog','Chihuahua','0.6-2','Indoor','200-1500','Yes','High','High','Medium')"));
         db.exec(QString("INSERT INTO client VALUES(Null,'Jaslin Ryerson','(621)-882-4267','jryerson@gmail.com',29, 2, 8, 'TRUE', 'A', '1', 'TRUE', 100000, 'Semi-Detached','Bird','Lovebird','0.6-2','Indoor','200-4000','Yes','High','Medium','Small')"));
         db.exec(QString("INSERT INTO client VALUES(Null,'Michael Eshilama','(343)-262-8135','me96@gmail.com',22, 0, 0, 'FALSE', 'D', '0', 'TRUE', 14000, 'Apartment','Dog','Pitbull','3-6','Outdoor','200-1500','No','Medium','Medium','Medium')"));
         db.exec(QString("INSERT INTO client VALUES(Null,'Tom Jerry','(123)-824-4557','tj14@gmail.com',19, 0, 0, 'FALSE', '0', '0', 'FALSE', 5000, 'Apartment','Cat','Himalayan','0.6-2','Indoor','200-1000','Yes','Medium','Medium','Medium')"));
@@ -493,16 +493,16 @@ QString databasemanager::clientAgeConversion(int value)
         ret = "0";
     }
     else if (value >18 && value <= 25){
-        ret = "5";
-    }
-    else if (value >=26 && value <= 45){
         ret = "4";
     }
-    else if (value >=46 && value <= 59){
+    else if (value >=26 && value <= 45){
         ret = "3";
     }
-    else if (value >=60){
+    else if (value >=46 && value <= 59){
         ret = "2";
+    }
+    else if (value >=60){
+        ret = "1";
     }
 
     return ret;
@@ -569,52 +569,46 @@ void databasemanager::createAnimalObjects()
     int maxSize = qry.value(0).toInt();
 
     for (int i=1; i<=maxSize; i++){
-        qry.prepare("SELECT age,houstrained,specialNeeds,playfulness,costOfCare,sheddingAmount,"
-                    "aggression,solitudialBehaviour,diseaseResistance,parasiticResistance,goodforNOwners,"
-                    "easeOfTraining,vocal,clawState, name, type from animal WHERE animal_id = '"+QString::number(i)+"'");
+        qry.prepare("SELECT animal_id, name, type, breed, gender, age, houstrained, specialNeeds, lifeSpan, size, costOfCare, sheddingAmount, "
+                    "aggression, playfulness, solitudialBehaviour, diseaseResistance, parasiticResistance, goodforNOwners, "
+                    "easeOfTraining, environmentType, winged, vocal, clawState from animal WHERE animal_id = '"+QString::number(i)+"'");
         qry.exec();
         qry.next();
-        //qDebug()<<qry.value(0);
-        QVector<QString> att;
-        //age
-        att.append(animalAgeConversion(qry.value(0).toDouble()));
-        //housetrained
-        att.append(yesOrNoConversion(qry.value(1).toString()));
-        //special
-        att.append(highGoodConversion(qry.value(2).toString()));
-        //playfulness
-        att.append(highGoodConversion(qry.value(3).toString()));
-        //cost
-        att.append(costConversion(qry.value(4).toString()));
-        //shedding
-        att.append(highGoodConversion(qry.value(5).toString()));
-        //aggression
-        att.append(highGoodConversion(qry.value(6).toString()));
-        //solitude
-        att.append(highGoodConversion(qry.value(7).toString()));
-        //disease
-        att.append(yesOrNoConversion(qry.value(8).toString()));
-        //parasite
-        att.append(highGoodConversion(qry.value(9).toString()));
-        //novice
-        att.append(lowGoodConversion(qry.value(10).toString()));
-        //ease
-        att.append(highGoodConversion(qry.value(11).toString()));
-        //vocal
-        att.append(lowGoodConversion(qry.value(12).toString()));
-        //claw
-        att.append(clawStateConversion(qry.value(13).toString()));
-        //type
-        att.append(qry.value(15).toString());
 
-        QMap<QString, QString> attributes = { {qry.value(14).toString(), "0"}, {"age", att.at(0)}, {"housetrained", att.at(1)}, {"special needs", att.at(2)},
-                       {"cost of care", att.at(3)}, {"shedding amount", att.at(4)}, {"aggression", att.at(5)},
-                       {"playfulness", att.at(6)}, {"solitudial behaviour", att.at(7)},
-                       {"immune system", att.at(8) + att.at(9)}, {"good for novices owners", att.at(10)},
-                                              {"ease of training", att.at(11)},{"vocal", att.at(12)}, {"type", att.at(13)} };
-        animalList.append(attributes);
+
+        //Animal newAnimal;
+        Animal newAnimal(qry.value(0).toString(),
+                               qry.value(1).toString(),
+                               qry.value(2).toString(),
+                               qry.value(3).toString(),
+                               qry.value(4).toString(),
+                               animalAgeConversion(qry.value(5).toDouble()),
+                               yesOrNoConversion(qry.value(6).toString()),
+                               highGoodConversion(qry.value(7).toString()),
+                               qry.value(8).toString(),
+                               qry.value(9).toString(),
+                               costConversion(qry.value(10).toString()),
+                               highGoodConversion(qry.value(11).toString()),
+                               lowGoodConversion(qry.value(12).toString()),
+                               highGoodConversion(qry.value(13).toString()),
+                               highGoodConversion(qry.value(14).toString()),
+                               highGoodConversion(qry.value(15).toString()),
+                               highGoodConversion(qry.value(16).toString()),
+                               yesOrNoConversion(qry.value(17).toString()),
+                               highGoodConversion(qry.value(18).toString()),
+                               qry.value(19).toString(),
+                               yesOrNoConversion(qry.value(20).toString()),
+                               lowGoodConversion(qry.value(21).toString()),
+                               clawStateConversion(qry.value(22).toString()));
+
+        //animalList1.append(newAnimal);
+        animalList1.append(newAnimal);
+        qDebug()<<(animalList1.at(i-1).name);
+
 
     }
+
+
 }
 
 bool databasemanager::editClientPrefInfo(QVector<QString> v)
@@ -636,61 +630,26 @@ void databasemanager::createClientList(){
     qry.exec();
     qry.next();
     int maxSize = qry.value(0).toInt();
-    qDebug()<<maxSize;
 
 
     for (int i=1; i<=maxSize; i++){
-        qry.prepare("SELECT name,age,employmentType,employmentStatus,maritalStatus,income,architectureStyle,"
-                    "pAnimaltype,pAnimalbreed,ageRange,prefEnvtype,vetFees,kidFriendly,easeTrain,healthCon,prefSize, client_id "
+        qry.prepare("SELECT client_id,name,number,email,age,numberOfChildren,ageOfChildren,otherAnimals,employmentType,maritalStatus,employmentStatus,income,architectureStyle,"
+                    "pAnimaltype,pAnimalbreed,ageRange,prefEnvtype,vetFees,kidFriendly,easeTrain,healthCon,prefSize "
                     "from client WHERE client_id = '"+QString::number(i)+"'");
         qry.exec();
         qry.next();
-        QVector<QString> att;
-        QVector<QString> preferrences;
+       // QVector<QString> att;
+        //QVector<QString> preferrences;
+
+        Client newAnimal()
 
 
 
-        //age
-        att.append(clientAgeConversion(qry.value(1).toInt()));
-        //etype
-        att.append(employmentConversion(qry.value(2).toString()));
-        //estatus
-        att.append(employmentConversion(qry.value(3).toString()));
 
-        //income
-        att.append(incomeConversion(qry.value(5).toInt()));
-        //archstyle
-        att.append(styleConversion(qry.value(6).toString()));
-
-
-        //animalType
-        preferrences.append(qry.value(7).toString());
-        //animalBreed
-        preferrences.append(qry.value(8).toString());
-        //ageRange
-        preferrences.append(qry.value(9).toString());
-        //prefEnv
-        preferrences.append(qry.value(10).toString());
-        //vetfees
-        preferrences.append(qry.value(11).toString());
-        //kidfriendly
-        preferrences.append(qry.value(12).toString());
-        //easetrain
-        preferrences.append(qry.value(13).toString());
-        //healthcon
-        preferrences.append(qry.value(14).toString());
-        //prefSize
-        preferrences.append(qry.value(15).toString());
-
-        qDebug()<<qry.value(16).toString();
-
-        QMap<QString, QString> attributes = { {"id", qry.value(16).toString()}, {qry.value(0).toString(), "0"}, {"age", att.at(0)}, {"employment type", att.at(1)}, {"special needs", att.at(2)},
-                       {"employment status", att.at(2)}, {"income", att.at(3)}, {"architecture style", att.at(4)}, {"animal type", preferrences.at(0)}, {"animal breed", preferrences.at(1)}, {"age range", preferrences.at(2)},
-                                              {"environment", preferrences.at(3)}, {"vet fees", preferrences.at(4)}, {"kid friendly", preferrences.at(5)}, {"ease of training", preferrences.at(6)}, {"health condition", preferrences.at(7)}, {"size", preferrences.at(8)} };
-
-        clientList.append(attributes);
 
     }
+
+
 }
 
 

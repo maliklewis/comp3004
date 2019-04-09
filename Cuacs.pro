@@ -42,12 +42,9 @@ SOURCES += \
     editclientdetailsview.cpp \
     clientdetailsview.cpp \
     animal.cpp \
-    dog.cpp \
-    animalfactory.cpp \
     clientpreferencesview.cpp \
-    cat.cpp \
-    bird.cpp \
-    algorithmcontroller.cpp
+    algorithmcontroller.cpp \
+    client.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -67,12 +64,9 @@ HEADERS += \
     editclientdetailsview.h \
     clientdetailsview.h \
     animal.h \
-    dog.h \
-    animalfactory.h \
     clientpreferencesview.h \
-    cat.h \
-    bird.h \
-    algorithmcontroller.h
+    algorithmcontroller.h \
+    client.h
 
 FORMS += \
         mainwindow.ui \

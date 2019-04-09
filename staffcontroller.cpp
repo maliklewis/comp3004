@@ -320,4 +320,7 @@ void StaffController::algorithmButtonDone()
     databasemanager* cuacsdb = databasemanager::getInstance();
     cuacsdb->createAnimalObjects();
     cuacsdb->createClientList();
+    //AlgorithmController* algo = AlgorithmController::getInstance();
+    //algo->giveScoreAttributes(algo->initMatches());
+    //qDebug()<<algo->initMatches();
 }

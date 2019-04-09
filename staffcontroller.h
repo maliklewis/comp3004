@@ -13,6 +13,7 @@
 #include "addclientview.h"
 #include "browseclientview.h"
 #include "clientdetailsview.h"
+#include "algorithmcontroller.h"
 
 class StaffController : public QObject
 {

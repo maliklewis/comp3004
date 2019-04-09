@@ -2,18 +2,22 @@
 #define DATABASEMANAGER_H
 #include <QObject>
 #include <QSqlDatabase>
-#include "animalfactory.h"
+
 #include "animal.h"
 #include <QVector>
 #include <QMapIterator>
+#include "client.h"
+
 
 class databasemanager : public QObject
 {
     Q_OBJECT
 public:
     static databasemanager* getInstance();
-    QVector<QMap<QString, QString>> animalList;
-    QVector<QMap<QString, QString>> clientList;
+    QVector<QVector<QString>> animalList;
+    QVector<QVector<QString>> clientList;
+    QList<Client> clientList1;
+    QList<Animal> animalList1;
     int benchMark =0;
     bool dbOpen();
     bool dbBuild();
@@ -54,7 +58,7 @@ public:
 private:
     QSqlDatabase db;
     static databasemanager* instance;
-    AnimalFactory* factory;
+    //AnimalFactory* factory;
     databasemanager();
 
 signals:

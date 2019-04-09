@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>359</height>
+    <width>537</width>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,8 +57,8 @@
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>320</y>
+     <x>240</x>
+     <y>340</y>
      <width>80</width>
      <height>26</height>
     </rect>
@@ -72,13 +72,13 @@ font: 75 11pt &quot;DejaVu Sans Mono&quot;;</string>
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>60</y>
      <width>328</width>
-     <height>251</height>
+     <height>271</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -147,13 +147,13 @@ font: 75 11pt &quot;DejaVu Sans Mono&quot;;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>360</x>
      <y>60</y>
-     <width>88</width>
-     <height>251</height>
+     <width>149</width>
+     <height>271</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -283,7 +283,28 @@ font: 75 11pt &quot;DejaVu Sans Mono&quot;;</string>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="vetFeesValue"/>
+     <widget class="QComboBox" name="vetFeesDropdown">
+      <item>
+       <property name="text">
+        <string>$0-$1000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$1000-$2000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$2000-$3000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$4000+</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QComboBox" name="envTypeDropdown">

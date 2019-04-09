@@ -559,6 +559,65 @@ QString databasemanager::employmentConversion(QString value){
 
 }
 
+QString databasemanager::ageRangeConversion(QString value) {
+
+    QString ret = "0";
+    if (value == "0.6-2"){
+        ret = "4";
+    }
+    else if (value == "3-6"){
+        ret = "3";
+    }
+    else if (value == "7-14"){
+        ret = "2";
+    }
+    else if (value == "15+"){
+        ret = "1";
+    }
+    return ret;
+}
+
+QString databasemanager::kidFriendlyConversion(QString value1, QString value2){
+
+    QString ret = "0";
+
+    if (value1 == "High" && value2 == "Low"){
+        ret = "Yes";
+    }
+    else if (value1 == "Medium" && value2 == "Low"){
+        ret = "Yes";
+    }
+    else if (value1 == "Low" && value2 == "Low"){
+        ret = "Yes";
+    }
+    else if (value1 == "High" && value2 == "Medium"){
+        ret = "Yes";
+    }
+    else {
+        ret = "No";
+    }
+    return ret;
+}
+
+QString databasemanager::immuneConversion(QString value1, QString value2){
+    QString ret = "0";
+
+    if (value1 == "Low" || value2 == "Low"){
+        ret = "Low";
+    }
+    else if (value1 == "Medium" || value2 == "Medium"){
+        ret = "Medium";
+    }
+    else if (value1 == "High" || value2 == "High"){
+        ret = "High";
+    }
+    return ret;
+}
+
+QString databasemanager::dependableConversion(QString v1, QString v2, QString v3){
+
+}
+
 
 void databasemanager::createAnimalObjects()
 {

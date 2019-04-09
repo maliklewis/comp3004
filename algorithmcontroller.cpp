@@ -13,7 +13,9 @@ void AlgorithmController::initMatches()
         for(int j=0; j<animalList.length(); j++){
 
             if(clientList.at(i).value("animal type")==animalList.at(j).value("type")){
+                if(clientList.at(i).value("animal breed")==animalList.at(j).value("breed")){
 
+                }
             }
         }
     }

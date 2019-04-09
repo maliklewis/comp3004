@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>509</width>
-    <height>430</height>
+    <width>533</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>220</x>
      <y>50</y>
      <width>165</width>
-     <height>331</height>
+     <height>361</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -108,7 +108,7 @@
      <x>120</x>
      <y>50</y>
      <width>93</width>
-     <height>331</height>
+     <height>368</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -122,28 +122,141 @@
      <widget class="QLineEdit" name="breedLabel"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="genderLabel"/>
+     <widget class="QComboBox" name="genderDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Male</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Female</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="ageLabel"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="trainedLabel"/>
+     <widget class="QComboBox" name="trainedDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;
+</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Yes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>No</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="specialNeedsLabel"/>
+     <widget class="QComboBox" name="specialNeedsDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lifeSpanLabel"/>
+     <widget class="QComboBox" name="lifeSpanDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>14 Years</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>15 Years</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20 Years</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="sizeLabel"/>
+     <widget class="QComboBox" name="sizeDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Small</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Large</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="playfulnessLabel"/>
+     <widget class="QComboBox" name="playfulnessDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QComboBox" name="wingedDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
       <item>
        <property name="text">
         <string>Intacted</string>
@@ -164,7 +277,7 @@
      <x>10</x>
      <y>50</y>
      <width>98</width>
-     <height>331</height>
+     <height>361</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -293,43 +406,268 @@
     <rect>
      <x>400</x>
      <y>50</y>
-     <width>91</width>
-     <height>331</height>
+     <width>116</width>
+     <height>368</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QLineEdit" name="costLabel"/>
+     <widget class="QComboBox" name="costDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>$0-$1000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$1000-$2000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$2000-$3000</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>$4000+</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="sheddingLabel"/>
+     <widget class="QComboBox" name="sheddingDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="aggressionLabel"/>
+     <widget class="QComboBox" name="aggressonDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="solitudeLabel"/>
+     <widget class="QComboBox" name="solitudeDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="diseaseLabel"/>
+     <widget class="QComboBox" name="diseaseDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="parasiteLabel"/>
+     <widget class="QComboBox" name="parasiteDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="noviceLabel"/>
+     <widget class="QComboBox" name="noviceDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Yes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>No</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="trainingLabel"/>
+     <widget class="QComboBox" name="trainingDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="environmentLabel"/>
+     <widget class="QComboBox" name="environmentDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;
+</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Indoor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Outdoor</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="vocalLabel"/>
+     <widget class="QComboBox" name="vocalDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="clawLabel"/>
+     <widget class="QComboBox" name="clawDropdown">
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>N/A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Removed</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Intact</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -337,7 +675,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>390</y>
+     <y>420</y>
      <width>83</width>
      <height>25</height>
     </rect>

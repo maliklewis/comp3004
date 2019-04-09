@@ -29,82 +29,82 @@ QLineEdit* AnimalDetailsView::getBreed()
     return ui->breedLabel;
 }
 
-QLineEdit* AnimalDetailsView::getGender()
+QComboBox* AnimalDetailsView::getGender()
 {
-    return ui->genderLabel;
+    return ui->genderDropdown;
 }
 
 QLineEdit* AnimalDetailsView::getAge()
 {
     return ui->ageLabel;
 }
-QLineEdit* AnimalDetailsView::getHousetrained()
+QComboBox* AnimalDetailsView::getHousetrained()
 {
-    return ui->trainedLabel;
+    return ui->trainedDropdown;
 }
-QLineEdit* AnimalDetailsView::getSpecial()
+QComboBox* AnimalDetailsView::getSpecial()
 {
-    return ui->specialNeedsLabel;
+    return ui->specialNeedsDropdown;
 }
-QLineEdit* AnimalDetailsView::getSpan()
+QComboBox* AnimalDetailsView::getSpan()
 {
-    return ui->lifeSpanLabel;
+    return ui->lifeSpanDropdown;
 }
-QLineEdit* AnimalDetailsView::getSize()
+QComboBox* AnimalDetailsView::getSize()
 {
-    return ui->sizeLabel;
+    return ui->sizeDropdown;
 }
-QLineEdit* AnimalDetailsView::getPlayful()
+QComboBox* AnimalDetailsView::getPlayful()
 {
-    return ui->playfulnessLabel;
+    return ui->playfulnessDropdown;
 }
-QLineEdit* AnimalDetailsView::getCost()
+QComboBox* AnimalDetailsView::getCost()
 {
-    return ui->costLabel;
+    return ui->costDropdown;
 }
-QLineEdit* AnimalDetailsView::getShedding()
+QComboBox* AnimalDetailsView::getShedding()
 {
-    return ui->sheddingLabel;
+    return ui->sheddingDropdown;
 }
-QLineEdit* AnimalDetailsView::getAggression()
+QComboBox* AnimalDetailsView::getAggression()
 {
-    return ui->aggressionLabel;
+    return ui->aggressonDropdown;
 }
-QLineEdit* AnimalDetailsView::getBehaviour()
+QComboBox* AnimalDetailsView::getBehaviour()
 {
-    return ui->solitudeLabel;
+    return ui->solitudeDropdown;
 }
-QLineEdit* AnimalDetailsView::getDisease()
+QComboBox* AnimalDetailsView::getDisease()
 {
-    return ui->diseaseLabel;
+    return ui->diseaseDropdown;
 }
-QLineEdit* AnimalDetailsView::getParasite()
+QComboBox* AnimalDetailsView::getParasite()
 {
-    return ui->parasiteLabel;
+    return ui->parasiteDropdown;
 }
-QLineEdit* AnimalDetailsView::getNovice()
+QComboBox* AnimalDetailsView::getNovice()
 {
-    return ui->noviceLabel;
+    return ui->noviceDropdown;
 }
-QLineEdit* AnimalDetailsView::getEase()
+QComboBox* AnimalDetailsView::getEase()
 {
-    return ui->trainingLabel;
+    return ui->trainingDropdown;
 }
-QLineEdit* AnimalDetailsView::getEnivornment()
+QComboBox* AnimalDetailsView::getEnivornment()
 {
-    return ui->environmentLabel;
+    return ui->environmentDropdown;
 }
 QComboBox* AnimalDetailsView::getWinged()
 {
     return ui->wingedDropdown;
 }
-QLineEdit* AnimalDetailsView::getVocal()
+QComboBox* AnimalDetailsView::getVocal()
 {
-    return ui->vocalLabel;
+    return ui->vocalDropdown;
 }
-QLineEdit* AnimalDetailsView::getclawState()
+QComboBox* AnimalDetailsView::getclawState()
 {
-    return ui->clawLabel;
+    return ui->clawDropdown;
 }
 
 void AnimalDetailsView::setClient(bool clientValue)

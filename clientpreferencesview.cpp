@@ -36,7 +36,7 @@ QString ClientPreferencesView::getPrefEnvType()
 
 QString ClientPreferencesView::getVetFees()
 {
-    return ui->vetFeesValue->text();
+    return ui->vetFeesDropdown->currentText();
 }
 
 QString ClientPreferencesView::getKidFriendly()

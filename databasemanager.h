@@ -51,6 +51,10 @@ public:
     QString styleConversion(QString);
     QString incomeConversion(int);
     void createClientList();
+    QString ageRangeConversion(QString);
+    QString kidFriendlyConversion(QString, QString);
+    QString immuneConversion(QString, QString);
+    QString dependableConversion(QString, QString, QString);
     //void initMatches();
 
 

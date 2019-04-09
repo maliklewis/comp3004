@@ -28,6 +28,8 @@ AlgorithmController* AlgorithmController::getInstance()
             if(clientList.at(i).at(3) == animalList.at(j).at(15)){//type is 3 and 15 for client and animal respectively
                 if(clientList.at(i).at(4) == animalList.at(j).at(16)){//breed is 4 and 16 for client and animal respectively
                     list.append(animalList.at(j));
+            if(clientList.at(i).value("animal type")==animalList.at(j).value("type")){
+                if(clientList.at(i).value("animal breed")==animalList.at(j).value("breed")){
 
                 }
             }
